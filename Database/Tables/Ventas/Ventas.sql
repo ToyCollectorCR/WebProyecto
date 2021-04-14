@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[Ventas]
+(
+	IdVentas INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_IdVentas PRIMARY KEY CLUSTERED(IdVentas),
+)

@@ -1,0 +1,74 @@
+﻿@{ Layout = "~/Views/Shared/_LayoutLogin.cshtml"; }
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registrarse</title>
+</head>
+<body>
+    <form id="FormularioRegistrar">
+        <div class="container" id="RegistrarUsuario">
+            <div class="row align-items-center justify-content-center" style="height:100vh;">
+
+                <div class="col-6">
+
+                    <div class="card ">
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <img src="https://raker.kemendag.go.id/assets/tanya/assets/img/img-login.png" style="width:100%;height:80%">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Registrarse</h5>
+                                    <div class="form-floating mb-3 form-group">
+                                        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre" v-model="Model.Nombre" required>
+                                        <label for="Nombre">Nombre</label>
+                                    </div>
+                                    <div class="form-floating mb-3  form-group">
+                                        <input type="text" class="form-control" id="Usuario" name="Usuario" placeholder="Usuario" v-model="Model.Usuario" required>
+                                        <label for="Usuario">Usuario</label>
+                                    </div>
+                                    <div class="form-floating mb-3  form-group">
+                                        <input type="password" class="form-control" id="Contrasena" name="Contrasena" placeholder="Contraseña" v-model="Model.Contrasena" required>
+                                        <label for="Contrasena">Contraseña</label>
+                                    </div>
+                                    <div class="form-floating mb-3  form-group">
+                                        <input type="password" class="form-control" id="ConfirmarContrasena" name="ConfirmarContrasena" placeholder="Confirmar Contraseña"
+                                               data-bv-identical="true" data-bv-identical-field="Contrasena" data-bv-identical-message="Las Contraseñas no coinciden"
+                                               required>
+                                        <label for="ConfirmarContrasena">Comfirmar Contraseña</label>
+                                    </div>
+                                    <br />
+                                    <div class="row justify-content-center ">
+                                        <div class="col-6">
+                                            <button type="button" class="btn btn-outline-primary" @@click="RegistrarUsuario">Crear Cuenta</button>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </form>
+
+
+    @section scripts{
+
+
+        <script src="~/Scripts/Login/Registrarse.js"></script>
+    }
+</body>
+</html>

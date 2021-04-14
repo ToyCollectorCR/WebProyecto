@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Tarifas]
+(
+	IdTarifa INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_IdTarifa PRIMARY KEY CLUSTERED(IdTarifa),
+	Tarifas VARCHAR(50) NOT NULL,
+	Ofertas VARCHAR(50) NOT NULL,
+	MesesDuracion INT NOT NULL,
+	InclusionBebes INT NOT NULL,
+	PrecioTarifa INT NOT NULL,
+)

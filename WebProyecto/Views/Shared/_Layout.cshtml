@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <base href="/" />
+    <title>Proyecto</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css" />
+
+    <link href="~/Assets/plugin/bvalidator/bootstrapValidator.css" rel="stylesheet" />
+
+    <link href="~/Assets/css/site.css" rel="stylesheet" />
+
+    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Proyecto</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Gestión Clientes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/Cliente">Clientes</a></li>
+                            <li><a class="dropdown-item" href="ClienteInformacionAdministrativa">Informacion Administrativa Clientes</a></li>
+                            <li><a class="dropdown-item" href="/Bebe">Bebés</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Gestion Empleados
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/Empleado">Empleados</a></li>
+                            <li><a class="dropdown-item" href="/EmpleadoInformacionAdministrativa">Informacion Administrativa</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Catálogos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/Actividaddes">Actividades</a></li>
+                            <li><a class="dropdown-item" href="/Clases">Clases</a></li>
+                            <li><a class="dropdown-item" href="/Guarderia">Guarderia</a></li>
+                            <li><a class="dropdown-item" href="/Salas">Salas</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/Pedidos">Gestion Pedidos</a></li>
+                            <li><a class="dropdown-item" href="/Productos">Gestion Productos</a></li>
+                            <li><a class="dropdown-item" href="/Proveedores">Gestion Proveedores</a></li>
+                            <li><a class="dropdown-item" href="/Tarifas">Tarifas</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <div style="position:absolute; right:5px" class="navbar-text">
+                    Bienvenido @WebProyecto.IApp.UsuarioSesion.Nombre
+
+                    <span class="badge bg-light text-dark"><a class="text-dark" href="/Login/Logout">Salir</a></span>
+
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div style="padding-top:10px;">
+        @RenderBody()
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.js"></script>
+    <script src="~/Assets/plugin/SwalConfig.js"></script>
+
+    <script src="~/Assets/plugin/bvalidator/bootstrapValidator.js"></script>
+    <script src="~/Assets/plugin/bvalidator/es_ES.js"></script>
+    <script src="~/Assets/plugin/FormValidateConfig.js"></script>
+
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿@model WebProyecto.Models.ClasesEdit
+@using Newtonsoft.Json;
+@{ var TypeForm = ViewBag.Form as bool?; }
+
+<model data-entity="@JsonConvert.SerializeObject(Model.clases)" />
+<div id="ClasesEdit" class="container">
+
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Clases" : "Nueva Clase")</h4>
+
+                    <form id="FormBebe" action="/Clases/Save" method="post">
+                        <input type="hidden" name="IdClases" id="IdClases" v-model="model.IdClases" />
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="SalaImpartidaClases" id="SalaImpartidaClases" v-model="model.SalaImpartidaClases" required />
+                            <label for="SalaImpartidaClases"> Sala Impartida Clases</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="DiaDeLaSemanaClases" id="DiaDeLaSemanaClases" v-model="model.DiaDeLaSemanaClases" required />
+                            <label for="DiaDeLaSemanaClases"> Dia De La Semana Clases</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="HoraDeComienzoClases" id="HoraDeComienzoClases" v-model="model.HoraDeComienzoClases" required />
+                            <label for="HoraDeComienzoClases"> Hora De Comienzo Clases</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="ActividadImpartidaClases" id="ActividadImpartidaClases" v-model="model.ActividadImpartidaClases" required />
+                            <label for="ActividadImpartidaClases"> Actividad Impartida Clases</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="ProfesorResponsableClases" id="ProfesorResponsableClases" v-model="model.ProfesorResponsableClases" required />
+                            <label for="ProfesorResponsableClases"> Profesor Responsable Clases</label>
+                        </div>
+
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" id="EstadoClases" name="EstadoClases" v-model="model.EstadoClases" />
+                            <label class="form-check-label" for="EstadoClases">
+                                Estado Clases
+                            </label>
+                        </div>
+
+
+                        <br />
+                        <div class="mb-3">
+                            @if (TypeForm.Value)
+                            {
+                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+            else
+            {
+<button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script src="~/Scripts/Clases/Edit.js"></script>
+
+}

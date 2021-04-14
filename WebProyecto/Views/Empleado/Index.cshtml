@@ -1,0 +1,79 @@
+﻿@model List<Entity.EmpleadoEntity>
+
+<div class="container-fluid">
+    <h1>Empleados</h1>
+    <div class="row">
+
+        <div class="col-3">
+            <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-12">
+            <table id="GridEmpleado" class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id Empleado</th>
+                        <th>NombreEmpleado</th>
+                        <th>Apellido1Empleado</th>
+                        <th>Apellido2Empleado</th>
+                        <th>DireccionEmpleado</th>
+                        <th>TelefonoEmpleado</th>
+                        <th>DNIEmpleado</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.IdEmpleado</td>
+                        <td>@item.NombreEmpleado</td>
+                        <td>@item.Apellido1Empleado</td>
+                        <td>@item.Apellido2Empleado</td>
+                        <td>@item.DireccionEmpleado</td>
+                        <td>@item.TelefonoEmpleado</td>
+                        <td>@item.DNIEmpleado</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdEmpleado)"><i class='bx bx-edit-alt'></i></button>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdEmpleado)"><i class='bx bx-trash'></i></button>
+                        </td>
+                    </tr>
+}
+                </tbody>
+
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div id="root">
+
+</div>
+
+
+
+
+@section scripts{
+    @if (ViewData.ContainsKey("msg"))
+    {
+<script>Swal.fire(
+                'Eliminado!',
+                'Su registro a sido Eliminado.',
+                'success'
+            );
+            var IsLoading = false;</script>
+ }
+else
+{
+<script>var IsLoading = true;</script>
+}
+
+    <script src="~/Scripts/Empleado/Index.js"></script>
+}

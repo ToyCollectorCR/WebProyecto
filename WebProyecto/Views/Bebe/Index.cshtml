@@ -1,0 +1,84 @@
+﻿@model List<Entity.BebeEntity>
+
+@if (ViewData.ContainsKey("msg"))
+{
+<script>
+        alert("@ViewData["msg"]");
+</script>
+}
+
+<div class="container-fluid">
+    <h1>Bebés</h1>
+    <div class="row">
+
+        <div class="col-3">
+            <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+
+                        <th>Nombre Bebe</th>
+                        <th>Apellido1 Bebe</th>
+                        <th>Apellido2 Bebe</th>
+                        <th>Nombre Padre - Madre Bebe</th>
+                        <th>Fecha Nacimineto Bebe</th>
+                        <th>Inscripcion Clases Bebe</th>
+                        <th>Aforo Disponible Bebe</th>
+                        <th>Estado Bebe</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        
+                        <td>@item.NombreBebe</td>
+                        <td>@item.Apellido1Bebe</td>
+                        <td>@item.Apellido2Bebe</td>
+                        <td>@item.NombrePadreMadreBebe</td>
+                        <td>@item.FechaNaciminetoBebe</td>
+                        <td>@item.InscripcionClasesBebe</td>
+                        <td>@item.AforoDisponibleBebe</td>
+                        <td>@(item.EstadoBebe ? "Activo" : "Inactivo")</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdBebe)"><i class='bx bx-edit-alt'></i></button>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdBebe)"><i class='bx bx-trash'></i></button>
+                        </td>
+                    </tr>
+}
+                </tbody>
+
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script>var ClickNew = function () {
+            window.location.href = "Bebe/Edit";
+        }
+
+        var ClickUpdate = function (id) {
+            window.location.href = "Bebe/Edit/"+id;
+        }
+
+        var ClickEliminar = function (id) {
+
+            var result = confirm("Esta Seguro que desea eliminar este registro?");
+
+            if (result) window.location.href = "Bebe/Delete/" + id;
+
+        }</script>
+
+
+}

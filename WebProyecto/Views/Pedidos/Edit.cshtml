@@ -1,0 +1,53 @@
+﻿@model WebProyecto.Models.PedidosEdit
+@using Newtonsoft.Json;
+@{ var TypeForm = ViewBag.Form as bool?; }
+
+<model data-entity="@JsonConvert.SerializeObject(Model.pedidos)" />
+<div id="PedidosEdit" class="container">
+
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Pedidos" : "Nuevo Pedidos")</h4>
+
+                    <form id="FormPedidos" action="/Pedidos/Save" method="post">
+                        <input type="hidden" name="IdPedidos" id="IdPedidos" v-model="model.IdPedidos" />
+
+                        
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="Pedidos" id="Pedidos" v-model="model.Pedidos" required />
+                            <label for="Pedidos"> Pedidos </label>
+                        </div>
+
+                       
+
+                        <div class="mb-3">
+                            @if (TypeForm.Value)
+                            {
+                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+            else
+            {
+<button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script src="~/Scripts/Pedidos/Edit.js"></script>
+
+}
+

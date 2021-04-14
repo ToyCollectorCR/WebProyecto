@@ -1,0 +1,87 @@
+﻿@model WebProyecto.Models.BebeEdit
+@using Newtonsoft.Json;
+@{ var TypeForm = ViewBag.Form as bool?; }
+
+<model data-entity="@JsonConvert.SerializeObject(Model.bebe)" />
+<div id="BebeEdit" class="container">
+
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Bebe" : "Nuevo Bebe")</h4>
+
+                    <form id="FormBebe" action="/Bebe/Save" method="post">
+                        <input type="hidden" name="IdBebe" id="IdBebe" v-model="model.IdBebe" />
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="NombreBebe" id="NombreBebe" v-model="model.NombreBebe" required />
+                            <label for="NombreBebe"> NombreBebe</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="Apellido1Bebe" id="Apellido1Bebe" v-model="model.Apellido1Bebe" required />
+                            <label for="Apellido1Bebe"> Apellido 1 Bebe</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="Apellido2Bebe" id="Apellido2Bebe" v-model="model.Apellido2Bebe" required />
+                            <label for="Apellido2Bebe"> Apellido 2 Bebe</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="NombrePadreMadreBebe" id="NombrePadreMadreBebe" v-model="model.NombrePadreMadreBebe" required />
+                            <label for="NombrePadreMadreBebe"> Nombre Padre Madre Bebe</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="FechaNaciminetoBebe" id="FechaNaciminetoBebe" v-model="model.FechaNaciminetoBebe" required />
+                            <label for="FechaNaciminetoBebe"> Fecha Nacimineto Bebe</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="InscripcionClasesBebe" id="InscripcionClasesBebe" v-model="model.InscripcionClasesBebe" required />
+                            <label for="InscripcionClasesBebe"> Inscripcion Clases Bebe</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="AforoDisponibleBebe" id="AforoDisponibleBebe" v-model="model.AforoDisponibleBebe" required />
+                            <label for="AforoDisponibleBebe"> Aforo Disponible Bebe</label>
+                        </div>
+
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" id="EstadoBebe" name="EstadoBebe" v-model="model.EstadoBebe" />
+                            <label class="form-check-label" for="EstadoBebe">
+                                Estado Bebe
+                            </label>
+                        </div>
+
+  
+                        <br />
+                        <div class="mb-3">
+                            @if (TypeForm.Value)
+                            {
+                    <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                else
+                {
+                    <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script src="~/Scripts/Bebe/Edit.js"></script>
+
+}

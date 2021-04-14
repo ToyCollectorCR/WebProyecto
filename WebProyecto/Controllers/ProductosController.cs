@@ -1,0 +1,104 @@
+﻿using Entity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+
+namespace WebProyecto.Controllers
+{
+    public class ProductosController : Controller
+    {
+        // GET: Productos
+        public ActionResult Index()
+        {
+            this.SessionOnline();
+            var productos = IApp.productosService.ObtenerLista(null);
+
+            if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
+
+            return View(productos);
+        }
+        public ActionResult Edit(int? id)
+        {
+            this.SessionOnline();
+
+            var entity = new ProductosEntity();
+            try
+            {
+                ViewBag.Form = false;
+                if (id.HasValue)
+                {
+                    //editar
+                    ViewBag.Form = true;
+
+                    entity = IApp.productosService.ObtenerLista(id).FirstOrDefault();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                return Content(ex.Message);
+            }
+
+
+            return View(entity);
+        }
+
+        [HttpPost]
+        public ActionResult Save(ProductosEntity entity)
+        {
+            try
+            {
+                var result = new DBEntity();
+
+                if (entity.IdProductos.HasValue)
+                {
+                    result = IApp.productosService.Actualizar(entity);
+                    TempData["msg"] = "Se Actualizo el registro con exito!";
+
+                }
+                else
+                {
+                    result = IApp.productosService.Insertar(entity);
+                    TempData["msg"] = "Se agrego el registro con exito!";
+                }
+
+
+                if (result.CodeError != 0) throw new Exception(result.MsgError);
+
+
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+
+                return Content(ex.Message);
+            }
+        }
+
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+
+                var result = IApp.productosService.Eliminar(new ProductosEntity { IdProductos = id });
+                TempData["msg"] = "Se elimino el registro con exito!";
+
+                if (result.CodeError != 0) throw new Exception(result.MsgError);
+
+                return RedirectToAction("index");
+            }
+            catch (Exception ex)
+            {
+
+                return Content(ex.Message);
+            }
+        }
+    }
+}

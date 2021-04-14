@@ -1,0 +1,91 @@
+﻿@model WebProyecto.Models.EmpleadoEdit
+@using Newtonsoft.Json;
+@{ var TypeForm = ViewBag.Form as bool?; }
+
+<model data-entity="@JsonConvert.SerializeObject(Model.empleado)" />
+<div id="EmpleadoEdit" class="container">
+
+
+
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Empleado": "Nuevo Empleado")</h4>
+
+                    <form id="FormEmpleado" action="/Empleado/Save" method="post">
+                        <input type="hidden" name="IdEmpleado" id="IdEmpleado" v-model="model.IdEmpleado" />
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="NombreEmpleado" id="NombreEmpleado" v-model="model.NombreEmpleado" required />
+                            <label for="NombreEmpresa"> Nombre</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="IdTipoContrato" name="IdTipoContrato" aria-label="Default select example" v-model="model.IdTipoContrato" required>
+                                @foreach (var item in Model.ddlContratos)
+                                {
+                    <option value="@item.IdTipoContrato">@item.Descripcion</option>
+}
+                            </select>
+                            <label for="IdTipoContrato"> Tipo Contrato</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="IdPuesto" name="IdPuesto" aria-label="Default select example" v-model="model.IdPuesto" required>
+                                @foreach (var item in Model.ddlPuestos)
+                                {
+                    <option value="@item.IdPuesto">@item.Descripcion</option>}
+                            </select>
+                            <label for="IdPuesto"> Puesto</label>
+                        </div>
+
+                        <div class="form-floating mb-3 ">
+                            <input class="form-control" type="text" name="Identificacion" id="Identificacion" v-model="model.Identificacion" required />
+                            <label for="Identificacion"> Identificacion</label>
+                        </div>
+
+                        <div class="form-floating mb-3 ">
+                            <input class="form-control" type="text" name="NumeroSeguroSocial" id="NumeroSeguroSocial" v-model="model.NumeroSeguroSocial" required />
+                            <label for="NumeroSeguroSocial"> NumeroSeguroSocial</label>
+                        </div>
+
+
+
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" id="Estado" name="Estado" v-model="model.Estado" />
+                            <label class="form-check-label" for="Estado">
+                                Estado
+                            </label>
+                        </div>
+
+
+
+
+                        <div class="mb-3">
+                            @if (TypeForm.Value)
+                            {
+                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+            else
+            {
+<button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script src="~/Scripts/Empleado/Edit.js"></script>
+
+}

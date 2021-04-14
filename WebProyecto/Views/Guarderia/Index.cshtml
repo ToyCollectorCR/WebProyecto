@@ -1,0 +1,63 @@
+﻿@model List<Entity.GuarderiaEntity>
+
+<div class="container-fluid">
+    <h1>Clientes</h1>
+    <div class="row">
+
+        <div class="col-3">
+            <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-5">
+            <table id="GridGuarderia" class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id Guarderia</th>
+                        <th>Nombre Guarderia</th>
+                        <th>Dia De La Semana En Guarderia</th>
+                        <th>Hora De Comienzo De Guarderia</th>
+                        <th>Profesor Responsable En Guarderia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>@item.IdGuarderia</td>
+            <td>@item.NombreGuarderia</td>
+            <td>@item.DiaDeLaSemanaGuarderia</td>
+            <td>@item.HoraDeComienzoGuarderia</td>
+            <td>@item.ProfesorResponsableGuarderia</td>
+         
+            <td>
+                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdGuarderia)"><i class='bx bx-edit-alt'></i></button>
+                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdGuarderia)"><i class='bx bx-trash'></i></button>
+            </td>
+        </tr>}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="root">
+
+</div>
+
+@section scripts{
+    @if (ViewData.ContainsKey("msg"))
+    {
+<script>Swal.fire(
+        'Eliminado!',
+        'Su registro a sido Eliminado.',
+        'success'
+    );
+    var IsLoading = false;</script> }
+                else
+                {
+<script>var IsLoading = true;</script>}
+
+    <script src="~/Scripts/Guarderia/Index.js"></script>
+}

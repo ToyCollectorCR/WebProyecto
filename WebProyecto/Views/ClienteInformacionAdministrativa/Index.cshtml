@@ -1,0 +1,65 @@
+﻿@model List<Entity.ClienteInformacionAdministrativaEntity>
+
+<div class="container-fluid">
+    <h1>Cliente Informacion Administrativa</h1>
+    <div class="row">
+
+        <div class="col-3">
+            <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-15">
+            <table id="GridClienteInformacionAdministrativa" class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>IdCliente</th>
+                        <th>Tarifa</th>
+                        <th>SesionesRayosUVA</th>
+                        <th>FechaProximaRenovacion</th>
+                        <th>Casillero</th>
+                        <th>SaldoMonederoVirtual</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>@item.IdCliente</td>
+            <td>@item.Tarifa</td>
+            <td>@item.SesionesRayosUVA</td>
+            <td>@item.FechaProximaRenovacion</td>
+            <td>@item.Casillero</td>
+            <td>@item.SaldoMonederoVirtual</td>
+            <td>
+                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdClienteInformacionAdmin)"><i class='bx bx-edit-alt'></i></button>
+                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdClienteInformacionAdmin)"><i class='bx bx-trash'></i></button>
+            </td>
+        </tr>}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="root">
+
+</div>
+
+@section scripts{
+    @if (ViewData.ContainsKey("msg"))
+    {
+<script>Swal.fire(
+        'Eliminado!',
+        'Su registro a sido Eliminado.',
+        'success'
+    );
+    var IsLoading = false;</script> }
+                else
+                {
+<script>var IsLoading = true;</script>}
+
+    <script src="~/Scripts/ClienteInformacionAdministrativa/Index.js"></script>
+}

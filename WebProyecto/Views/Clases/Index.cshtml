@@ -1,0 +1,78 @@
+﻿@model List<Entity.ClasesEntity>
+
+@if (ViewData.ContainsKey("msg"))
+{
+<script>
+        alert("@ViewData["msg"]");
+</script>}
+
+<div class="container-fluid">
+    <h1>Clases</h1>
+    <div class="row">
+
+        <div class="col-3">
+            <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id Clases</th>
+                        <th>SalaImpartidaClases</th>
+                        <th>DiaDeLaSemanaClases</th>
+                        <th>HoraDeComienzoClases</th>
+                        <th>ActividadImpartidaClases</th>
+                        <th>ProfesorResponsableClases </th>
+                        <th>EstadoClases </th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>@item.IdClases</td>
+            <td>@item.SalaImpartidaClases</td>
+            <td>@item.DiaDeLaSemanaClases</td>
+            <td>@item.HoraDeComienzoClases</td>
+            <td>@item.ActividadImpartidaClases</td>
+            <td>@item.ProfesorResponsableClases</td>
+            <td>@(item.EstadoClases ? "Activo" : "Inactivo")</td>
+            <td>
+                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdClases)"><i class='bx bx-edit-alt'></i></button>
+                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdClases)"><i class='bx bx-trash'></i></button>
+            </td>
+        </tr>}
+                </tbody>
+
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script>var ClickNew = function () {
+            window.location.href = "Clases/Edit";
+        }
+
+        var ClickUpdate = function (id) {
+            window.location.href = "Clases/Edit/"+id;
+        }
+
+        var ClickEliminar = function (id) {
+
+            var result = confirm("Esta Seguro que desea eliminar este registro?");
+
+            if (result) window.location.href = "Clases/Delete/" + id;
+
+        }</script>
+
+
+}
