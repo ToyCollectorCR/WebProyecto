@@ -1,9 +1,12 @@
-﻿@model WebProyecto.Models.GuarderiaEdit
+﻿@model Entity.GuarderiaEntity
+
 @using Newtonsoft.Json;
+
 @{ var TypeForm = ViewBag.Form as bool?; }
 
 <model data-entity="@JsonConvert.SerializeObject(Model.guarderia)" />
-<div id="GuarderiaEdit" class="container">
+
+<div class="container">
 
     <div class="row">
         <div class="col-6">
@@ -12,8 +15,8 @@
                 <div class="card-body">
                     <h4 class="card-title">@(TypeForm.Value ? "Editar Guarderia" : "Nueva Guarderia")</h4>
 
-                    <form id="FormGuarderia" action="/Guarderia/Save" method="post">
-                        <input type="hidden" name="IdGuarderia" id="IdGuarderia" v-model="model.IdGuarderia" />
+                    <form action="/Guarderia/Save" method="post">
+                        <input type="hidden" name="IdGuarderia" id="IdGuarderia" v-model="@Model.IdGuarderia" />
 
 
                         <div class="form-floating mb-3 form-group">
@@ -41,9 +44,9 @@
                             @if (TypeForm.Value)
                             {
                 <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-            else
-            {
-<button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                            else
+                            {
+                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
 
 
                         </div>
