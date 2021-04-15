@@ -1,17 +1,60 @@
-﻿
+﻿@model Entity.SalasEntity
 @{
-    Layout = null;
+    var TypeForm = ViewBag.Form as bool?;
 }
 
-<!DOCTYPE html>
+<div class="container">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
-    <div> 
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Salas" : "Nuevo Salas")</h4>
+
+                    <form id="FormSalas" action="/Salas/Save" method="post">
+                        <input type="hidden" name="IdSalas" id="IdSalas" v-model="model.IdSalas" />
+
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="NombreSalas" id="NombreSalas" v-model="model.NombreSalas" required />
+                            <label for="NombreSalas"> Nombre Salas</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="CantidadSalas" id="CantidadSalas" v-model="model.CantidadSalas" required />
+                            <label for="CantidadSalas"> Cantidad Salas </label>
+                        </div>
+
+
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" id="EstadoSalas" name="EstadoSalas" v-model="model.EstadoSalas" />
+                            <label class="form-check-label" for="EstadoSalas">
+                                Estado Salas
+                            </label>
+                        </div>
+
+
+
+                        <div class="mb-3">
+                            @if (TypeForm.Value)
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>
+                            }
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-</body>
-</html>
+</div>
+
+
