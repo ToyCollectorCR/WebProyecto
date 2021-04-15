@@ -10,6 +10,8 @@ namespace WebProyecto.Controllers
     public class ProveedoresController : Controller
     {
         // GET: Proveedores
+
+
         public ActionResult Index()
         {
             this.SessionOnline();

@@ -1,17 +1,65 @@
-﻿
+﻿@model Entity.ProveedoresEntity
 @{
-    Layout = null;
+    var TypeForm = ViewBag.Form as bool?;
 }
 
-<!DOCTYPE html>
+<div class="container">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
-    <div> 
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Provedores" : "Nuevo Proveedor")</h4>
+
+                    <form id="FormProveedores" action="/Proveedores/Save" method="post">
+                        <input type="hidden" name="IdProveedores" id="IdProveedores" v-model="model.IdProveedores" />
+
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="NombreProveedores" id="NombreProveedores" v-model="model.NombreProveedores" required />
+                            <label for="NombreProveedores"> Nombre Proveedores</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="TelefonoProveedores" id="TelefonoProveedores" v-model="model.TelefonoProveedores" required />
+                            <label for="TelefonoProveedores"> Telefono Proveedores</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="CorreoProveedores" id="CorreoProveedores" v-model="model.CorreoProveedores" required />
+                            <label for="CorreoProveedores"> Correo Proveedores</label>
+                        </div>
+
+
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" id="EstadoPoveedores" name="EstadoPoveedores" v-model="model.EstadoPoveedores" />
+                            <label class="form-check-label" for="EstadoPoveedores">
+                                Estado Proveedores
+                            </label>
+                        </div>
+
+
+
+                        <div class="mb-3">
+                            @if (TypeForm.Value)
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>
+                            }
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-</body>
-</html>
+</div>
+
+

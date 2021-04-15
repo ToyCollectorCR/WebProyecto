@@ -19,8 +19,8 @@
                             <select class="form-select" id="Idbebe" name="Idbebe" aria-label="Default select example" v-model="model.Idbebe" required>
                                 @foreach (var item in Model.ddlbebe)
                                 {
-                    <option value="@item.IdBebe">@item.NombreBebe</option>
-}
+                                    <option value="@item.IdBebe">@item.NombreBebe</option>
+                                }
                             </select>
                             <label for="IdClases"> Nombre Bebe</label>
                         </div>
@@ -29,8 +29,8 @@
                             <select class="form-select" id="IdClases" name="IdClases" aria-label="Default select example" v-model="model.IdClases" required>
                                 @foreach (var item in Model.ddlclases)
                                 {
-                    <option value="@item.IdClases">@item.ProfesorResponsableClases</option>
-}
+                                    <option value="@item.IdClases">@item.ProfesorResponsableClases</option>
+                                }
                             </select>
                             <label for="IdClases"> Profesor</label>
                         </div>
@@ -39,8 +39,8 @@
                             <select class="form-select" id="IdSala" name="IdSala" aria-label="Default select example" v-model="model.IdSala" required>
                                 @foreach (var item in Model.ddlsalas)
                                 {
-                    <option value="@item.IdSalas">@item.NombreSalas</option>
-}
+                                    <option value="@item.IdSalas">@item.NombreSalas</option>
+                                }
                             </select>
                             <label for="IdProductos"> Nombre de Sala</label>
                         </div>
@@ -49,8 +49,8 @@
                             <select class="form-select" id="IdTarifa" name="IdTarifa" aria-label="Default select example" v-model="model.IdTarifa" required>
                                 @foreach (var item in Model.ddltarifas)
                                 {
-                    <option value="@item.IdTarifa">@item.Tarifas</option>
-}
+                                    <option value="@item.IdTarifa">@item.Tarifas</option>
+                                }
                             </select>
                             <label for="IdTarifa"> Tarifa</label>
                         </div>
@@ -59,7 +59,8 @@
                             <select class="form-select" id="IdProductos" name="IdProductos" aria-label="Default select example" v-model="model.IdProductos" required>
                                 @foreach (var item in Model.ddlproductos)
                                 {
-                    <option value="@item.IdProductos">@item.ProductosConsumidos</option>}
+                                    <option value="@item.IdProductos">@item.ProductosConsumidos</option>
+}
                             </select>
                             <label for="IdProductos"> Productos</label>
                         </div>
@@ -89,6 +90,8 @@
                             <label for="FechaNacimientoCliente"> Fecha Nacimiento Cliente</label>
                         </div>
 
+
+
                         <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="TelefonoCliente" id="TelefonoCliente" v-model="model.TelefonoCliente" required />
                             <label for="Telefono"> Telefono</label>
@@ -106,13 +109,15 @@
                             </label>
                         </div>
 
+
+
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                    <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-                else
-                {
-                    <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                            else
+                            {
+                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
 
 
                         </div>
