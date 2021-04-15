@@ -1,17 +1,71 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@model List<Entity.TarifasEntity>
 
-<!DOCTYPE html>
+<div class="container-fluid">
+    <h1>Tarifas</h1>
+    <div class="row">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
+        <div class="col-3">
+            <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
+        </div>
     </div>
-</body>
-</html>
+    <br />
+    <div class="row">
+        <div class="col-15">
+            <table id="GridTarifas" class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id Tarifa</th>
+                        <th>Tarifas </th>
+                        <th>Ofertas </th>
+                        <th>Meses Duracion</th>
+                        <th>Inclusion Bebes</th>
+                        <th>Precio Tarifa </th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.IdTarifa</td>
+                        <td>@item.Tarifas</td>
+                        <td>@item.Ofertas</td>
+                        <td>@item.MesesDuracion</td>
+                        <td>@item.InclusionBebes</td>
+                        <td>@item.PrecioTarifa</td>
+
+
+                        <td>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdTarifa)"><i class='bx bx-edit-alt'></i></button>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdTarifa)"><i class='bx bx-trash'></i></button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="root">
+
+</div>
+
+@section scripts{
+    @if (ViewData.ContainsKey("msg"))
+    {
+        <script>
+            Swal.fire(
+                'Eliminado!',
+                'Su registro a sido Eliminado.',
+                'success'
+            );
+            var IsLoading = false;</script>
+    }
+    else
+    {
+        <script>var IsLoading = true;</script>
+    }
+
+    <script src="~/Scripts/Tarifas/Index.js"></script>
+}

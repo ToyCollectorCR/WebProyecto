@@ -1,17 +1,67 @@
-﻿
+﻿@model Entity.TarifasEntity
 @{
-    Layout = null;
+    var TypeForm = ViewBag.Form as bool?;
 }
 
-<!DOCTYPE html>
+<div class="container">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
-    <div> 
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Tarifas" : "Nuevo Tarifas")</h4>
+
+                    <form id="FormTarifas" action="/Tarifas/Save" method="post">
+                        <input type="hidden" name="IdTarifa" id="IdTarifa" v-model="model.IdTarifa" />
+
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="Tarifas" id="Tarifas" v-model="model.Tarifas" required />
+                            <label for="Tarifas"> Nombre Tarifas</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="Ofertas" id="Ofertas" v-model="model.Ofertas" required />
+                            <label for="Ofertas"> Ofertas </label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="MesesDuracion" id="MesesDuracion" v-model="model.MesesDuracion" required />
+                            <label for="MesesDuracion"> Meses Duracion </label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="InclusionBebes" id="InclusionBebes" v-model="model.InclusionBebes" required />
+                            <label for="InclusionBebes"> Inclusion Bebes  </label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="PrecioTarifa" id="PrecioTarifa" v-model="model.PrecioTarifa" required />
+                            <label for="PrecioTarifa"> Precio Tarifa  </label>
+                        </div>
+
+
+
+                        <div class="mb-3">
+                            @if (TypeForm.Value)
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>
+                            }
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-</body>
-</html>
+</div>
+
+
