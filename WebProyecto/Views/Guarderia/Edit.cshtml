@@ -1,14 +1,11 @@
 ﻿@model Entity.GuarderiaEntity
 
-@using Newtonsoft.Json;
-
 @{ var TypeForm = ViewBag.Form as bool?; }
-
-<model data-entity="@JsonConvert.SerializeObject(Model.guarderia)" />
 
 <div class="container">
 
     <div class="row">
+
         <div class="col-6">
 
             <div class="card">
@@ -25,44 +22,50 @@
                         </div>
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="DiaDeLaSemanaGuarderia" id="DiaDeLaSemanaGuarderia" v-model="model.DiaDeLaSemanaGuarderia" required />
-                            <label for="DiaDeLaSemanaGuarderia"> Dia De La Semana Guarderia</label>
+                            <input class="form-control" type="date" name="DiaDeLaSemanaGuarderia" id="DiaDeLaSemanaGuarderia" v-model="model.DiaDeLaSemanaGuarderia"/>
+                            <label for="DiaDeLaSemanaGuarderia">Dia De La Semana </label>
+
                         </div>
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="HoraDeComienzoGuarderia" id="HoraDeComienzoGuarderia" v-model="model.HoraDeComienzoGuarderia" required />
-                            <label for="HoraDeComienzoGuarderia"> Hora De Comienzo Guarderia</label>
+                            <input class="form-control" type="time" name="HoraDeComienzoGuarderia" id="HoraDeComienzoGuarderia" v-model="model.HoraDeComienzoGuarderia" />
+                            <label for="HoraDeComienzoGuarderia">Seleccione La Hora</label>
                         </div>
+
 
                         <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="ProfesorResponsableGuarderia" id="ProfesorResponsableGuarderia" v-model="model.ProfesorResponsableGuarderia" required />
-                            <label for="ProfesorResponsableGuarderia"> Profesor Responsable Guarderia</label>
+                            <label for="ProfesorResponsableGuarderia"> Profesor Responsable</label>
                         </div>
 
+                        <br />
 
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-                            else
-                            {
-                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                    <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                else
+                {
+                    <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
 
 
                         </div>
+
                     </form>
                 </div>
 
             </div>
 
+
         </div>
-
     </div>
-</div>
+ </div>
 
 
-@section scripts{
 
-    <script src="~/Scripts/Guarderia/Edit.js"></script>
 
-}
+    <!--->@section scripts{
+
+        <script src="~/Scripts/Guarderia/Edit.js"></script>
+
+    } -->
