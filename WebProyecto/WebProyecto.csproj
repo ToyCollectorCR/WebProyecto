@@ -118,6 +118,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\modern-business.css" />
     <Content Include="Assets\css\site.css" />
     <Content Include="Assets\css\sourcesanspro-font.css" />
     <Content Include="Assets\css\style.css" />
@@ -129,6 +130,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\Source_Sans_Pro\OFL.txt" />
     <Content Include="Global.asax" />
+    <Content Include="images\guarderia.png" />
+    <Content Include="images\productos.jpg" />
+    <Content Include="images\salas.jpeg" />
+    <Content Include="images\Taga.ico" />
     <Content Include="images\TAGA.png" />
     <Content Include="Scripts\Actividades\Edit.js" />
     <Content Include="Scripts\Actividades\Index.js" />
