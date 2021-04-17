@@ -56,7 +56,7 @@ namespace WebProyecto.Controllers
                 entity.ddlbebe = bebeService.Obtenerddl(id);
                 entity.ddlclases = clasesService.Obtenerddl(id);
                 entity.ddlsalas = salasService.Obtenerddl(id);
-                entity.ddltarifas = tarifasService.Obtenerddl(id);
+                //entity.ddltarifas = tarifasService.Obtenerddl(id);
                 entity.ddlproductos = productosService.Obtenerddl(id);
             }
             catch (Exception ex)

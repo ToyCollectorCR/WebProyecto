@@ -1,9 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[TarifasLista]
-	@IdTarifa INT =NULL
+
 AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
+			IdTarifa,
 			Tarifas,
 			Ofertas,
 			MesesDuracion,
@@ -11,8 +12,8 @@ AS BEGIN
 			PrecioTarifa
 
 	FROM dbo.Tarifas
-	WHERE
-		(@IdTarifa IS NULL OR IdTarifa=@IdTarifa)
+	--WHERE
+		--(@IdTarifa IS NULL OR IdTarifa=@IdTarifa)
 		--and
 		--EstadoSalas=1
 

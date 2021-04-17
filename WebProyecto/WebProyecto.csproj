@@ -135,34 +135,14 @@
     <Content Include="images\salas.jpeg" />
     <Content Include="images\Taga.ico" />
     <Content Include="images\TAGA.png" />
-    <Content Include="Scripts\Actividades\Edit.js" />
-    <Content Include="Scripts\Actividades\Index.js" />
-    <Content Include="Scripts\Bebe\Edit.js" />
-    <Content Include="Scripts\Bebe\Index.js" />
-    <Content Include="Scripts\Clases\Edit.js" />
-    <Content Include="Scripts\Clases\Index.js" />
     <Content Include="Scripts\Cliente\Edit.js" />
     <Content Include="Scripts\Cliente\Index.js" />
-    <Content Include="Scripts\EmpleadoInformacionAdministrativa\Edit.js" />
-    <Content Include="Scripts\EmpleadoInformacionAdministrativa\Index.js" />
     <Content Include="Scripts\Empleado\Edit.js" />
     <Content Include="Scripts\Empleado\Index.js" />
-    <Content Include="Scripts\ClienteInformacionAdministrativa\Edit.js" />
-    <Content Include="Scripts\ClienteInformacionAdministrativa\Index.js" />
-    <Content Include="Scripts\Guarderia\Edit.js" />
-    <Content Include="Scripts\Guarderia\Index.js" />
     <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\Login\Registrarse.js" />
-    <Content Include="Scripts\Pedidos\Edit.js" />
-    <Content Include="Scripts\Pedidos\Index.js" />
     <Content Include="Scripts\Productos\Edit.js" />
     <Content Include="Scripts\Productos\Index.js" />
-    <Content Include="Scripts\Proveedores\Edit.js" />
-    <Content Include="Scripts\Proveedores\Index.js" />
-    <Content Include="Scripts\Salas\Edit.js" />
-    <Content Include="Scripts\Salas\Index.js" />
-    <Content Include="Scripts\Tarifas\Edit.js" />
-    <Content Include="Scripts\Tarifas\Index.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -201,7 +181,6 @@
     <Compile Include="Models\ProductosEdit.cs" />
     <Compile Include="Models\ProveedoresEdit.cs" />
     <Compile Include="Models\SalasEdit.cs" />
-    <Compile Include="Models\TarifasEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -236,8 +215,6 @@
     <Content Include="Views\Clases\Edit.cshtml" />
     <Content Include="Views\Salas\Index.cshtml" />
     <Content Include="Views\Salas\Edit.cshtml" />
-    <Content Include="Views\Tarifas\Index.cshtml" />
-    <Content Include="Views\Tarifas\Edit.cshtml" />
     <Content Include="Views\Actividades\Index.cshtml" />
     <Content Include="Views\Actividades\Edit.cshtml" />
     <Content Include="Views\ClienteInformacionAdministrativa\Edit.cshtml" />
@@ -251,6 +228,8 @@
     <Content Include="Views\Productos\Edit.cshtml" />
     <Content Include="Views\Proveedores\Index.cshtml" />
     <Content Include="Views\Proveedores\Edit.cshtml" />
+    <Content Include="Views\Tarifas\Edit.cshtml" />
+    <Content Include="Views\Tarifas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

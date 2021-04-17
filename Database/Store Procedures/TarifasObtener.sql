@@ -4,7 +4,8 @@ AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
-			Tarifas
+			IdTarifa
+		,	Tarifas
 		,	Ofertas
 		,	MesesDuracion
 		,	InclusionBebes

@@ -150,14 +150,14 @@
     <Build Include="Store Procedures\SalasInsertar.sql" />
     <Build Include="Store Procedures\SalasEliminar.sql" />
     <Build Include="Store Procedures\SalasActualizar.sql" />
-    <Build Include="Store Procedures\TarifasObtener.sql" />
-    <Build Include="Store Procedures\TarifasLista.sql" />
-    <Build Include="Store Procedures\TarifasInsertar.sql" />
-    <Build Include="Store Procedures\TarifasEliminar.sql" />
-    <Build Include="Store Procedures\TarifasActualizar.sql" />
     <Build Include="Tables\Actividades\Actividades.sql" />
     <Build Include="Tables\Ventas\Ventas.sql" />
     <Build Include="Tables\Tarifas\Tarifas.sql" />
+    <Build Include="Store Procedures\TarifasActualizar.sql" />
+    <Build Include="Store Procedures\TarifasEliminar.sql" />
+    <Build Include="Store Procedures\TarifasInsertar.sql" />
+    <Build Include="Store Procedures\TarifasLista.sql" />
+    <Build Include="Store Procedures\TarifasObtener.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
