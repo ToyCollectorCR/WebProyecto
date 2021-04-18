@@ -3,7 +3,7 @@
 	@Apellido1Bebe VARCHAR(50),
 	@Apellido2Bebe VARCHAR(50),
 	@NombrePadreMadreBebe VARCHAR(50),
-	@FechaNaciminetoBebe VARCHAR(MAX),
+	@FechaNacimientoBebe VARCHAR(MAX),
 	@InscripcionClasesBebe INT,
 	@AforoDisponibleBebe INT,
 	@EstadoBebe BIT
@@ -21,7 +21,7 @@ SET NOCOUNT ON
 		,	Apellido1Bebe
 		,	Apellido2Bebe
 		,	NombrePadreMadreBebe
-		,	FechaNaciminetoBebe
+		,	FechaNacimientoBebe
 		,	InscripcionClasesBebe
 		,	AforoDisponibleBebe
 		,	EstadoBebe
@@ -32,7 +32,7 @@ SET NOCOUNT ON
 		,	@Apellido1Bebe
 		,	@Apellido2Bebe
 		,	@NombrePadreMadreBebe
-		,	@FechaNaciminetoBebe
+		,	@FechaNacimientoBebe
 		,	@InscripcionClasesBebe
 		,	@AforoDisponibleBebe
 		,	@EstadoBebe
