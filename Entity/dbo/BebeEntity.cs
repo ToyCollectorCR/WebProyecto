@@ -13,7 +13,7 @@ namespace Entity
         public string Apellido1Bebe { get; set; }
         public string Apellido2Bebe { get; set; }
         public string NombrePadreMadreBebe { get; set; }
-        public string FechaNaciminetoBebe { get; set; }
+        public string FechaNacimientoBebe { get; set; }
         public int? InscripcionClasesBebe { get; set; }
         public int? AforoDisponibleBebe { get; set; }
         public bool EstadoBebe { get; set; }

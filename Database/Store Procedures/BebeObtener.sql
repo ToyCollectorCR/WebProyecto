@@ -9,10 +9,10 @@ AS BEGIN
 		,	Apellido1Bebe
 		,	Apellido2Bebe
 		,	NombrePadreMadreBebe
-		,	FechaNaciminetoBebe
+		,	FechaNacimientoBebe
 		,	InscripcionClasesBebe
 		,	AforoDisponibleBebe
-		,	EstadoBebe
+		,	EstadoBebe	
 
 	FROM dbo.Bebe
 	WHERE
