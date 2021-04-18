@@ -11,8 +11,7 @@ namespace WBL
     public interface IClienteInformacionAdministrativaService : IDisposable
     {
         List<ClienteInformacionAdministrativaEntity> ObtenerLista(int? IdClienteInformacionAdmin);
-        ClienteInformacionAdministrativaEntity ObtenerDetalle(int? IdClienteInformacionAdmin);
-        List<ClienteInformacionAdministrativaEntity> Obtenerddl(int? IdClienteInformacionAdmin);
+        List<ClienteInformacionAdministrativaEntity> Obtenerddl();
         DBEntity Insertar(ClienteInformacionAdministrativaEntity entity);
         DBEntity Actualizar(ClienteInformacionAdministrativaEntity entity);
         DBEntity Eliminar(ClienteInformacionAdministrativaEntity entity);
@@ -31,7 +30,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<ClienteInformacionAdministrativaEntity, ClienteEntity>("ClienteInformacionAdministrativaObtener", "IdCliente"
+                var result = sql.Query<ClienteInformacionAdministrativaEntity>("ClienteInformacionAdministrativaObtener"
                     , new
                     {
                         IdClienteInformacionAdmin
@@ -44,23 +43,8 @@ namespace WBL
             }
         }
 
-        public ClienteInformacionAdministrativaEntity ObtenerDetalle(int? IdClienteInformacionAdmin)
-        {
-            try
-            {
-                var result = sql.QueryFirst<ClienteInformacionAdministrativaEntity>("ClienteInformacionAdministrativaObtener", new
-                {
-                    IdClienteInformacionAdmin
-                });
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
-        public List<ClienteInformacionAdministrativaEntity> Obtenerddl(int? IdClienteInformacionAdmi)
+        public List<ClienteInformacionAdministrativaEntity> Obtenerddl()
         {
             try
             {
@@ -80,7 +64,6 @@ namespace WBL
             {
                 var result = sql.QueryExecute("ClienteInformacionAdministrativaInsertar", new
                 {
-                    entity.IdCliente,
                     entity.Tarifa,
                     entity.SesionesRayosUVA,
                     entity.FechaProximaRenovacion,
@@ -104,7 +87,6 @@ namespace WBL
                 var result = sql.QueryExecute("ClienteInformacionAdministrativaActualizar", new
                 {
                     entity.IdClienteInformacionAdmin,
-                    entity.IdCliente,
                     entity.Tarifa,
                     entity.SesionesRayosUVA,
                     entity.FechaProximaRenovacion,

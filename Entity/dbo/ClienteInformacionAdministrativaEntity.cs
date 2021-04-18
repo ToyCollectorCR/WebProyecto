@@ -10,7 +10,6 @@ namespace Entity
     {
 
         public int? IdClienteInformacionAdmin { get; set; }
-        public int? IdCliente { get; set; }
         public ClienteEntity Cliente { get; set; }
         public int? Tarifa { get; set; }
         public string SesionesRayosUVA { get; set; }

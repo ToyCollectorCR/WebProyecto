@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[ClienteInformacionAdministrativaActualizar]
 	@IdClienteInformacionAdmin INT,
-	@IdCliente INT,
 	@Tarifa INT,
 	@SesionesRayosUVA INT,
 	@FechaProximaRenovacion VARCHAR(MAX),
@@ -15,8 +14,7 @@ SET NOCOUNT ON
 	BEGIN TRY
 	-- AQUI VA EL CODIGO
 		
-	update dbo.ClienteInformacionAdministrativa set
-	IdCliente=@IdCliente, 
+	UPDATE ClienteInformacionAdministrativa SET
 	Tarifa=@Tarifa, 
 	SesionesRayosUVA=@SesionesRayosUVA,
 	FechaProximaRenovacion=@FechaProximaRenovacion, 

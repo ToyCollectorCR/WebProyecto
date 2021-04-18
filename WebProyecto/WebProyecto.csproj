@@ -173,7 +173,6 @@
     <Compile Include="Models\BebeEdit.cs" />
     <Compile Include="Models\ClasesEdit.cs" />
     <Compile Include="Models\ClienteEdit.cs" />
-    <Compile Include="Models\ClienteInformacionAdministrativaEdit.cs" />
     <Compile Include="Models\EmpleadoEdit.cs" />
     <Compile Include="Models\EmpleadoInformacionPersonal.cs" />
     <Compile Include="Models\GuarderiaEdit.cs" />

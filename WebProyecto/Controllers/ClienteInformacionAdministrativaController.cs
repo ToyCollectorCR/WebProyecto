@@ -11,36 +11,21 @@ namespace WebProyecto.Controllers
 {
     public class ClienteInformacionAdministrativaController : Controller
     {
-        // GET: ClienteInformacionAdministrativa
-        private IClienteInformacionAdministrativaService clienteinformacionadministrativaService;
-        private IClientesService clientesService;
-        //private IProvinciaService provinciaService;
-        //private ICantonService cantonService;
-        //private IDistritoService distritoService;
-
-        public ClienteInformacionAdministrativaController(IClienteInformacionAdministrativaService clienteinformacionadministrativaService, IClientesService clientesService)
-        {
-            this.clienteinformacionadministrativaService = clienteinformacionadministrativaService;
-            this.clientesService = clientesService;
-            //this.provinciaService = provinciaService;
-            //this.cantonService = cantonService;
-            //this.distritoService = distritoService;
-        }
-
+        // GET: Tarifas
         public ActionResult Index()
         {
             this.SessionOnline();
+            var contratos = IApp.clienteinformacionadministrativaService.ObtenerLista(null);
 
-            var clientesIA = clienteinformacionadministrativaService.ObtenerLista(null);
             if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
-            return View(clientesIA);
-        }
 
+            return View(contratos);
+        }
         public ActionResult Edit(int? id)
         {
             this.SessionOnline();
 
-            var entity = new ClienteInformacionAdministrativaEdit() { clienteInformacionAdministrativa = new ClienteInformacionAdministrativaEntity() };
+            var entity = new ClienteInformacionAdministrativaEntity();
             try
             {
                 ViewBag.Form = false;
@@ -49,18 +34,17 @@ namespace WebProyecto.Controllers
                     //editar
                     ViewBag.Form = true;
 
-                    entity.clienteInformacionAdministrativa = clienteinformacionadministrativaService.ObtenerDetalle(id);
+                    entity = IApp.clienteinformacionadministrativaService.ObtenerLista(id).FirstOrDefault();
                 }
-                entity.ddlClientes = clientesService.Obtenerddl(id);
-                //entity.ddlclases = clasesService.Obtenerddl(id);
-                //entity.ddlsalas = salasService.Obtenerddl(id);
-                //entity.ddltarifas = tarifasService.Obtenerddl(id);
-                //entity.ddlproductos = productosService.Obtenerddl(id);
+
             }
             catch (Exception ex)
             {
+
                 return Content(ex.Message);
             }
+
+
             return View(entity);
         }
 
@@ -73,19 +57,27 @@ namespace WebProyecto.Controllers
 
                 if (entity.IdClienteInformacionAdmin.HasValue)
                 {
-                    result = clienteinformacionadministrativaService.Actualizar(entity);
+                    result = IApp.clienteinformacionadministrativaService.Actualizar(entity);
+                    TempData["msg"] = "Se Actualizo el registro con exito!";
+
                 }
                 else
                 {
-                    result = clienteinformacionadministrativaService.Insertar(entity);
+                    result = IApp.clienteinformacionadministrativaService.Insertar(entity);
+                    TempData["msg"] = "Se agrego el registro con exito!";
                 }
 
-                return Json(result);
+
+                if (result.CodeError != 0) throw new Exception(result.MsgError);
+
+
+
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
 
-                return Json(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+                return Content(ex.Message);
             }
         }
 
@@ -96,8 +88,8 @@ namespace WebProyecto.Controllers
             try
             {
 
-                var result = clienteinformacionadministrativaService.Eliminar(new ClienteInformacionAdministrativaEntity { IdClienteInformacionAdmin = id });
-                TempData["msg"] = "0";
+                var result = IApp.clienteinformacionadministrativaService.Eliminar(new ClienteInformacionAdministrativaEntity { IdClienteInformacionAdmin = id });
+                TempData["msg"] = "Se elimino el registro con exito!";
 
                 if (result.CodeError != 0) throw new Exception(result.MsgError);
 

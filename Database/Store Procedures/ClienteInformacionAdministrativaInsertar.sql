@@ -1,12 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[ClienteInformacionAdministrativaInsertar]
-	@IdCliente INT,
 	@Tarifa INT,
 	@SesionesRayosUVA INT,
 	@FechaProximaRenovacion VARCHAR(MAX),
 	@Casillero INT,
 	@SaldoMonederoVirtual INT
 AS BEGIN
-
 SET NOCOUNT ON
 
 	BEGIN TRANSACTION TRASA
@@ -14,15 +12,16 @@ SET NOCOUNT ON
 	BEGIN TRY
 	-- AQUI VA EL CODIGO
 		
-	INSERT INTO ClienteInformacionAdministrativa(
-	IdCliente,
+	INSERT INTO ClienteInformacionAdministrativa
+	(
 	Tarifa,
 	SesionesRayosUVA,
 	FechaProximaRenovacion,
 	Casillero,
 	SaldoMonederoVirtual
-	)VALUES(
-	@IdCliente,
+	)
+	VALUES
+	(
 	@Tarifa,
 	@SesionesRayosUVA,
 	@FechaProximaRenovacion,

@@ -2,8 +2,16 @@
 	AS BEGIN
 	SET NOCOUNT ON
 
-	SELECT *
+	SELECT 
+			IdClienteInformacionAdmin,
+			Tarifa,
+			SesionesRayosUVA,
+			FechaProximaRenovacion,
+			Casillero,
+			SaldoMonederoVirtual
 
 	FROM dbo.ClienteInformacionAdministrativa
 
+	
+	ORDER BY IdClienteInformacionAdmin
 END

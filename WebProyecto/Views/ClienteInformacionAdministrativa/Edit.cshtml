@@ -1,61 +1,53 @@
-﻿@model WebProyecto.Models.ClienteInformacionAdministrativaEdit
-@using Newtonsoft.Json;
-@{ var TypeForm = ViewBag.Form as bool?; }
+﻿@model Entity.ClienteInformacionAdministrativaEntity
 
-<model data-entity="@JsonConvert.SerializeObject(Model.clienteInformacionAdministrativa)" />
-<div id="ClienteInformacionAdministrativaEdit" class="container">
+@{
+    var TypeForm = ViewBag.Form as bool?;
+}
+
 
     <div class="row">
         <div class="col-6">
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">@(TypeForm.Value ? "Editar clienteInformacionAdministrativa" : "Nuevo clienteInformacionAdministrativa")</h4>
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Cliente Información Administrativa" : "Nuevo Cliente Información Administrativa")</h4>
 
                     <form id="FormClienteInformacionAdmin" action="/ClienteInformacionAdministrativa/Save" method="post">
-                        <input type="hidden" name="IdClienteInformacionAdmin" id="IdClienteInformacionAdmin" v-model="model.IdClienteInformacionAdmin" />
+                        <input type="hidden" name="IdClienteInformacionAdmin" id="IdClienteInformacionAdmin" value="@Model.IdClienteInformacionAdmin" />
 
                         <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdCliente" name="IdCliente" aria-label="Default select example" v-model="model.IdCliente" required>
-                                @foreach (var item in Model.ddlClientes)
-                                {
-                    <option value="@item.IdCliente">@item.IdCliente</option>}
-                            </select>
-                            <label for="IdClases"> Id Cliente</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="Tarifa" id="Tarifa" v-model="model.Tarifa" required />
+                            <input class="form-control" type="text" name="Tarifa" id="Tarifa" value="@Model.Tarifa" />
                             <label for="Tarifa"> Tarifa</label>
                         </div>
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="SesionesRayosUVA" id="SesionesRayosUVA" v-model="model.SesionesRayosUVA" required />
+                            <input class="form-control" type="text" name="SesionesRayosUVA" id="SesionesRayosUVA"  value="@Model.SesionesRayosUVA" />
                             <label for="SesionesRayosUVA"> Sesiones Rayos UVA</label>
                         </div>
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="FechaProximaRenovacion" id="FechaProximaRenovacion" v-model="model.FechaProximaRenovacion" required />
+                            <input class="form-control" type="text" name="FechaProximaRenovacion" id="FechaProximaRenovacion"  value="@Model.FechaProximaRenovacion" /> 
                             <label for="FechaProximaRenovacion"> Fecha Proxima Renovacion</label>
                         </div>
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="Casillero" id="Casillero" v-model="model.Casillero" required />
+                            <input class="form-control" type="text" name="Casillero" id="Casillero"  value="@Model.Casillero" />
                             <label for="Casillero"> Casillero</label>
                         </div>
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="SaldoMonederoVirtual" id="SaldoMonederoVirtual" v-model="model.SaldoMonederoVirtual" required />
+                            <input class="form-control" type="text" name="SaldoMonederoVirtual" id="SaldoMonederoVirtual"  value="@Model.SaldoMonederoVirtual" />
                             <label for="SaldoMonederoVirtual"> Saldo Monedero Virtual</label>
                         </div>
 
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-            else
-            {
-<button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                            else
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+
 
 
                         </div>
@@ -67,7 +59,7 @@
         </div>
 
     </div>
-</div>
+
 
 
 @section scripts{
@@ -75,3 +67,5 @@
     <script src="~/Scripts/ClienteInformacionAdministrativa/Edit.js"></script>
 
 }
+
+
