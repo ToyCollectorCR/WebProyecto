@@ -9,7 +9,6 @@ namespace Entity
     public class EmpleadoInformacionAdministrativaEntity : EN
     {
         public int? IdInformacionAdministrativaEmpleado { get; set; }
-        public int? IdEmpleado { get; set; }
         public EmpleadoEntity Empleado { get; set; }
         public string NumeroSeguroSocial { get; set; }
         public string CuentaBanco { get; set; }

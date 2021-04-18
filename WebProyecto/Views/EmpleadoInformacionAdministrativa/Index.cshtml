@@ -1,17 +1,78 @@
-﻿
-@{
-    Layout = null;
+﻿@model List<Entity.EmpleadoInformacionAdministrativaEntity>
+
+@if (ViewData.ContainsKey("msg"))
+{
+    <script>
+        alert("@ViewData["msg"]");
+    </script>
 }
 
-<!DOCTYPE html>
+<div class="container-fluid">
+    <h1>Empleado Informacion Administrativa</h1>
+    <div class="row">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
+        <div class="col-7">
+            <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
+        </div>
     </div>
-</body>
-</html>
+    <br />
+    <div class="row">
+        <div class="col-15">
+            <table id="GridEmpleadoInformacionAdministrativa" class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>NumeroSeguroSocial</th>
+                        <th>CuentaBanco</th>
+                        <th>RetencionCCSS</th>
+                        <th>GeneracionDePagos</th>
+                        <th>CategoriaProfesional</th>
+                        <th>AsignarActividades</th>
+                        <th>AsignacionGuarderias</th>
+                    </tr>
+                
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.NumeroSeguroSocial</td>
+                            <td>@item.CuentaBanco</td>
+                            <td>@item.RetencionCCSS</td>
+                            <td>@item.GeneracionDePagos</td>
+                            <td>@item.CategoriaProfesional</td>
+                            <td>@item.AsignarActividades</td>
+                            <td>@item.AsignarGuarderias</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdInformacionAdministrativaEmpleado)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdInformacionAdministrativaEmpleado)"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+        var ClickNew = function () {
+            window.location.href = "EmpleadoInformacionAdministrativa/Edit";
+        }
+
+        var ClickUpdate = function (id) {
+            window.location.href = "EmpleadoInformacionAdministrativa/Edit/" + id;
+        }
+
+        var ClickEliminar = function (id) {
+
+            var result = confirm("Esta Seguro que desea eliminar este registro?");
+
+            if (result) window.location.href = "EmpleadoInformacionAdministrativa/Delete/" + id;
+
+        }
+    </script>
+
+
+}

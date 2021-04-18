@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[EmpleadoInformacionAdministrativaActualizar]
 	@IdInformacionAdministrativaEmpleado INT,
-	@IdEmpleado INT,
 	@NumeroSeguroSocial VARCHAR(50),
 	@CuentaBanco VARCHAR(50),
 	@RetencionCCSS INT,
@@ -17,8 +16,7 @@ SET NOCOUNT ON
 	BEGIN TRY
 	-- AQUI VA EL CODIGO
 		
-	update dbo.EmpleadoInformacionAdministrativa set
-	IdEmpleado=@IdEmpleado, 
+	UPDATE dbo.EmpleadoInformacionAdministrativa SET
 	NumeroSeguroSocial=@NumeroSeguroSocial, 
 	CuentaBanco=@CuentaBanco, 
 	RetencionCCSS=@RetencionCCSS,
