@@ -4,10 +4,11 @@
 	@Apellido1Bebe VARCHAR(50),
 	@Apellido2Bebe VARCHAR(50),
 	@NombrePadreMadreBebe VARCHAR(50),
-	@FechaNaciminetoBebe VARCHAR(MAX),
+	@FechaNacimientoBebe VARCHAR(MAX),
 	@InscripcionClasesBebe INT,
 	@AforoDisponibleBebe INT,
 	@EstadoBebe BIT
+	
 AS BEGIN
 SET NOCOUNT ON
 
@@ -21,20 +22,16 @@ SET NOCOUNT ON
 		Apellido1Bebe = @Apellido1Bebe,
 		Apellido2Bebe = @Apellido2Bebe,
 		NombrePadreMadreBebe = @NombrePadreMadreBebe,
-		FechaNaciminetoBebe = @FechaNaciminetoBebe,
+		FechaNacimientoBebe = @FechaNacimientoBebe,
 		InscripcionClasesBebe = @InscripcionClasesBebe,
 		AforoDisponibleBebe = @AforoDisponibleBebe,
 		EstadoBebe = @EstadoBebe
 
 		WHERE IdBebe=@IdBebe
-
-
 		
 		COMMIT TRANSACTION TRASA
 		
 		SELECT 0 AS CodeError, '' AS MsgError
-
-
 
 	END TRY
 
@@ -45,6 +42,4 @@ SET NOCOUNT ON
 
 			ROLLBACK TRANSACTION TRASA
 	END CATCH
-
-
 END

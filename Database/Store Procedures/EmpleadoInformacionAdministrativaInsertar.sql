@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[EmpleadoInformacionAdministrativaInsertar]
-	@IdEmpleado INT,
 	@NumeroSeguroSocial VARCHAR(50),
 	@CuentaBanco VARCHAR(50),
 	@RetencionCCSS INT,
@@ -17,7 +16,7 @@ SET NOCOUNT ON
 	-- AQUI VA EL CODIGO
 		
 	INSERT INTO EmpleadoInformacionAdministrativa(
-	IdEmpleado,
+	
 	NumeroSeguroSocial,
 	CuentaBanco,
 	RetencionCCSS,
@@ -26,7 +25,7 @@ SET NOCOUNT ON
 	AsignarActividades,
 	AsignarGuarderias
 	)VALUES(
-	@IdEmpleado,
+	
 	@NumeroSeguroSocial,
 	@CuentaBanco,
 	@RetencionCCSS,

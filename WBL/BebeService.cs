@@ -11,8 +11,7 @@ namespace WBL
     public interface IBebeService : IDisposable
     {
         List<BebeEntity> ObtenerLista(int? IdBebe);
-        BebeEntity ObtenerDetalle(int? IdBebe);
-        List<BebeEntity> Obtenerddl(int? IdBebe);
+        List<BebeEntity> Obtenerddl();
         DBEntity Insertar(BebeEntity entity);
         DBEntity Actualizar(BebeEntity entity);
         DBEntity Eliminar(BebeEntity entity);
@@ -26,28 +25,12 @@ namespace WBL
             sql = null;
         }
 
+
         public List<BebeEntity> ObtenerLista(int? IdBebe)
         {
             try
             {
-                var result = sql.Query<BebeEntity>("BebeObtener"
-                    , new
-                    {
-                        IdBebe
-                    });
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public BebeEntity ObtenerDetalle(int? IdBebe)
-        {
-            try
-            {
-                var result = sql.QueryFirst<BebeEntity>("BebeObtener", new
+                var result = sql.Query<BebeEntity>("BebeObtener", new
                 {
                     IdBebe
                 });
@@ -55,11 +38,12 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-        public List<BebeEntity> Obtenerddl(int? IdBebe)
+        public List<BebeEntity> Obtenerddl()
         {
             try
             {
@@ -68,6 +52,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
@@ -82,7 +67,7 @@ namespace WBL
                     entity.Apellido1Bebe,
                     entity.Apellido2Bebe,
                     entity.NombrePadreMadreBebe,
-                    entity.FechaNaciminetoBebe,
+                    entity.FechaNacimientoBebe,
                     entity.InscripcionClasesBebe,
                     entity.AforoDisponibleBebe,
                     entity.EstadoBebe,
@@ -93,6 +78,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
@@ -108,10 +94,11 @@ namespace WBL
                     entity.Apellido1Bebe,
                     entity.Apellido2Bebe,
                     entity.NombrePadreMadreBebe,
-                    entity.FechaNaciminetoBebe,
+                    entity.FechaNacimientoBebe,
                     entity.InscripcionClasesBebe,
                     entity.AforoDisponibleBebe,
                     entity.EstadoBebe,
+
                 });
 
 
@@ -123,6 +110,8 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
 
         public DBEntity Eliminar(BebeEntity entity)
         {
@@ -131,13 +120,19 @@ namespace WBL
                 var result = sql.QueryExecute("BebeEliminar", new
                 {
                     entity.IdBebe
+
                 });
+
+
                 return result;
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
     }
 }

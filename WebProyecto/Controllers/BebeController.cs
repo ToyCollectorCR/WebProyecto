@@ -4,46 +4,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WBL;
-using WebProyecto.Models;
 
 namespace WebProyecto.Controllers
 {
     public class BebeController : Controller
     {
-        // GET: Bebe
-
-        private IBebeService bebeService;
-        //private IClasesService clasesService;
-        //private ISalasService salasService;
-        //private ITarifasService tarifasService;
-        //private IProductosService productosService;
-        //private IClientesService clientesService;
-
-        public BebeController(IBebeService bebeService/*, IClasesService clasesService, ISalasService salasService, ITarifasService tarifasService, IProductosService productosService, IClientesService clientesService*/)
-        {
-            this.bebeService = bebeService;
-            //this.clasesService = clasesService;
-            //this.salasService = salasService;
-            //this.tarifasService = tarifasService;
-            //this.productosService = productosService;
-            //this.clientesService = clientesService;
-        }
-
+        // GET: Tarifas
         public ActionResult Index()
         {
             this.SessionOnline();
+            var contratos = IApp.bebeService.ObtenerLista(null);
 
-            var bebes = bebeService.ObtenerLista(null);
             if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
-            return View(bebes);
-        }
 
+            return View(contratos);
+        }
         public ActionResult Edit(int? id)
         {
             this.SessionOnline();
 
-            var entity = new BebeEdit() { bebe = new BebeEntity() };
+            var entity = new BebeEntity();
             try
             {
                 ViewBag.Form = false;
@@ -52,17 +32,17 @@ namespace WebProyecto.Controllers
                     //editar
                     ViewBag.Form = true;
 
-                    entity.bebe = bebeService.ObtenerDetalle(id);
+                    entity = IApp.bebeService.ObtenerLista(id).FirstOrDefault();
                 }
-                //entity.ddlbebe = bebeService.Obtenerddl(id);
-                //entity.ddlclases = clasesService.Obtenerddl(id);
-                //entity.ddltarifas = tarifasService.Obtenerddl(id);
-                //entity.ddlproductos = productosService.Obtenerddl(id);
+
             }
             catch (Exception ex)
             {
+
                 return Content(ex.Message);
             }
+
+
             return View(entity);
         }
 
@@ -75,19 +55,27 @@ namespace WebProyecto.Controllers
 
                 if (entity.IdBebe.HasValue)
                 {
-                    result = bebeService.Actualizar(entity);
+                    result = IApp.bebeService.Actualizar(entity);
+                    TempData["msg"] = "Se Actualizo el registro con exito!";
+
                 }
                 else
                 {
-                    result = bebeService.Insertar(entity);
+                    result = IApp.bebeService.Insertar(entity);
+                    TempData["msg"] = "Se agrego el registro con exito!";
                 }
 
-                return Json(result);
+
+                if (result.CodeError != 0) throw new Exception(result.MsgError);
+
+
+
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
 
-                return Json(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+                return Content(ex.Message);
             }
         }
 
@@ -98,8 +86,8 @@ namespace WebProyecto.Controllers
             try
             {
 
-                var result = bebeService.Eliminar(new BebeEntity { IdBebe = id });
-                TempData["msg"] = "0";
+                var result = IApp.bebeService.Eliminar(new BebeEntity { IdBebe = id });
+                TempData["msg"] = "Se elimino el registro con exito!";
 
                 if (result.CodeError != 0) throw new Exception(result.MsgError);
 

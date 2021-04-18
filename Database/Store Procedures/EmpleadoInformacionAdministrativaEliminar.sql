@@ -8,7 +8,7 @@ SET NOCOUNT ON
 	BEGIN TRY
 	-- AQUI VA EL CODIGO
 		
-		DELETE FROM EmpleadoInformacionAdministrativa WHERE IdInformacionAdministrativaEmpleado=@IdInformacionAdministrativaEmpleado
+		DELETE FROM dbo.EmpleadoInformacionAdministrativa WHERE IdInformacionAdministrativaEmpleado=@IdInformacionAdministrativaEmpleado
 
 		
 		COMMIT TRANSACTION TRASA

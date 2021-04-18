@@ -1,7 +1,6 @@
 ﻿CREATE TABLE [dbo].[EmpleadoInformacionAdministrativa]
 (
-	IdInformacionAdministrativaEmpleado INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_IdInformacionAdministrativaEmpleado PRIMARY KEY CLUSTERED(IdInformacionAdministrativaEmpleado),
-	IdEmpleado INT NOT NULL CONSTRAINT FK_InformacionAdministrativa_Empleado FOREIGN KEY(IdEmpleado) REFERENCES dbo.Empleado(IdEmpleado),
+	IdInformacionAdministrativaEmpleado INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_InformacionAdministrativaEmpleado PRIMARY KEY CLUSTERED(IdInformacionAdministrativaEmpleado),
 	NumeroSeguroSocial VARCHAR(50),
 	CuentaBanco VARCHAR(50),
 	RetencionCCSS INT NOT NULL,

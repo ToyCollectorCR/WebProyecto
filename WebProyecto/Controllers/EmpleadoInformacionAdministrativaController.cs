@@ -11,47 +11,42 @@ namespace WebProyecto.Controllers
 {
     public class EmpleadoInformacionAdministrativaController : Controller
     {
-        // GET: EmpleadoInformacionAdministrativa
-        private IEmpleadoInformacionAdministrativaService empleadoinformacionadministrativaService;
-        private IEmpleadoService empleadoService;
-        //private IProvinciaService provinciaService;
-        //private ICantonService cantonService;
-        //private IDistritoService distritoService;
-
-        public EmpleadoInformacionAdministrativaController(IEmpleadoInformacionAdministrativaService empleadoinformacionadministrativaService, IEmpleadoService empleadoService)
-        {
-            this.empleadoinformacionadministrativaService = empleadoinformacionadministrativaService;
-            this.empleadoService = empleadoService;
-            //this.provinciaService = provinciaService;
-            //this.cantonService = cantonService;
-            //this.distritoService = distritoService;
-        }
-
+        // GET: Tarifas
         public ActionResult Index()
         {
             this.SessionOnline();
-            return View(empleadoinformacionadministrativaService.ObtenerLista(null));
+            var contratos = IApp.empleadoinformacionadministrativaService.ObtenerLista(null);
+
+            if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
+
+            return View(contratos);
         }
-        public ActionResult Edit()
+        public ActionResult Edit(int? id)
         {
             this.SessionOnline();
 
-            var entity = new EmpleadoInformacionPersonal();
+            var entity = new EmpleadoInformacionAdministrativaEntity();
             try
             {
+                ViewBag.Form = false;
+                if (id.HasValue)
+                {
+                    //editar
+                    ViewBag.Form = true;
 
-                entity.ddlEmpleados = empleadoService.ObtenerLista(null);
-                //entity.ddlProvincias = provinciaService.ObtenerDll();
+                    entity = IApp.empleadoinformacionadministrativaService.ObtenerLista(id).FirstOrDefault();
+                }
 
             }
             catch (Exception ex)
             {
+
                 return Content(ex.Message);
             }
 
+
             return View(entity);
         }
-
 
         [HttpPost]
         public ActionResult Save(EmpleadoInformacionAdministrativaEntity entity)
@@ -60,51 +55,51 @@ namespace WebProyecto.Controllers
             {
                 var result = new DBEntity();
 
-                result = empleadoinformacionadministrativaService.Insertar(entity);
+                if (entity.IdInformacionAdministrativaEmpleado.HasValue)
+                {
+                    result = IApp.empleadoinformacionadministrativaService.Actualizar(entity);
+                    TempData["msg"] = "Se Actualizo el registro con exito!";
 
-                return Json(result);
+                }
+                else
+                {
+                    result = IApp.empleadoinformacionadministrativaService.Insertar(entity);
+                    TempData["msg"] = "Se agrego el registro con exito!";
+                }
+
+
+                if (result.CodeError != 0) throw new Exception(result.MsgError);
+
+
+
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
 
-                return Json(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+                return Content(ex.Message);
             }
         }
 
-        /*[HttpPost]
-        public ActionResult ddlCanton(InformacionPersonalEntity entity)
+
+        [HttpGet]
+        public ActionResult Delete(int id)
         {
             try
             {
-                var result = new List<CantonEntity>();
 
-                result = cantonService.ObtenerDll(entity);
+                var result = IApp.empleadoinformacionadministrativaService.Eliminar(new EmpleadoInformacionAdministrativaEntity { IdInformacionAdministrativaEmpleado = id });
+                TempData["msg"] = "Se elimino el registro con exito!";
 
-                return Json(result);
+                if (result.CodeError != 0) throw new Exception(result.MsgError);
+
+                return RedirectToAction("index");
             }
             catch (Exception ex)
             {
 
-                return Json(new List<CantonEntity>());
+                return Content(ex.Message);
             }
         }
-
-        [HttpPost]
-        public ActionResult ddlDistrito(InformacionPersonalEntity entity)
-        {
-            try
-            {
-                var result = new List<DistritoEntity>();
-
-                result = distritoService.ObtenerDll(entity);
-
-                return Json(result);
-            }
-            catch (Exception ex)
-            {
-
-                return Json(new List<DistritoEntity>());
-            }
-        }*/
     }
 }

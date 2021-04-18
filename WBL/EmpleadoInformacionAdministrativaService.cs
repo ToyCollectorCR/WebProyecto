@@ -11,8 +11,7 @@ namespace WBL
     public interface IEmpleadoInformacionAdministrativaService : IDisposable
     {
         List<EmpleadoInformacionAdministrativaEntity> ObtenerLista(int? IdInformacionAdministrativaEmpleado);
-        EmpleadoInformacionAdministrativaEntity ObtenerDetalle(int? IdInformacionAdministrativaEmpleado);
-        List<EmpleadoInformacionAdministrativaEntity> Obtenerddl(int? IdInformacionAdministrativaEmpleado);
+        List<EmpleadoInformacionAdministrativaEntity> Obtenerdll();
         DBEntity Insertar(EmpleadoInformacionAdministrativaEntity entity);
         DBEntity Actualizar(EmpleadoInformacionAdministrativaEntity entity);
         DBEntity Eliminar(EmpleadoInformacionAdministrativaEntity entity);
@@ -26,14 +25,15 @@ namespace WBL
             sql = null;
         }
 
-
-        public List<EmpleadoInformacionAdministrativaEntity> ObtenerLista(int? IdCliente)
+        public List<EmpleadoInformacionAdministrativaEntity> ObtenerLista(int? IdEmpleadoInformacionAdmin)
         {
             try
             {
-                var result = sql.Query<EmpleadoInformacionAdministrativaEntity, EmpleadoEntity>("EmpleadoInformacionAdministrativaObtener",
-                    split: "IdEmpleado");
-                    
+                var result = sql.Query<EmpleadoInformacionAdministrativaEntity>("EmpleadoInformacionAdministrativaObtener"
+                    , new
+                    {
+                        IdEmpleadoInformacionAdmin
+                    });
                 return result;
             }
             catch (Exception ex)
@@ -42,23 +42,8 @@ namespace WBL
             }
         }
 
-        public EmpleadoInformacionAdministrativaEntity ObtenerDetalle(int? IdInformacionAdministrativaEmpleado)
-        {
-            try
-            {
-                var result = sql.QueryFirst<EmpleadoInformacionAdministrativaEntity>("EmpleadoInformacionAdministrativaObtener", new
-                {
-                    IdInformacionAdministrativaEmpleado
-                });
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
-        public List<EmpleadoInformacionAdministrativaEntity> Obtenerddl(int? IdInformacionAdministrativaEmpleado)
+        public List<EmpleadoInformacionAdministrativaEntity> Obtenerdll()
         {
             try
             {
@@ -78,7 +63,7 @@ namespace WBL
             {
                 var result = sql.QueryExecute("EmpleadoInformacionAdministrativaInsertar", new
                 {
-                    entity.IdEmpleado,
+
                     entity.NumeroSeguroSocial,
                     entity.CuentaBanco,
                     entity.RetencionCCSS,
@@ -103,8 +88,7 @@ namespace WBL
             {
                 var result = sql.QueryExecute("EmpleadoInformacionAdministrativaActualizar", new
                 {
-                    entity.IdInformacionAdministrativaEmpleado,
-                    entity.IdEmpleado,
+
                     entity.NumeroSeguroSocial,
                     entity.CuentaBanco,
                     entity.RetencionCCSS,
@@ -128,7 +112,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryExecute("ClienteInformacionAdministrativaEliminar", new
+                var result = sql.QueryExecute("EmpleadoInformacionAdministrativaEliminar", new
                 {
                     entity.IdInformacionAdministrativaEmpleado
                 });
