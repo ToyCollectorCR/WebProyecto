@@ -17,7 +17,7 @@ SET NOCOUNT ON
 	UPDATE ClienteInformacionAdministrativa SET
 	Tarifa=@Tarifa, 
 	SesionesRayosUVA=@SesionesRayosUVA,
-	FechaProximaRenovacion=CONVERT(VARCHAR,FechaProximaRenovacion,103),
+	FechaProximaRenovacion=@FechaProximaRenovacion,--=CONVERT(VARCHAR,FechaProximaRenovacion,103),
 	Casillero=@Casillero, 
 	SaldoMonederoVirtual=@SaldoMonederoVirtual
 	where IdClienteInformacionAdmin=@IdClienteInformacionAdmin

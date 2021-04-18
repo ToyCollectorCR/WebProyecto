@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[ProductosInsertar]
 	@NombreProductos VARCHAR(50),
-	@SesionesRayosUVA INT NOT NULL,
+	@SesionesRayosUVA INT,
 	@RenovacionCuota VARCHAR(MAX),
 	@ProductosConsumidos VARCHAR(50),
 	@CompraProveedores VARCHAR(50),

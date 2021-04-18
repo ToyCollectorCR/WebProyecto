@@ -14,7 +14,7 @@ SET NOCOUNT ON
 		
 		UPDATE Guarderia SET
 		NombreGuarderia = @NombreGuarderia,
-		DiaDeLaSemanaGuarderia=CONVERT(VARCHAR,DiaDeLaSemanaGuarderia,103),
+		DiaDeLaSemanaGuarderia=@DiaDeLaSemanaGuarderia,--=CONVERT(VARCHAR,DiaDeLaSemanaGuarderia,103),
 		HoraDeComienzoGuarderia = @HoraDeComienzoGuarderia,
 		ProfesorResponsableGuarderia = @ProfesorResponsableGuarderia
 		
