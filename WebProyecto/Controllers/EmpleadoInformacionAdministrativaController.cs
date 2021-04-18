@@ -11,7 +11,7 @@ namespace WebProyecto.Controllers
 {
     public class EmpleadoInformacionAdministrativaController : Controller
     {
-        // GET: Tarifas
+        // GET: EmpleadoInformacionAdministrativa
         public ActionResult Index()
         {
             this.SessionOnline();
@@ -55,7 +55,7 @@ namespace WebProyecto.Controllers
             {
                 var result = new DBEntity();
 
-                if (entity.IdInformacionAdministrativaEmpleado.HasValue)
+                if (entity.IdEmpleadoInformacionAdministrativa.HasValue)
                 {
                     result = IApp.empleadoinformacionadministrativaService.Actualizar(entity);
                     TempData["msg"] = "Se Actualizo el registro con exito!";
@@ -88,7 +88,7 @@ namespace WebProyecto.Controllers
             try
             {
 
-                var result = IApp.empleadoinformacionadministrativaService.Eliminar(new EmpleadoInformacionAdministrativaEntity { IdInformacionAdministrativaEmpleado = id });
+                var result = IApp.empleadoinformacionadministrativaService.Eliminar(new EmpleadoInformacionAdministrativaEntity { IdEmpleadoInformacionAdministrativa = id });
                 TempData["msg"] = "Se elimino el registro con exito!";
 
                 if (result.CodeError != 0) throw new Exception(result.MsgError);

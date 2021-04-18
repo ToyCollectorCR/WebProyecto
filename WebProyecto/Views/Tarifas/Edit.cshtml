@@ -5,10 +5,8 @@
 }
 
 <div class="container">
-
     <div class="row">
         <div class="col-6">
-
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">@(TypeForm.Value ? "Editar Tarifas" : "Nuevo Tarifas")</h4>
@@ -27,17 +25,17 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="MesesDuracion" id="MesesDuracion" value="@Model.MesesDuracion" />
+                            <input class="form-control" type="number" name="MesesDuracion" id="MesesDuracion" value="@Model.MesesDuracion" />
                             <label for="MesesDuracion"> MesesDuracion </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="InclusionBebes" id="InclusionBebes" value="@Model.InclusionBebes" />
+                            <input class="form-control" type="number" name="InclusionBebes" id="InclusionBebes" value="@Model.InclusionBebes" />
                             <label for="InclusionBebes"> Inclusion Bebes </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="PrecioTarifa" id="PrecioTarifa" value="@Model.PrecioTarifa" />
+                            <input class="form-control" type="number" name="PrecioTarifa" id="PrecioTarifa" value="@Model.PrecioTarifa" />
                             <label for="PrecioTarifa"> Precio Tarifa </label>
                         </div>
                         <br />
@@ -48,15 +46,10 @@
                             else
                             {
                                 <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
-
-
                         </div>
                     </form>
                 </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </div>
+</div>

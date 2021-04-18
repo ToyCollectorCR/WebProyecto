@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoActualizar]
 	@IdPedidos INT,
-	@Pedidos VARCHAR(50)
+	@Pedidos VARCHAR(50),
+	@EstadoPedidos BIT
 	
 AS BEGIN
 SET NOCOUNT ON
@@ -11,7 +12,8 @@ SET NOCOUNT ON
 	-- AQUI VA EL CODIGO
 		
 		UPDATE Pedidos SET
-		Pedidos = @Pedidos
+		Pedidos = @Pedidos,
+		EstadoPedidos=@EstadoPedidos
 		
 		WHERE IdPedidos=@IdPedidos 
 		

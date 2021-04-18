@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[EmpleadoInformacionAdministrativaActualizar]
-	@IdInformacionAdministrativaEmpleado INT,
+	@IdEmpleadoInformacionAdministrativa INT,
 	@NumeroSeguroSocial VARCHAR(50),
 	@CuentaBanco VARCHAR(50),
 	@RetencionCCSS INT,
@@ -25,7 +25,7 @@ SET NOCOUNT ON
 	AsignarActividades=@AsignarActividades ,
 	@AsignarGuarderias=@AsignarGuarderias
 	
-	where IdInformacionAdministrativaEmpleado=@IdInformacionAdministrativaEmpleado
+	where IdEmpleadoInformacionAdministrativa=@IdEmpleadoInformacionAdministrativa
 
 		COMMIT TRANSACTION TRASA
 		

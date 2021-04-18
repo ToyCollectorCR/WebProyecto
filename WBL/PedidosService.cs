@@ -10,11 +10,11 @@ namespace WBL
 {
     public interface IPedidosService : IDisposable
     {
-        List<TarifasEntity> ObtenerLista(int? IdTarifa);
-        List<TarifasEntity> Obtenerddl();
-        DBEntity Insertar(TarifasEntity entity);
-        DBEntity Actualizar(TarifasEntity entity);
-        DBEntity Eliminar(TarifasEntity entity);
+        List<PedidosEntity> ObtenerLista(int? IdPedidos);
+        List<PedidosEntity> Obtenerddl();
+        DBEntity Insertar(PedidosEntity entity);
+        DBEntity Actualizar(PedidosEntity entity);
+        DBEntity Eliminar(PedidosEntity entity);
     }
     public class PedidosService : IPedidosService
     {

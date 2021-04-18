@@ -9,15 +9,15 @@ namespace WebProyecto.Controllers
 {
     public class BebeController : Controller
     {
-        // GET: Tarifas
+        // GET: Bebe
         public ActionResult Index()
         {
             this.SessionOnline();
-            var contratos = IApp.bebeService.ObtenerLista(null);
+            var bebe = IApp.bebeService.ObtenerLista(null);
 
             if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
 
-            return View(contratos);
+            return View(bebe);
         }
         public ActionResult Edit(int? id)
         {

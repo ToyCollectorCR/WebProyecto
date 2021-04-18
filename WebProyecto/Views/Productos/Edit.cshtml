@@ -4,72 +4,59 @@
 }
 
 <div class="container">
-
     <div class="row">
         <div class="col-6">
-
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">@(TypeForm.Value ? "Editar Productos" : "Nuevo Producto")</h4>
 
-                    <form id="FormProductos" action="/Productos/Save" method="post">
-                        <input type="hidden" name="IdProductos" id="IdProductos" v-model="model.IdProductos" />
 
+                    <form action="/Productos/Save" method="post">
+                        <input type="hidden" name="IdProductos" id="IdProductos" value="@Model.IdProductos" />
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="NombreProductos" id="NombreProductos" v-model="model.NombreProductos" required />
-                            <label for="NombreProductos"> Nombre Productos</label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="NombreProductos" id="NombreProductos" value="@Model.NombreProductos" />
+                            <label for="NombreProductos"> Nombre Productos </label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="SesionesRayosUVA" id="SesionesRayosUVA" v-model="model.SesionesRayosUVA" required />
-                            <label for="SesionesRayosUVA"> Sesiones Rayos UVA</label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="SesionesRayosUVA" id="SesionesRayosUVA" value="@Model.SesionesRayosUVA" />
+                            <label for="SesionesRayosUVA"> Cantidad de Sesiones Rayos UVA </label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="RenovacionCuota" id="RenovacionCuota" v-model="model.RenovacionCuota" required />
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="date" name="RenovacionCuota" id="RenovacionCuota" value="@Model.RenovacionCuota" />
                             <label for="RenovacionCuota"> Renovacion Cuota </label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="ProductosConsumidos" id="ProductosConsumidos" v-model="model.ProductosConsumidos" required />
-                            <label for="ProductosConsumidos">  Productos Consumidos </label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="ProductosConsumidos" id="ProductosConsumidos" value="@Model.ProductosConsumidos" />
+                            <label for="ProductosConsumidos"> Productos Consumidos </label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="CompraProveedores" id="CompraProveedores" v-model="model.CompraProveedores" required />
-                            <label for="CompraProveedores">  Compra Proveedores  </label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="CompraProveedores" id="CompraProveedores" value="@Model.CompraProveedores" />
+                            <label for="CompraProveedores"> Compra Proveedores </label>
                         </div>
-
 
                         <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" id="EstadoPoveedores" name="EstadoPoveedores" v-model="model.EstadoPoveedores" />
-                            <label class="form-check-label" for="EstadoPoveedores">
-                                Estado Proveedores
+                            <input class="form-check-input" type="checkbox" id="EstadoProductos" name="EstadoProductos" v-model="model.EstadoProductos" />
+                            <label class="form-check-label" for="EstadoProductos">
+                                Estado Productos
                             </label>
                         </div>
-
-
-
+                        <br />
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button>
-                            }
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
                             else
                             {
-                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>
-                            }
-
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
                         </div>
                     </form>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 </div>
-
-

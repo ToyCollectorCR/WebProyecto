@@ -4,68 +4,51 @@
     var TypeForm = ViewBag.Form as bool?;
 }
 
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@(TypeForm.Value ? "Editar Cliente Información Administrativa" : "Nuevo Cliente Información Administrativa")</h4>
 
-    <div class="row">
-        <div class="col-6">
-
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">@(TypeForm.Value ? "Editar Cliente Información Administrativa" : "Nuevo Cliente Información Administrativa")</h4>
-
-                    <form id="FormClienteInformacionAdmin" action="/ClienteInformacionAdministrativa/Save" method="post">
-                        <input type="hidden" name="IdClienteInformacionAdmin" id="IdClienteInformacionAdmin" value="@Model.IdClienteInformacionAdmin" />
-
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="Tarifa" id="Tarifa" value="@Model.Tarifa" />
-                            <label for="Tarifa"> Tarifa</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="SesionesRayosUVA" id="SesionesRayosUVA"  value="@Model.SesionesRayosUVA" />
-                            <label for="SesionesRayosUVA"> Sesiones Rayos UVA</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="FechaProximaRenovacion" id="FechaProximaRenovacion"  value="@Model.FechaProximaRenovacion" /> 
-                            <label for="FechaProximaRenovacion"> Fecha Proxima Renovacion</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="Casillero" id="Casillero"  value="@Model.Casillero" />
-                            <label for="Casillero"> Casillero</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="SaldoMonederoVirtual" id="SaldoMonederoVirtual"  value="@Model.SaldoMonederoVirtual" />
-                            <label for="SaldoMonederoVirtual"> Saldo Monedero Virtual</label>
-                        </div>
-
-                        <div class="mb-3">
-                            @if (TypeForm.Value)
-                            {
-                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-                            else
-                            {
-                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                <form action="/ClienteInformacionAdministrativa/Save" method="post">
+                    <input type="hidden" name="IdClienteInformacionAdmin" id="IdClienteInformacionAdmin" value="@Model.IdClienteInformacionAdmin" />
 
 
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="number" name="Tarifa" id="Tarifa" value="@Model.Tarifa" />
+                        <label for="Tarifa"> Nombre de Tarifas </label>
+                    </div>
 
-                        </div>
-                    </form>
-                </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="number" name="SesionesRayosUVA" id="SesionesRayosUVA" value="@Model.SesionesRayosUVA" />
+                        <label for="SesionesRayosUVA"> Sesiones Rayos UVA </label>
+                    </div>
 
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="date" name="FechaProximaRenovacion" id="FechaProximaRenovacion" value="@Model.FechaProximaRenovacion" />
+                        <label for="FechaProximaRenovacion"> Fecha Proxima Renovacion </label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="number" name="Casillero" id="Casillero" value="@Model.Casillero" />
+                        <label for="Casillero"> Casillero </label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="number" name="SaldoMonederoVirtual" id="SaldoMonederoVirtual" value="@Model.SaldoMonederoVirtual" />
+                        <label for="SaldoMonederoVirtual"> Saldo Monedero Virtual </label>
+                    </div>
+
+                    <div class="mb-3">
+                        @if (TypeForm.Value)
+                        {
+                            <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                        else
+                        {
+                            <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                    </div>
+                </form>
             </div>
-
         </div>
-
     </div>
-
-
-
-@section scripts{
-
-    <script src="~/Scripts/ClienteInformacionAdministrativa/Edit.js"></script>
-
-}
-
-
+</div>

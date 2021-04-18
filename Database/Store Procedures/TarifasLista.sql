@@ -12,10 +12,6 @@ AS BEGIN
 			PrecioTarifa
 
 	FROM dbo.Tarifas
-	--WHERE
-		--(@IdTarifa IS NULL OR IdTarifa=@IdTarifa)
-		--and
-		--EstadoSalas=1
 
 	ORDER BY Tarifas
 

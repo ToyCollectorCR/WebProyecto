@@ -22,7 +22,7 @@ SET NOCOUNT ON
 		Apellido1Bebe = @Apellido1Bebe,
 		Apellido2Bebe = @Apellido2Bebe,
 		NombrePadreMadreBebe = @NombrePadreMadreBebe,
-		FechaNacimientoBebe = @FechaNacimientoBebe,
+		FechaNacimientoBebe=CONVERT(VARCHAR,FechaNacimientoBebe,103),
 		InscripcionClasesBebe = @InscripcionClasesBebe,
 		AforoDisponibleBebe = @AforoDisponibleBebe,
 		EstadoBebe = @EstadoBebe

@@ -9,7 +9,7 @@ AS BEGIN
 		,	Apellido1Bebe
 		,	Apellido2Bebe
 		,	NombrePadreMadreBebe
-		,	FechaNacimientoBebe
+		,   FechaNacimientoBebe=CONVERT(VARCHAR,FechaNacimientoBebe,103)
 		,	InscripcionClasesBebe
 		,	AforoDisponibleBebe
 		,	EstadoBebe	

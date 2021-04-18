@@ -1,5 +1,12 @@
 ﻿@model List<Entity.ProductosEntity>
 
+@if (ViewData.ContainsKey("msg"))
+{
+    <script>
+        alert("@ViewData["msg"]");
+    </script>
+}
+
 <div class="container-fluid">
     <h1>Productos</h1>
     <div class="row">
@@ -10,7 +17,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-15">
+        <div class="col-7">
             <table id="GridProductos" class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
@@ -20,28 +27,26 @@
                         <th>Renovacion Cuota</th>
                         <th>Productos Consumidos</th>
                         <th>Compra Proveedores</th>
-                        <th>Estado</th>
+                        <th>Estado de Productos</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.IdProductos</td>
-                        <td>@item.NombreProductos</td>
-                        <td>@item.SesionesRayosUVA</td>
-                        <td>@item.RenovacionCuota</td>
-                        <td>@item.ProductosConsumidos</td>
-                        <td>@item.CompraProveedores</td>
-                        <td>@(item.EstadoProducto ? "Activo" : "Inactivo")</td>
-
-
-                        <td>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdProductos)"><i class='bx bx-edit-alt'></i></button>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdProductos)"><i class='bx bx-trash'></i></button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>@item.IdProductos</td>
+                            <td>@item.NombreProductos</td>
+                            <td>@item.SesionesRayosUVA</td>
+                            <td>@item.RenovacionCuota</td>
+                            <td>@item.ProductosConsumidos</td>
+                            <td>@item.CompraProveedores</td>
+                            <td>@(item.EstadoProducto ? "Activo" : "Inactivo")</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdProductos)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdProductos)"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
@@ -54,20 +59,24 @@
 </div>
 
 @section scripts{
-    @if (ViewData.ContainsKey("msg"))
-    {
-        <script>
-            Swal.fire(
-                'Eliminado!',
-                'Su registro a sido Eliminado.',
-                'success'
-            );
-            var IsLoading = false;</script>
-    }
-    else
-    {
-        <script>var IsLoading = true;</script>
-    }
 
-    <script src="~/Scripts/Productos/Index.js"></script>
+    <script>
+        var ClickNew = function () {
+            window.location.href = "Productos/Edit";
+        }
+
+        var ClickUpdate = function (id) {
+            window.location.href = "Productos/Edit/" + id;
+        }
+
+        var ClickEliminar = function (id) {
+
+            var result = confirm("Esta Seguro que desea eliminar este registro?");
+
+            if (result) window.location.href = "Productos/Delete/" + id;
+
+        }
+    </script>
+
+
 }

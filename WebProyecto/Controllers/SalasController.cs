@@ -13,11 +13,11 @@ namespace WebProyecto.Controllers
         public ActionResult Index()
         {
             this.SessionOnline();
-            var contratos = IApp.salasService.ObtenerLista(null);
+            var salas = IApp.salasService.ObtenerLista(null);
 
             if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
 
-            return View(contratos);
+            return View(salas);
         }
         public ActionResult Edit(int? id)
         {

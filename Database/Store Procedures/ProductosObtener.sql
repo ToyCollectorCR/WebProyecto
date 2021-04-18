@@ -7,7 +7,7 @@ AS BEGIN
 			IdProductos,
 			NombreProductos,
 			SesionesRayosUVA,
-			RenovacionCuota,
+			RenovacionCuota=CONVERT(VARCHAR,RenovacionCuota,103),
 			ProductosConsumidos,
 			CompraProveedores,
 			EstadoProducto

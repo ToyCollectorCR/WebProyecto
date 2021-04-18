@@ -10,15 +10,11 @@ namespace Entity
     {
 
         public int? IdClienteInformacionAdmin { get; set; }
-        public ClienteEntity Cliente { get; set; }
         public int? Tarifa { get; set; }
         public string SesionesRayosUVA { get; set; }
         public string FechaProximaRenovacion { get; set; }
         public int Casillero { get; set; }
         public int SaldoMonederoVirtual { get; set; }
-        public ClienteInformacionAdministrativaEntity()
-        {
-            Cliente = Cliente ?? new ClienteEntity();
-        }
+        
     }
 }

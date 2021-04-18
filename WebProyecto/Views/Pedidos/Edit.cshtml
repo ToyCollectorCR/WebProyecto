@@ -1,53 +1,42 @@
-﻿@model WebProyecto.Models.PedidosEdit
-@using Newtonsoft.Json;
-@{ var TypeForm = ViewBag.Form as bool?; }
+﻿@model Entity.PedidosEntity
 
-<model data-entity="@JsonConvert.SerializeObject(Model.pedidos)" />
-<div id="PedidosEdit" class="container">
+@{
+    var TypeForm = ViewBag.Form as bool?;
+}
 
+<div class="container">
     <div class="row">
         <div class="col-6">
-
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">@(TypeForm.Value ? "Editar Pedidos" : "Nuevo Pedidos")</h4>
 
-                    <form id="FormPedidos" action="/Pedidos/Save" method="post">
-                        <input type="hidden" name="IdPedidos" id="IdPedidos" v-model="model.IdPedidos" />
+                    <form action="/Pedidos/Save" method="post">
+                        <input type="hidden" name="IdPedidos" id="IdPedidos" value="@Model.IdPedidos" />
 
-                        
-
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="Pedidos" id="Pedidos" v-model="model.Pedidos" required />
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="Pedidos" id="Pedidos" value="@Model.Pedidos" />
                             <label for="Pedidos"> Pedidos </label>
                         </div>
 
-                       
-
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" id="EstadoPedidos" name="EstadoPedidos" v-model="model.EstadoPedidos" />
+                            <label class="form-check-label" for="EstadoPedidos">
+                                Estado Pedidos
+                            </label>
+                        </div>
+                        <br />
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-            else
-            {
-<button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
-
-
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                            else
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
                         </div>
                     </form>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 </div>
-
-
-@section scripts{
-
-    <script src="~/Scripts/Pedidos/Edit.js"></script>
-
-}
-

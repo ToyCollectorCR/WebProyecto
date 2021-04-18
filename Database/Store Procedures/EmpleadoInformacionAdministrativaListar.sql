@@ -1,8 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[EmpleadoInformacionAdministrativaListar]
+	
 	AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT 
+		IdEmpleadoInformacionAdministrativa
 		NumeroSeguroSocial,
 		CuentaBanco,
 		RetencionCCSS,
@@ -13,5 +15,5 @@
 
 	FROM dbo.EmpleadoInformacionAdministrativa
 
-	ORDER BY IdInformacionAdministrativaEmpleado
+	ORDER BY IdEmpleadoInformacionAdministrativa
 END

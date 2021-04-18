@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[ClienteInformacionAdministrativaListar]
+	
 	AS BEGIN
 	SET NOCOUNT ON
 

@@ -11,7 +11,7 @@ namespace WebProyecto.Controllers
 {
     public class ClienteInformacionAdministrativaController : Controller
     {
-        // GET: Tarifas
+        // GET: ClienteInformacionAdministrativa
         public ActionResult Index()
         {
             this.SessionOnline();

@@ -2,9 +2,10 @@
 
 @if (ViewData.ContainsKey("msg"))
 {
-<script>
+    <script>
         alert("@ViewData["msg"]");
-</script>}
+    </script>
+}
 
 <div class="container-fluid">
     <h1>Clases</h1>
@@ -16,7 +17,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-6">
+        <div class="col-7">
             <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
@@ -33,37 +34,35 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-        <tr>
-            <td>@item.IdClases</td>
-            <td>@item.SalaImpartidaClases</td>
-            <td>@item.DiaDeLaSemanaClases</td>
-            <td>@item.HoraDeComienzoClases</td>
-            <td>@item.ActividadImpartidaClases</td>
-            <td>@item.ProfesorResponsableClases</td>
-            <td>@(item.EstadoClases ? "Activo" : "Inactivo")</td>
-            <td>
-                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdClases)"><i class='bx bx-edit-alt'></i></button>
-                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdClases)"><i class='bx bx-trash'></i></button>
-            </td>
-        </tr>}
+                    <tr>
+                        <td>@item.IdClases</td>
+                        <td>@item.SalaImpartidaClases</td>
+                        <td>@item.DiaDeLaSemanaClases=CONVERT(VARCHAR,DiaDeLaSemanaClases,103)</td>
+                        <td>@item.HoraDeComienzoClases=CONVERT(VARCHAR,HoraDeComienzoClases,103)</td>
+                        <td>@item.ActividadImpartidaClases</td>
+                        <td>@item.ProfesorResponsableClases</td>
+                        <td>@(item.EstadoClases ? "Activo" : "Inactivo")</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdClases)"><i class='bx bx-edit-alt'></i></button>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdClases)"><i class='bx bx-trash'></i></button>
+                        </td>
+                    </tr>
+                    }
                 </tbody>
-
-
             </table>
         </div>
-
     </div>
-
 </div>
 
 @section scripts{
 
-    <script>var ClickNew = function () {
+    <script>
+    var ClickNew = function () {
             window.location.href = "Clases/Edit";
         }
 
         var ClickUpdate = function (id) {
-            window.location.href = "Clases/Edit/"+id;
+            window.location.href = "Clases/Edit/" + id;
         }
 
         var ClickEliminar = function (id) {

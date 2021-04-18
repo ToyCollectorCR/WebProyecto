@@ -10,10 +10,6 @@ AS BEGIN
 			EstadoSalas
 
 	FROM dbo.Salas
-	--WHERE
-		--(@IdSalas IS NULL OR IdSalas=@IdSalas)
-		--and
-		--EstadoSalas=1
 
 	ORDER BY NombreSalas
 

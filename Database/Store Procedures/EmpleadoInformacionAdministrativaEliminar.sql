@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[EmpleadoInformacionAdministrativaEliminar]
-	@IdInformacionAdministrativaEmpleado INT
+	@IdEmpleadoInformacionAdministrativa INT
 AS BEGIN
 SET NOCOUNT ON
 
@@ -8,7 +8,7 @@ SET NOCOUNT ON
 	BEGIN TRY
 	-- AQUI VA EL CODIGO
 		
-		DELETE FROM dbo.EmpleadoInformacionAdministrativa WHERE IdInformacionAdministrativaEmpleado=@IdInformacionAdministrativaEmpleado
+		DELETE FROM dbo.EmpleadoInformacionAdministrativa WHERE IdEmpleadoInformacionAdministrativa=@IdEmpleadoInformacionAdministrativa
 
 		
 		COMMIT TRANSACTION TRASA

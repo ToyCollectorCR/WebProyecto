@@ -18,7 +18,7 @@ SET NOCOUNT ON
 		VALUES
 		(
 			@Pedidos,
-			EstadoPedidos
+			@EstadoPedidos
 		
 		)
 

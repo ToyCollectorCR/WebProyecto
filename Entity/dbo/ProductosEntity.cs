@@ -10,8 +10,8 @@ namespace Entity
     {
         public int? IdProductos { get; set; }
         public string NombreProductos { get; set; }
-        public string SesionesRayosUVA { get; set; }
-        public string RenovacionCuota { get; set; }
+        public int? SesionesRayosUVA { get; set; }
+        public DateTime RenovacionCuota { get; set; }
         public string ProductosConsumidos { get; set; }
         public string CompraProveedores { get; set; }
         public bool EstadoProducto { get; set; }

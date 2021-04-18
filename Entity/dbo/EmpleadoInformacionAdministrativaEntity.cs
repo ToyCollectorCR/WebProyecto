@@ -8,8 +8,7 @@ namespace Entity
 {
     public class EmpleadoInformacionAdministrativaEntity : EN
     {
-        public int? IdInformacionAdministrativaEmpleado { get; set; }
-        public EmpleadoEntity Empleado { get; set; }
+        public int? IdEmpleadoInformacionAdministrativa { get; set; }
         public string NumeroSeguroSocial { get; set; }
         public string CuentaBanco { get; set; }
         public int? RetencionCCSS { get; set; }
@@ -18,9 +17,5 @@ namespace Entity
         public string AsignarActividades { get; set; }
         public string AsignarGuarderias { get; set; }
         
-        public EmpleadoInformacionAdministrativaEntity()
-        {
-            Empleado = Empleado ?? new EmpleadoEntity();
-        }
     }
 }

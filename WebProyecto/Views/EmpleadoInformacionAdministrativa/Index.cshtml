@@ -17,7 +17,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-15">
+        <div class="col-7">
             <table id="GridEmpleadoInformacionAdministrativa" class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
@@ -28,6 +28,7 @@
                         <th>CategoriaProfesional</th>
                         <th>AsignarActividades</th>
                         <th>AsignacionGuarderias</th>
+                        <th>Accion</th>
                     </tr>
                 
                 </thead>
@@ -43,8 +44,8 @@
                             <td>@item.AsignarActividades</td>
                             <td>@item.AsignarGuarderias</td>
                             <td>
-                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdInformacionAdministrativaEmpleado)"><i class='bx bx-edit-alt'></i></button>
-                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdInformacionAdministrativaEmpleado)"><i class='bx bx-trash'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdEmpleadoInformacionAdministrativa)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdEmpleadoInformacionAdministrativa)"><i class='bx bx-trash'></i></button>
                             </td>
                         </tr>
                     }

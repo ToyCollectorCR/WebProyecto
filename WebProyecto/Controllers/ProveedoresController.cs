@@ -11,7 +11,6 @@ namespace WebProyecto.Controllers
     {
         // GET: Proveedores
 
-
         public ActionResult Index()
         {
             this.SessionOnline();

@@ -4,77 +4,62 @@
     var TypeForm = ViewBag.Form as bool?;
 }
 
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Empleado Información Administrativa" : "Nuevo Empleado Información Administrativa")</h4>
 
-<div class="row">
-    <div class="col-6">
+                    <form action="/EmpleadoInformacionAdministrativa/Save" method="post">
+                        <input type="hidden" name="IdEmpleadoInformacionAdministrativa" id="IdEmpleadoInformacionAdministrativa" value="@Model.IdEmpleadoInformacionAdministrativa" />
 
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">@(TypeForm.Value ? "Editar Empleado Información Administrativa" : "Nuevo Empleado Información Administrativa")</h4>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="NumeroSeguroSocial" id="NumeroSeguroSocial" value="@Model.NumeroSeguroSocial" />
+                            <label for="NumeroSeguroSocial"> Número Seguro Social </label>
+                        </div>
 
-                <form id="FormEmpleadoInformacionAdmin" action="/EmpleadoInformacionAdministrativa/Save" method="post">
-                    <input type="hidden" name="IdEmpleadoInformacionAdmin" id="IdEmpleadoInformacionAdmin" value="@Model.IdInformacionAdministrativaEmpleado" />
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="CuentaBanco" id="CuentaBanco" value="@Model.CuentaBanco" />
+                            <label for="CuentaBanco"> CuentaBanco </label>
+                        </div>
 
-                    <div class="form-floating mb-3 form-group">
-                        <input class="form-control" type="text" name="NumeroSeguroSocial" id="NumeroSeguroSocial" value="@Model.NumeroSeguroSocial" />
-                        <label for="NumeroSeguroSocial"> Seguro Social</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="RetencionCCSS" id="RetencionCCSS" value="@Model.RetencionCCSS" />
+                            <label for="RetencionCCSS"> RetencionCCSS </label>
+                        </div>
 
-                    <div class="form-floating mb-3 form-group">
-                        <input class="form-control" type="text" name="CuentaBanco" id="CuentaBanco" value="@Model.CuentaBanco" />
-                        <label for="CuentaBanco"> Cuena Banco</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="GeneracionDePagos" id="GeneracionDePagos" value="@Model.GeneracionDePagos" />
+                            <label for="GeneracionDePagos"> Generación de Pagos </label>
+                        </div>
 
-                    <div class="form-floating mb-3 form-group">
-                        <input class="form-control" type="text" name="RetencionCCSS" id="RetencionCCSS" value="@Model.RetencionCCSS" />
-                        <label for="RetencionCCSS"> Retención CCSS</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="CategoriaProfesional" id="CategoriaProfesional" value="@Model.CategoriaProfesional" />
+                            <label for="CategoriaProfesional"> Categoría Profesional </label>
+                        </div>
 
-                    <div class="form-floating mb-3 form-group">
-                        <input class="form-control" type="text" name="GeneracionDePagos" id="GeneracionDePagos" value="@Model.GeneracionDePagos" />
-                        <label for="GeneracionDePagos"> Generación de Pagos</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="AsignarActividades" id="AsignarActividades" value="@Model.AsignarActividades" />
+                            <label for="AsignarActividades"> Asignar Actividades </label>
+                        </div>
 
-                    <div class="form-floating mb-3 form-group">
-                        <input class="form-control" type="text" name="CategoriaProfesional" id="CategoriaProfesional" value="@Model.CategoriaProfesional" />
-                        <label for="CategoriaProfesional"> Categoría Profesional</label>
-                    </div>
-
-                    <div class="form-floating mb-3 form-group">
-                        <input class="form-control" type="text" name="AsignarActividades" id="AsignarActividades" value="@Model.AsignarActividades" />
-                        <label for="AsignarActividades"> Asignar Actividades</label>
-                    </div>
-
-                    <div class="form-floating mb-3 form-group">
-                        <input class="form-control" type="text" name="AsignacionGuarderias" id="AsignacionGuarderias" value="@Model.AsignarGuarderias" />
-                        <label for="AsignacionGuarderias"> Asignación Guarderias</label>
-                    </div>
-
-                    <div class="mb-3">
-                        @if (TypeForm.Value)
-                        {
-                            <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-                        else
-                        {
-                            <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
-
-
-
-                    </div>
-                </form>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="AsignarGuarderias" id="AsignarGuarderias" value="@Model.AsignarGuarderias" />
+                            <label for="AsignarGuarderias"> Asignar Guarderias </label>
+                        </div>
+                        <br />
+                        <div class="mb-3">
+                            @if (TypeForm.Value)
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                            else
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                        </div>
+                    </form>
+                </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
-
-
-
-@section scripts{
-
-    <script src="~/Scripts/EmpleadoInformacionAdministrativa/Edit.js"></script>
-
-}
-

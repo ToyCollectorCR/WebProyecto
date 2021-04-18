@@ -54,10 +54,10 @@ namespace WebProyecto.Controllers
                     entity.cliente = clientesService.ObtenerDetalle(id);
                 }
                 //entity.ddlbebe = bebeService.Obtenerddl(id);
-                entity.ddlclases = clasesService.Obtenerddl(id);
-                entity.ddlsalas = salasService.Obtenerddl(id);
+                //entity.ddlclases = clasesService.Obtenerddl(id);
+                //entity.ddlsalas = salasService.Obtenerddl(id);
                 //entity.ddltarifas = tarifasService.Obtenerddl(id);
-                entity.ddlproductos = productosService.Obtenerddl(id);
+                //entity.ddlproductos = productosService.Obtenerddl(id);
             }
             catch (Exception ex)
             {

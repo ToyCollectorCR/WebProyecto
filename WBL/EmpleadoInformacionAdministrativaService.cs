@@ -10,8 +10,8 @@ namespace WBL
 {
     public interface IEmpleadoInformacionAdministrativaService : IDisposable
     {
-        List<EmpleadoInformacionAdministrativaEntity> ObtenerLista(int? IdInformacionAdministrativaEmpleado);
-        List<EmpleadoInformacionAdministrativaEntity> Obtenerdll();
+        List<EmpleadoInformacionAdministrativaEntity> ObtenerLista(int? IdEmpleadoInformacionAdministrativa);
+        List<EmpleadoInformacionAdministrativaEntity> Obtenerddl();
         DBEntity Insertar(EmpleadoInformacionAdministrativaEntity entity);
         DBEntity Actualizar(EmpleadoInformacionAdministrativaEntity entity);
         DBEntity Eliminar(EmpleadoInformacionAdministrativaEntity entity);
@@ -25,25 +25,24 @@ namespace WBL
             sql = null;
         }
 
-        public List<EmpleadoInformacionAdministrativaEntity> ObtenerLista(int? IdEmpleadoInformacionAdmin)
+        public List<EmpleadoInformacionAdministrativaEntity> ObtenerLista(int? IdEmpleadoInformacionAdministrativa)
         {
             try
             {
-                var result = sql.Query<EmpleadoInformacionAdministrativaEntity>("EmpleadoInformacionAdministrativaObtener"
-                    , new
-                    {
-                        IdEmpleadoInformacionAdmin
-                    });
+                var result = sql.Query<EmpleadoInformacionAdministrativaEntity>("EmpleadoInformacionAdministrativaObtener", new
+                {
+                    IdEmpleadoInformacionAdministrativa
+                });
                 return result;
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-
-        public List<EmpleadoInformacionAdministrativaEntity> Obtenerdll()
+        public List<EmpleadoInformacionAdministrativaEntity> Obtenerddl()
         {
             try
             {
@@ -52,10 +51,10 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
-
 
         public DBEntity Insertar(EmpleadoInformacionAdministrativaEntity entity)
         {
@@ -63,7 +62,6 @@ namespace WBL
             {
                 var result = sql.QueryExecute("EmpleadoInformacionAdministrativaInsertar", new
                 {
-
                     entity.NumeroSeguroSocial,
                     entity.CuentaBanco,
                     entity.RetencionCCSS,
@@ -78,6 +76,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
@@ -88,7 +87,7 @@ namespace WBL
             {
                 var result = sql.QueryExecute("EmpleadoInformacionAdministrativaActualizar", new
                 {
-
+                    entity.IdEmpleadoInformacionAdministrativa,
                     entity.NumeroSeguroSocial,
                     entity.CuentaBanco,
                     entity.RetencionCCSS,
@@ -96,6 +95,7 @@ namespace WBL
                     entity.CategoriaProfesional,
                     entity.AsignarActividades,
                     entity.AsignarGuarderias,
+
                 });
 
 
@@ -107,6 +107,8 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
 
         public DBEntity Eliminar(EmpleadoInformacionAdministrativaEntity entity)
         {
@@ -114,14 +116,20 @@ namespace WBL
             {
                 var result = sql.QueryExecute("EmpleadoInformacionAdministrativaEliminar", new
                 {
-                    entity.IdInformacionAdministrativaEmpleado
+                    entity.IdEmpleadoInformacionAdministrativa
+
                 });
+
+
                 return result;
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
     }
 }

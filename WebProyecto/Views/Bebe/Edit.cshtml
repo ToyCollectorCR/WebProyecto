@@ -5,10 +5,8 @@
 }
 
 <div class="container">
-
     <div class="row">
         <div class="col-6">
-
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">@(TypeForm.Value ? "Editar Bebe" : "Nuevo Bebe")</h4>
@@ -37,17 +35,17 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="FechaNacimientoBebe" id="FechaNacimientoBebe" value="@Model.FechaNacimientoBebe" />
+                            <input class="form-control" type="date" name="FechaNacimientoBebe" id="FechaNacimientoBebe" value="@Model.FechaNacimientoBebe" />
                             <label for="FechaNacimientoBebe"> Fecha Nacimiento Bebe  </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="InscripcionClasesBebe" id="InscripcionClasesBebe" value="@Model.InscripcionClasesBebe" />
+                            <input class="form-control" type="number" name="InscripcionClasesBebe" id="InscripcionClasesBebe" value="@Model.InscripcionClasesBebe" />
                             <label for="InscripcionClasesBebe"> Inscripcion Clases Bebe </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="AforoDisponibleBebe" id="AforoDisponibleBebe" value="@Model.AforoDisponibleBebe" />
+                            <input class="form-control" type="number" name="AforoDisponibleBebe" id="AforoDisponibleBebe" value="@Model.AforoDisponibleBebe" />
                             <label for="AforoDisponibleBebe"> Aforo Disponible Bebe </label>
                         </div>
 

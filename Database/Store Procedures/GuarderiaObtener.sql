@@ -6,7 +6,7 @@ AS BEGIN
 	SELECT
 			IdGuarderia
 		,	NombreGuarderia
-		,	DiaDeLaSemanaGuarderia
+		,   DiaDeLaSemanaGuarderia=CONVERT(VARCHAR,DiaDeLaSemanaGuarderia,103) 
 		,	HoraDeComienzoGuarderia
 		,	ProfesorResponsableGuarderia
 

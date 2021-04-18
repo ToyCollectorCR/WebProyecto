@@ -6,8 +6,8 @@ AS BEGIN
 	SELECT
 			IdClases
 		,	SalaImpartidaClases
-		,	DiaDeLaSemanaClases
-		,	HoraDeComienzoClases
+		,   DiaDeLaSemanaClases=CONVERT(VARCHAR,DiaDeLaSemanaClases,103)
+		,	HoraDeComienzoClases=CONVERT(VARCHAR,HoraDeComienzoClases,103)
 		,	ActividadImpartidaClases
 		,	ProfesorResponsableClases
 		,	EstadoClases

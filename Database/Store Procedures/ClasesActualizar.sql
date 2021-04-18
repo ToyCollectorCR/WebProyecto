@@ -16,8 +16,8 @@ SET NOCOUNT ON
 		
 		UPDATE Clases SET
 		SalaImpartidaClases = @SalaImpartidaClases,
-		DiaDeLaSemanaClases = @DiaDeLaSemanaClases,
-		HoraDeComienzoClases = @HoraDeComienzoClases,
+		DiaDeLaSemanaClases=CONVERT(VARCHAR,DiaDeLaSemanaClases,103),
+		HoraDeComienzoClases=CONVERT(VARCHAR,HoraDeComienzoClases,103),
 		ActividadImpartidaClases = @ActividadImpartidaClases,
 		ProfesorResponsableClases = @ProfesorResponsableClases,
 		EstadoClases = @EstadoClases

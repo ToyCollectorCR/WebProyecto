@@ -1,71 +1,50 @@
 ﻿@model Entity.GuarderiaEntity
 
-@{ var TypeForm = ViewBag.Form as bool?; }
+@{
+    var TypeForm = ViewBag.Form as bool?;
+}
 
 <div class="container">
-
     <div class="row">
-
         <div class="col-6">
-
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">@(TypeForm.Value ? "Editar Guarderia" : "Nueva Guarderia")</h4>
 
                     <form action="/Guarderia/Save" method="post">
-                        <input type="hidden" name="IdGuarderia" id="IdGuarderia" v-model="@Model.IdGuarderia" />
+                        <input type="hidden" name="IdGuarderia" id="IdGuarderia" value="@Model.IdGuarderia" />
 
-
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="NombreGuarderia" id="NombreGuarderia" v-model="model.NombreGuarderia" required />
-                            <label for="NombreGuarderia"> Nombre Guarderia</label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="NombreGuarderia" id="NombreGuarderia" value="@Model.NombreGuarderia" />
+                            <label for="NombreGuarderia"> Nombre Guarderia </label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="date" name="DiaDeLaSemanaGuarderia" id="DiaDeLaSemanaGuarderia" v-model="model.DiaDeLaSemanaGuarderia"/>
-                            <label for="DiaDeLaSemanaGuarderia">Dia De La Semana </label>
-
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="date" name="DiaDeLaSemanaGuarderia" id="DiaDeLaSemanaGuarderia" value="@Model.NombreGuarderia" />
+                            <label for="DiaDeLaSemanaGuarderia"> Dia De La Semana </label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="time" name="HoraDeComienzoGuarderia" id="HoraDeComienzoGuarderia" v-model="model.HoraDeComienzoGuarderia" />
-                            <label for="HoraDeComienzoGuarderia">Seleccione La Hora</label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="time" name="HoraDeComienzoGuarderia" id="HoraDeComienzoGuarderia" value="@Model.HoraDeComienzoGuarderia" />
+                            <label for="HoraDeComienzoGuarderia"> Seleccione La Hora </label>
                         </div>
 
-
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="ProfesorResponsableGuarderia" id="ProfesorResponsableGuarderia" v-model="model.ProfesorResponsableGuarderia" required />
-                            <label for="ProfesorResponsableGuarderia"> Profesor Responsable</label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="ProfesorResponsableGuarderia" id="ProfesorResponsableGuarderia" value="@Model.ProfesorResponsableGuarderia" />
+                            <label for="ProfesorResponsableGuarderia"> Profesor Responsable </label>
                         </div>
-
                         <br />
-
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                    <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-                else
-                {
-                    <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
-
-
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                            else
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
                         </div>
-
                     </form>
                 </div>
-
             </div>
-
-
         </div>
     </div>
- </div>
-
-
-
-
-    <!--->@section scripts{
-
-        <script src="~/Scripts/Guarderia/Edit.js"></script>
-
-    } -->
+</div>

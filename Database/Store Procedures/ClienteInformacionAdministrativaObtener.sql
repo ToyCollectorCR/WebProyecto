@@ -7,7 +7,7 @@
 		IdClienteInformacionAdmin,
 		Tarifa,
 		SesionesRayosUVA,
-		FechaProximaRenovacion, 
+		FechaProximaRenovacion=CONVERT(VARCHAR,FechaProximaRenovacion,103), 
 		Casillero,
 		SaldoMonederoVirtual
 

@@ -1,10 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[EmpleadoInformacionAdministrativaObtener]
-	@IdInformacionAdministrativaEmpleado INT = null
+	@IdEmpleadoInformacionAdministrativa INT = null
 	AS BEGIN
 	SET NOCOUNT ON
 	
 	select 
-		IdInformacionAdministrativaEmpleado,
+		IdEmpleadoInformacionAdministrativa,
 		NumeroSeguroSocial,
 		CuentaBanco,
 		RetencionCCSS,
@@ -12,15 +12,9 @@
 		CategoriaProfesional,
 		AsignarActividades,
 		AsignarGuarderias
-		--NombreEmpleado,
-		--TipoEmpleado
-
 
 FROM dbo.EmpleadoInformacionAdministrativa 
 
-
-
-WHERE (@IdInformacionAdministrativaEmpleado IS NULL OR IdInformacionAdministrativaEmpleado=@IdInformacionAdministrativaEmpleado)
+WHERE (@IdEmpleadoInformacionAdministrativa IS NULL OR IdEmpleadoInformacionAdministrativa=@IdEmpleadoInformacionAdministrativa)
 
 END
-

@@ -17,8 +17,8 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-15">
-            <table id="GridClienteInformacionAdministrativa" class="table table-dark table-striped table-hover">
+        <div class="col-5">
+            <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Tarifa</th>
@@ -39,8 +39,8 @@
                             <td>@item.Casillero</td>
                             <td>@item.SaldoMonederoVirtual</td>
                             <td>
-                                 <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdClienteInformacionAdmin)"><i class='bx bx-edit-alt'></i></button>
-                                    <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdClienteInformacionAdmin)"><i class='bx bx-trash'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdClienteInformacionAdmin)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdClienteInformacionAdmin)"><i class='bx bx-trash'></i></button>
                             </td>
                         </tr>
                     }
