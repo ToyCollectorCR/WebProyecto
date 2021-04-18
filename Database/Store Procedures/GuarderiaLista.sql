@@ -4,13 +4,14 @@ AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
+			IdGuarderia,
 			NombreGuarderia,
 			DiaDeLaSemanaGuarderia,
 			HoraDeComienzoGuarderia,
 			ProfesorResponsableGuarderia
 	FROM dbo.Guarderia
-	WHERE
-		(@IdGuarderia IS NULL OR IdGuarderia=@IdGuarderia)
+	--WHERE
+		--(@IdGuarderia IS NULL OR IdGuarderia=@IdGuarderia)
 		--and
 		--EstadoBebe=1
 

@@ -8,7 +8,7 @@ SET NOCOUNT ON
 	BEGIN TRY
 	-- AQUI VA EL CODIGO
 		
-		DELETE FROM dbo.Proveedores WHERE IdProveedores=@IdProveedores
+		DELETE FROM Proveedores WHERE IdProveedores=@IdProveedores
 
 		
 		COMMIT TRANSACTION TRASA

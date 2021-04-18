@@ -8,7 +8,7 @@ SET NOCOUNT ON
 	BEGIN TRY
 	-- AQUI VA EL CODIGO
 		
-		DELETE FROM dbo.Guarderia WHERE IdGuarderia=@IdGuarderia
+		DELETE FROM Guarderia WHERE IdGuarderia=@IdGuarderia
 
 		
 		COMMIT TRANSACTION TRASA

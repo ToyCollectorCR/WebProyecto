@@ -11,8 +11,7 @@ namespace WBL
     public interface IClasesService : IDisposable
     {
         List<ClasesEntity> ObtenerLista(int? IdClases);
-        ClasesEntity ObtenerDetalle(int? IdClases);
-        List<ClasesEntity> Obtenerddl(int? IdClases);
+        List<ClasesEntity> Obtenerddl();
         DBEntity Insertar(ClasesEntity entity);
         DBEntity Actualizar(ClasesEntity entity);
         DBEntity Eliminar(ClasesEntity entity);
@@ -31,24 +30,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<ClasesEntity>("ClasesObtener"
-                    , new
-                    {
-                        IdClases
-                    });
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public ClasesEntity ObtenerDetalle(int? IdClases)
-        {
-            try
-            {
-                var result = sql.QueryFirst<ClasesEntity>("ClasesObtener", new
+                var result = sql.Query<ClasesEntity>("ClasesObtener", new
                 {
                     IdClases
                 });
@@ -56,11 +38,12 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-        public List<ClasesEntity> Obtenerddl(int? IdClases)
+        public List<ClasesEntity> Obtenerddl()
         {
             try
             {
@@ -69,6 +52,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
@@ -92,6 +76,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
@@ -109,6 +94,7 @@ namespace WBL
                     entity.ActividadImpartidaClases,
                     entity.ProfesorResponsableClases,
                     entity.EstadoClases,
+
                 });
 
 
@@ -120,6 +106,8 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
 
         public DBEntity Eliminar(ClasesEntity entity)
         {
@@ -128,13 +116,19 @@ namespace WBL
                 var result = sql.QueryExecute("ClasesEliminar", new
                 {
                     entity.IdClases
+
                 });
+
+
                 return result;
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
     }
 }

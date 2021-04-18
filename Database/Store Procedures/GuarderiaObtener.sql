@@ -4,7 +4,8 @@ AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
-			NombreGuarderia
+			IdGuarderia
+		,	NombreGuarderia
 		,	DiaDeLaSemanaGuarderia
 		,	HoraDeComienzoGuarderia
 		,	ProfesorResponsableGuarderia

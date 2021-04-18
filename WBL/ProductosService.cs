@@ -11,8 +11,7 @@ namespace WBL
     public interface IProductosService : IDisposable
     {
         List<ProductosEntity> ObtenerLista(int? IdProductos);
-        List<ProductosEntity> Obtenerddl(int? IdProductos);
-        ProductosEntity ObtenerDetalle(int? IdProductos);
+        List<ProductosEntity> Obtenerddl();
         DBEntity Insertar(ProductosEntity entity);
         DBEntity Actualizar(ProductosEntity entity);
         DBEntity Eliminar(ProductosEntity entity);
@@ -30,20 +29,20 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<ProductosEntity>("ProductosObtener"
-                    , new
-                    {
-                        IdProductos
-                    });
+                var result = sql.Query<ProductosEntity>("ProductosObtener", new
+                {
+                    IdProductos
+                });
                 return result;
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-        public List<ProductosEntity> Obtenerddl(int? IdProductos)
+        public List<ProductosEntity> Obtenerddl()
         {
             try
             {
@@ -52,26 +51,10 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
-
-        public ProductosEntity ObtenerDetalle(int? IdProductos)
-        {
-            try
-            {
-                var result = sql.QueryFirst<ProductosEntity>("ProductosObtener", new
-                {
-                    IdProductos
-                });
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
 
         public DBEntity Insertar(ProductosEntity entity)
         {
@@ -92,6 +75,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
@@ -109,6 +93,7 @@ namespace WBL
                     entity.ProductosConsumidos,
                     entity.CompraProveedores,
                     entity.EstadoProducto,
+
                 });
 
 
@@ -120,6 +105,8 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
 
         public DBEntity Eliminar(ProductosEntity entity)
         {
@@ -128,13 +115,19 @@ namespace WBL
                 var result = sql.QueryExecute("ProductosEliminar", new
                 {
                     entity.IdProductos
+
                 });
+
+
                 return result;
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
     }
 }

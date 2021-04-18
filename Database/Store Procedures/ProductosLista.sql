@@ -1,9 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[ProductosLista]
-	@IdProductos INT =NULL
+
 AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
+			IdProductos,
 			NombreProductos,
 			SesionesRayosUVA,
 			RenovacionCuota,
@@ -12,8 +13,8 @@ AS BEGIN
 			EstadoProducto
 
 	FROM dbo.Productos
-	WHERE
-		(@IdProductos IS NULL OR IdProductos=@IdProductos)
+	--WHERE
+		--(@IdProductos IS NULL OR IdProductos=@IdProductos)
 		--and
 		--EstadoBebe=1
 

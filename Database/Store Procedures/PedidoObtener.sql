@@ -4,10 +4,14 @@ AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
-			Pedidos
+			IdPedidos
+		,	Pedidos
+		,	EstadoPedidos
 
 	FROM dbo.Pedidos
 	WHERE
 		(@IdPedidos IS NULL OR IdPedidos=@IdPedidos)
+		and
+		EstadoPedidos=1
 
 END

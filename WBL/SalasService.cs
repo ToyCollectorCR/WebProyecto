@@ -11,8 +11,7 @@ namespace WBL
     public interface ISalasService : IDisposable
     {
         List<SalasEntity> ObtenerLista(int? IdSalas);
-        SalasEntity ObtenerDetalle(int? IdSalas);
-        List<SalasEntity> Obtenerddl(int? IdSalas);
+        List<SalasEntity> Obtenerddl();
         DBEntity Insertar(SalasEntity entity);
         DBEntity Actualizar(SalasEntity entity);
         DBEntity Eliminar(SalasEntity entity);
@@ -30,24 +29,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<SalasEntity>("SalasObtener"
-                    , new
-                    {
-                        IdSalas
-                    });
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public SalasEntity ObtenerDetalle(int? IdSalas)
-        {
-            try
-            {
-                var result = sql.QueryFirst<SalasEntity>("SalasObtener", new
+                var result = sql.Query<SalasEntity>("SalasObtener", new
                 {
                     IdSalas
                 });
@@ -55,11 +37,12 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-        public List<SalasEntity> Obtenerddl(int? IdSalas)
+        public List<SalasEntity> Obtenerddl()
         {
             try
             {
@@ -68,6 +51,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
@@ -88,6 +72,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
@@ -102,6 +87,7 @@ namespace WBL
                     entity.NombreSalas,
                     entity.CantidadSalas,
                     entity.EstadoSalas,
+
                 });
 
 
@@ -113,6 +99,8 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
 
         public DBEntity Eliminar(SalasEntity entity)
         {
@@ -121,13 +109,19 @@ namespace WBL
                 var result = sql.QueryExecute("SalasEliminar", new
                 {
                     entity.IdSalas
+
                 });
+
+
                 return result;
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
     }
 }

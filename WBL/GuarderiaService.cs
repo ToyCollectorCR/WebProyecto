@@ -11,8 +11,7 @@ namespace WBL
     public interface IGuarderiaService : IDisposable
     {
         List<GuarderiaEntity> ObtenerLista(int? IdGuarderia);
-        GuarderiaEntity ObtenerDetalle(int? IdGuarderia);
-        List<GuarderiaEntity> Obtenerddl(int? IdGuarderia);
+        List<GuarderiaEntity> Obtenerddl();
         DBEntity Insertar(GuarderiaEntity entity);
         DBEntity Actualizar(GuarderiaEntity entity);
         DBEntity Eliminar(GuarderiaEntity entity);
@@ -30,24 +29,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<GuarderiaEntity>("GuarderiaObtener"
-                    , new
-                    {
-                        IdGuarderia
-                    });
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public GuarderiaEntity ObtenerDetalle(int? IdGuarderia)
-        {
-            try
-            {
-                var result = sql.QueryFirst<GuarderiaEntity>("GuarderiaObtener", new
+                var result = sql.Query<GuarderiaEntity>("GuarderiaObtener", new
                 {
                     IdGuarderia
                 });
@@ -55,11 +37,12 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-        public List<GuarderiaEntity> Obtenerddl(int? IdGuarderia)
+        public List<GuarderiaEntity> Obtenerddl()
         {
             try
             {
@@ -68,10 +51,10 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
-
 
         public DBEntity Insertar(GuarderiaEntity entity)
         {
@@ -90,6 +73,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
@@ -105,6 +89,7 @@ namespace WBL
                     entity.DiaDeLaSemanaGuarderia,
                     entity.HoraDeComienzoGuarderia,
                     entity.ProfesorResponsableGuarderia,
+
                 });
 
 
@@ -116,6 +101,8 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
 
         public DBEntity Eliminar(GuarderiaEntity entity)
         {
@@ -124,13 +111,19 @@ namespace WBL
                 var result = sql.QueryExecute("GuarderiaEliminar", new
                 {
                     entity.IdGuarderia
+
                 });
+
+
                 return result;
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
     }
 }

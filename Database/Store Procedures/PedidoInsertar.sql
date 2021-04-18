@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoInsertar]
-	@Pedidos INT
+	@Pedidos INT,
+	@EstadoPedidos BIT
 AS BEGIN
 SET NOCOUNT ON
 
@@ -10,12 +11,14 @@ SET NOCOUNT ON
 		
 		INSERT INTO dbo.Pedidos
 		(
-			Pedidos
+			Pedidos,
+			EstadoPedidos
 		
 		)
 		VALUES
 		(
-			@Pedidos
+			@Pedidos,
+			EstadoPedidos
 		
 		)
 

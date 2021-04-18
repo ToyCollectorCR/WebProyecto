@@ -11,8 +11,7 @@ namespace WBL
     public interface IProveedoresService : IDisposable
     {
         List<ProveedoresEntity> ObtenerLista(int? IdProveedores);
-        ProveedoresEntity ObtenerDetalle(int? IdProveedores);
-        List<ProveedoresEntity> Obtenerddl(int? IdProveedores);
+        List<ProveedoresEntity> Obtenerddl();
         DBEntity Insertar(ProveedoresEntity entity);
         DBEntity Actualizar(ProveedoresEntity entity);
         DBEntity Eliminar(ProveedoresEntity entity);
@@ -30,24 +29,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<ProveedoresEntity>("ProveedoresObtener"
-                    , new
-                    {
-                        IdProveedores
-                    });
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public ProveedoresEntity ObtenerDetalle(int? IdProveedores)
-        {
-            try
-            {
-                var result = sql.QueryFirst<ProveedoresEntity>("ProveedoresObtener", new
+                var result = sql.Query<ProveedoresEntity>("ProveedoresObtener", new
                 {
                     IdProveedores
                 });
@@ -55,11 +37,12 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-        public List<ProveedoresEntity> Obtenerddl(int? IdProveedores)
+        public List<ProveedoresEntity> Obtenerddl()
         {
             try
             {
@@ -68,6 +51,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
@@ -89,6 +73,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
@@ -104,6 +89,7 @@ namespace WBL
                     entity.TelefonoProveedores,
                     entity.CorreoProveedores,
                     entity.EstadoProveedores,
+
                 });
 
 
@@ -115,6 +101,8 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
 
         public DBEntity Eliminar(ProveedoresEntity entity)
         {
@@ -123,13 +111,19 @@ namespace WBL
                 var result = sql.QueryExecute("ProveedoresEliminar", new
                 {
                     entity.IdProveedores
+
                 });
+
+
                 return result;
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
     }
 }

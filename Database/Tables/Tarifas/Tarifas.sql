@@ -6,4 +6,4 @@
 	MesesDuracion INT NOT NULL,
 	InclusionBebes INT NOT NULL,
 	PrecioTarifa INT NOT NULL,
-)
+)WITH (DATA_COMPRESSION = PAGE)

@@ -1,14 +1,15 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoLista]
-	@IdPedidos INT =NULL
+	
 AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
+			IdPedidos,
 			Pedidos
 
 	FROM dbo.Pedidos
-	WHERE
-		(@IdPedidos IS NULL OR IdPedidos=@IdPedidos)
+	--WHERE
+		--(@IdPedidos IS NULL OR IdPedidos=@IdPedidos)
 		--and
 		--EstadoBebe=1
 

@@ -4,6 +4,7 @@ AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
+			IdProductos,
 			NombreProductos,
 			SesionesRayosUVA,
 			RenovacionCuota,
@@ -14,5 +15,6 @@ AS BEGIN
 	FROM dbo.Productos
 	WHERE
 		(@IdProductos IS NULL OR IdProductos=@IdProductos)
-
+		and
+		EstadoProducto=1
 END

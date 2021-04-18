@@ -5,7 +5,7 @@
    ,	Nombre VARCHAR(250) NOT NULL
    ,	Contrasena Varbinary(100) NOT NULL
    ,	Estado BIT NOT NULL CONSTRAINT DF_Usuario_Estado DEFAULT(1)
-)
+)WITH (DATA_COMPRESSION = PAGE)
 GO
 CREATE UNIQUE NONCLUSTERED INDEX IDX_Usuario_usuario
 ON  dbo.Usuario (Usuario)

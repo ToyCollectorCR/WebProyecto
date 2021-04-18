@@ -10,12 +10,11 @@ namespace WBL
 {
     public interface IPedidosService : IDisposable
     {
-        List<PedidosEntity> ObtenerLista(int? IdPedidos);
-        PedidosEntity ObtenerDetalle(int? IdPedidos);
-        List<PedidosEntity> Obtenerddl(int? IdPedidos);
-        DBEntity Insertar(PedidosEntity entity);
-        DBEntity Actualizar(PedidosEntity entity);
-        DBEntity Eliminar(PedidosEntity entity);
+        List<TarifasEntity> ObtenerLista(int? IdTarifa);
+        List<TarifasEntity> Obtenerddl();
+        DBEntity Insertar(TarifasEntity entity);
+        DBEntity Actualizar(TarifasEntity entity);
+        DBEntity Eliminar(TarifasEntity entity);
     }
     public class PedidosService : IPedidosService
     {
@@ -30,24 +29,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<PedidosEntity>("PedidoObtener"
-                    , new
-                    {
-                        IdPedidos
-                    });
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public PedidosEntity ObtenerDetalle(int? IdPedidos)
-        {
-            try
-            {
-                var result = sql.QueryFirst<PedidosEntity>("PedidoObtener", new
+                var result = sql.Query<PedidosEntity>("PedidosObtener", new
                 {
                     IdPedidos
                 });
@@ -55,32 +37,33 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-        public List<PedidosEntity> Obtenerddl(int? IdPedidos)
+        public List<PedidosEntity> Obtenerddl()
         {
             try
             {
-                var result = sql.Query<PedidosEntity>("PedidoLista");
+                var result = sql.Query<PedidosEntity>("PedidosLista");
                 return result;
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
-
-
 
         public DBEntity Insertar(PedidosEntity entity)
         {
             try
             {
-                var result = sql.QueryExecute("PedidoInsertar", new
+                var result = sql.QueryExecute("PedidosInsertar", new
                 {
                     entity.Pedidos,
+                    entity.EstadoPedidos
                 });
 
 
@@ -88,6 +71,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
@@ -96,10 +80,11 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryExecute("PedidoActualizar", new
+                var result = sql.QueryExecute("PedidosActualizar", new
                 {
                     entity.IdPedidos,
                     entity.Pedidos,
+                    entity.EstadoPedidos
                 });
 
 
@@ -111,21 +96,29 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
 
         public DBEntity Eliminar(PedidosEntity entity)
         {
             try
             {
-                var result = sql.QueryExecute("PedidoEliminar", new
+                var result = sql.QueryExecute("PedidosEliminar", new
                 {
                     entity.IdPedidos
+
                 });
+
+
                 return result;
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
     }
 }

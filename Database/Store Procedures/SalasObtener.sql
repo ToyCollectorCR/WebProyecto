@@ -4,12 +4,14 @@ AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
-			NombreSalas
+			IdSalas
+		,	NombreSalas
 		,	CantidadSalas
 		,	EstadoSalas
 
 	FROM dbo.Salas
 	WHERE
 		(@IdSalas IS NULL OR IdSalas=@IdSalas)
-
+		and
+		EstadoSalas=1
 END
