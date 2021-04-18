@@ -2,15 +2,16 @@
 
 @if (ViewData.ContainsKey("msg"))
 {
-<script>
+    <script>
         alert("@ViewData["msg"]");
-</script>}
+    </script>
+}
 
 <div class="container-fluid">
     <h1>Actividades</h1>
     <div class="row">
 
-        <div class="col-3">
+        <div class="col-7">
             <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
         </div>
     </div>
@@ -30,34 +31,33 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-        <tr>
-            <td>@item.IdActividades</td>
-            <td>@item.NombreActividad</td>
-            <td>@item.Descripcion</td>
-            <td>@item.Salas</td>
-            <td>
-                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdActividades)"><i class='bx bx-edit-alt'></i></button>
-                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdActividades)"><i class='bx bx-trash'></i></button>
-            </td>
-        </tr>}
+                        <tr>
+                            <td>@item.IdActividades</td>
+                            <td>@item.NombreActividad</td>
+                            <td>@item.Descripcion</td>
+                            <td>@item.Salas</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdActividades)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdActividades)"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
-
-
             </table>
         </div>
-
     </div>
 
 </div>
 
 @section scripts{
 
-    <script>var ClickNew = function () {
+    <script>
+        var ClickNew = function () {
             window.location.href = "Actividades/Edit";
         }
 
         var ClickUpdate = function (id) {
-            window.location.href = "Actividades/Edit/"+id;
+            window.location.href = "Actividades/Edit/" + id;
         }
 
         var ClickEliminar = function (id) {
@@ -66,7 +66,6 @@
 
             if (result) window.location.href = "Actividades/Delete/" + id;
 
-        }</script>
-
-
+        }
+    </script>
 }

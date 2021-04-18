@@ -1,44 +1,43 @@
-﻿@model WebProyecto.Models.ActividadesEdit
-@using Newtonsoft.Json;
-@{ var TypeForm = ViewBag.Form as bool?; }
+﻿@model Entity.ActividadesEntity
 
-<model data-entity="@JsonConvert.SerializeObject(Model.actividades)" />
-<div id="ActividadesEdit" class="container">
+@{
+    var TypeForm = ViewBag.Form as bool?;
+}
+
+<div class="container">
 
     <div class="row">
         <div class="col-6">
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">@(TypeForm.Value ? "Editar Actividades" : "Nueva Actividad")</h4>
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Actividades" : "Nuevo Actividades")</h4>
 
-                    <form id="FormActividades" action="/Actividades/Save" method="post">
-                        <input type="hidden" name="IdActividades" id="IdActividades" v-model="model.IdActividades" />
+                    <form action="/Actividades/Save" method="post">
+                        <input type="hidden" name="IdActividades" id="IdActividades" value="@Model.IdActividades" />
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="NombreActividad" id="NombreActividad" v-model="model.NombreActividad" required />
-                            <label for="NombreActividad"> Nombre Actividad</label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="NombreActividad" id="NombreActividad" value="@Model.NombreActividad" />
+                            <label for="NombreActividad"> Nombre Actividad </label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="Descripcion" id="Descripcion" v-model="model.Descripcion" required />
-                            <label for="Descripcion"> Descripcion</label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="Descripcion" id="Descripcion" value="@Model.Descripcion" />
+                            <label for="Descripcion"> Descripcion </label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="Salas" id="Salas" v-model="model.Salas" required />
-                            <label for="Salas"> Salas</label>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="Salas" id="Salas" value="@Model.Salas" />
+                            <label for="Salas"> Salas </label>
                         </div>
-
                         <br />
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-            else
-            {
-<button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
-
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                            else
+                            {
+                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
 
                         </div>
                     </form>
@@ -50,10 +49,3 @@
 
     </div>
 </div>
-
-
-@section scripts{
-
-    <script src="~/Scripts/Actividades/Edit.js"></script>
-
-}

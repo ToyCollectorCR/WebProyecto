@@ -4,45 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WBL;
-using WebProyecto.Models;
 
 namespace WebProyecto.Controllers
 {
     public class ActividadesController : Controller
     {
         // GET: Actividades
-        //private IBebeService bebeService;
-        private IActividadesService actividadesService;
-        //private ISalasService salasService;
-        //private ITarifasService tarifasService;
-        //private IProductosService productosService;
-        //private IClientesService clientesService;
-
-        public ActividadesController(IActividadesService actividadesService/*, IClasesService clasesService, ISalasService salasService, ITarifasService tarifasService, IProductosService productosService, IClientesService clientesService*/)
-        {
-            //this.bebeService = bebeService;
-            this.actividadesService = actividadesService;
-            //this.salasService = salasService;
-            //this.tarifasService = tarifasService;
-            //this.productosService = productosService;
-            //this.clientesService = clientesService;
-        }
-
         public ActionResult Index()
         {
             this.SessionOnline();
+            var actividades = IApp.actividadesService.ObtenerLista(null);
 
-            var clases = actividadesService.ObtenerLista(null);
             if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
-            return View(clases);
+
+            return View(actividades);
         }
 
         public ActionResult Edit(int? id)
         {
             this.SessionOnline();
 
-            var entity = new ActividadesEdit() { actividades = new ActividadesEntity() };
+            var entity = new ActividadesEntity();
             try
             {
                 ViewBag.Form = false;
@@ -51,17 +33,17 @@ namespace WebProyecto.Controllers
                     //editar
                     ViewBag.Form = true;
 
-                    entity.actividades = actividadesService.ObtenerDetalle(id);
+                    entity = IApp.actividadesService.ObtenerLista(id).FirstOrDefault();
                 }
-                //entity.ddlbebe = bebeService.Obtenerddl(id);
-                //entity.ddlclases = clasesService.Obtenerddl(id);
-                //entity.ddltarifas = tarifasService.Obtenerddl(id);
-                //entity.ddlproductos = productosService.Obtenerddl(id);
+
             }
             catch (Exception ex)
             {
+
                 return Content(ex.Message);
             }
+
+
             return View(entity);
         }
 
@@ -74,19 +56,27 @@ namespace WebProyecto.Controllers
 
                 if (entity.IdActividades.HasValue)
                 {
-                    result = actividadesService.Actualizar(entity);
+                    result = IApp.actividadesService.Actualizar(entity);
+                    TempData["msg"] = "Se Actualizo el registro con exito!";
+
                 }
                 else
                 {
-                    result = actividadesService.Insertar(entity);
+                    result = IApp.actividadesService.Insertar(entity);
+                    TempData["msg"] = "Se agrego el registro con exito!";
                 }
 
-                return Json(result);
+
+                if (result.CodeError != 0) throw new Exception(result.MsgError);
+
+
+
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
 
-                return Json(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+                return Content(ex.Message);
             }
         }
 
@@ -97,8 +87,8 @@ namespace WebProyecto.Controllers
             try
             {
 
-                var result = actividadesService.Eliminar(new ActividadesEntity { IdActividades = id });
-                TempData["msg"] = "0";
+                var result = IApp.actividadesService.Eliminar(new ActividadesEntity { IdActividades = id });
+                TempData["msg"] = "Se elimino el registro con exito!";
 
                 if (result.CodeError != 0) throw new Exception(result.MsgError);
 
