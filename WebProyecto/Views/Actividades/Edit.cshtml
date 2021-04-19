@@ -17,17 +17,17 @@
                         <input type="hidden" name="IdActividades" id="IdActividades" value="@Model.IdActividades" />
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="NombreActividad" id="NombreActividad" value="@Model.NombreActividad" />
+                            <input class="form-control" type="text" name="NombreActividad" id="NombreActividad" value="@Model.NombreActividad" required />
                             <label for="NombreActividad"> Nombre Actividad </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="Descripcion" id="Descripcion" value="@Model.Descripcion" />
+                            <input class="form-control" type="text" name="Descripcion" id="Descripcion" value="@Model.Descripcion" required />
                             <label for="Descripcion"> Descripcion </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="number" name="Salas" id="Salas" value="@Model.Salas" />
+                            <input class="form-control" type="number" name="Salas" id="Salas" value="@Model.Salas" required />
                             <label for="Salas"> Salas </label>
                         </div>
                         <br />
