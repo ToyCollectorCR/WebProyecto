@@ -7,7 +7,7 @@
 	  Apellido1Cliente VARCHAR(50) NOT NULL,
 	  Apellido2Cliente VARCHAR(50) NOT NULL,
 	  DireccionCliente VARCHAR(200) NOT NULL,
-	  FechaNacimientoCliente DATE,
+	  FechaNacimientoCliente DATETIME,
 	  TelefonoCliente VARCHAR(50) NOT NULL,
 	  EstadoCliente BIT NOT NULL CONSTRAINT DF_Cliente_Estado DEFAULT(0)
 )WITH (DATA_COMPRESSION = PAGE)

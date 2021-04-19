@@ -13,7 +13,7 @@ namespace WebProyecto
         public static IActividadesService actividadesService => new ActividadesService();
         public static IBebeService bebeService => new BebeService();
         public static IClasesService clasesService => new ClasesService();
-        public static IClienteService clienteService => new ClienteService();
+        public static IClientesService clienteService => new ClientesService();
         public static IClienteInformacionAdministrativaService clienteinformacionadministrativaService => new ClienteInformacionAdministrativaService();
         public static IEmpleadoInformacionAdministrativaService empleadoinformacionadministrativaService => new EmpleadoInformacionAdministrativaService();
         public static IEmpleadoService empleadoService => new EmpleadoService();

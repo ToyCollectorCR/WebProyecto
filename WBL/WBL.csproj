@@ -48,7 +48,7 @@
     <Compile Include="BebeService.cs" />
     <Compile Include="ClasesServices.cs" />
     <Compile Include="ClienteInformacionAdministrativaService.cs" />
-    <Compile Include="ClienteService.cs" />
+    <Compile Include="ClientesService.cs" />
     <Compile Include="EmpleadoInformacionAdministrativaService.cs" />
     <Compile Include="EmpleadoService.cs" />
     <Compile Include="GuarderiaService.cs" />

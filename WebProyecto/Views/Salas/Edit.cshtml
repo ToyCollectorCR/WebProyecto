@@ -23,8 +23,8 @@
                             <label for="CantidadSalas"> Cantidad Salas </label>
                         </div>
 
-                        <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" id="EstadoSalas" name="EstadoSalas" v-model="model.EstadoSalas" />
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" id="EstadoSalas" name="EstadoSalas" @(Model.EstadoSalas ? "checked" : "")>
                             <label class="form-check-label" for="EstadoSalas">
                                 Estado Salas
                             </label>

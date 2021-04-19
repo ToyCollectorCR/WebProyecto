@@ -13,25 +13,27 @@ namespace WebProyecto.Controllers
     {
         // GET: Cliente
 
-        private IClienteService ClienteService;
-        private ITarifasService TarifasService;
-        private IClienteInformacionAdministrativaService ClienteInformacionAdministrativaService;
-        
+        private IBebeService bebeService;
+        private IClasesService clasesService;
+        private ISalasService salasService;
+        private ITarifasService tarifasService;
+        private IProductosService productosService;
+        private IClientesService clientesService;
 
-        public ClienteController( IClienteService clienteService,ITarifasService tarifasService,IClienteInformacionAdministrativaService clienteinformacionadministrativaService)
+        public ClienteController(IBebeService bebeService, IClasesService clasesService, ISalasService salasService, ITarifasService tarifasService, IProductosService productosService, IClientesService clientesService)
         {
-            ClienteService = clienteService;
-            TarifasService = tarifasService;
-            ClienteInformacionAdministrativaService = clienteinformacionadministrativaService;
-            
+            this.bebeService = bebeService;
+            this.clasesService = clasesService;
+            this.salasService = salasService;
+            this.tarifasService = tarifasService;
+            this.productosService = productosService;
+            this.clientesService = clientesService;
         }
-
-        // GET: Cliente
         public ActionResult Index()
         {
             this.SessionOnline();
 
-            var clientes = ClienteService.ObtenerLista(null);
+            var clientes = clientesService.ObtenerLista(null);
             if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
             return View(clientes);
         }
@@ -49,10 +51,13 @@ namespace WebProyecto.Controllers
                     //editar
                     ViewBag.Form = true;
 
-                    entity.cliente = ClienteService.ObtenerDetalle(id);
+                    entity.cliente = clientesService.ObtenerDetalle(id);
                 }
-                entity.ddltarifas = TarifasService.Obtenerddl();
-                entity.ddlclienteinformacionadministrativa = ClienteInformacionAdministrativaService.Obtenerddl();
+                //entity.ddlbebe = bebeService.Obtenerddl(id);
+                //entity.ddlclases = clasesService.Obtenerddl(id);
+                //entity.ddlsalas = salasService.Obtenerddl(id);
+                //entity.ddltarifas = tarifasService.Obtenerddl(id);
+                //entity.ddlproductos = productosService.Obtenerddl(id);
             }
             catch (Exception ex)
             {
@@ -70,26 +75,30 @@ namespace WebProyecto.Controllers
 
                 if (entity.IdCliente.HasValue)
                 {
-                    result = ClienteService.Actualizar(entity);
+                    result = clientesService.Actualizar(entity);
                 }
                 else
                 {
-                    result = ClienteService.Insertar(entity);
+                    result = clientesService.Insertar(entity);
                 }
+
                 return Json(result);
             }
             catch (Exception ex)
             {
+
                 return Json(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
             }
         }
+
 
         [HttpGet]
         public ActionResult Delete(int id)
         {
             try
             {
-                var result = ClienteService.Eliminar(new ClienteEntity { IdCliente = id });
+
+                var result = clientesService.Eliminar(new ClienteEntity { IdCliente = id });
                 TempData["msg"] = "0";
 
                 if (result.CodeError != 0) throw new Exception(result.MsgError);
@@ -98,6 +107,7 @@ namespace WebProyecto.Controllers
             }
             catch (Exception ex)
             {
+
                 return Content(ex.Message);
             }
         }

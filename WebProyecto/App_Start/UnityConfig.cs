@@ -45,7 +45,7 @@ namespace WebProyecto
             container.RegisterType<IBebeService, BebeService>();
             container.RegisterType<IClasesService, ClasesService>();
             container.RegisterType<IClienteInformacionAdministrativaService, ClienteInformacionAdministrativaService>();
-            container.RegisterType<IClienteService, ClienteService>();
+            container.RegisterType<IClientesService, ClientesService>();
             container.RegisterType<IEmpleadoInformacionAdministrativaService, EmpleadoInformacionAdministrativaService>();
             container.RegisterType<IEmpleadoService, EmpleadoService>();
             container.RegisterType<IGuarderiaService, GuarderiaService>();

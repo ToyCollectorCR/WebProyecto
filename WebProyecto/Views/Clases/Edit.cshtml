@@ -39,8 +39,9 @@
                             <label for="ProfesorResponsableClases"> Profesor Responsable de Clases </label>
                         </div>
 
-                        <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" id="EstadoClases" name="EstadoClases" v-model="model.EstadoClases" />
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" id="EstadoClases" name="EstadoClases" @(Model.EstadoClases ? "checked" : "")>
                             <label class="form-check-label" for="EstadoClases">
                                 Estado Clases
                             </label>
