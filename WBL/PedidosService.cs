@@ -29,7 +29,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<PedidosEntity>("PedidosObtener", new
+                var result = sql.Query<PedidosEntity>("PedidoObtener", new
                 {
                     IdPedidos
                 });
@@ -46,7 +46,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<PedidosEntity>("PedidosLista");
+                var result = sql.Query<PedidosEntity>("PedidoLista");
                 return result;
             }
             catch (Exception ex)
@@ -60,7 +60,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryExecute("PedidosInsertar", new
+                var result = sql.QueryExecute("PedidoInsertar", new
                 {
                     entity.Pedidos,
                     entity.EstadoPedidos
@@ -80,7 +80,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryExecute("PedidosActualizar", new
+                var result = sql.QueryExecute("PedidoActualizar", new
                 {
                     entity.IdPedidos,
                     entity.Pedidos,
@@ -103,7 +103,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryExecute("PedidosEliminar", new
+                var result = sql.QueryExecute("PedidoEliminar", new
                 {
                     entity.IdPedidos
 

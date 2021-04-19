@@ -33,6 +33,7 @@
                             <td>@item.IdPedidos</td>
                             <td>@item.Pedidos</td>
                             <td>@(item.EstadoPedidos ? "Activo" : "Inactivo")</td>
+                           
                             <td>
                                 <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdPedidos)"><i class='bx bx-edit-alt'></i></button>
                                 <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdPedidos)"><i class='bx bx-trash'></i></button>

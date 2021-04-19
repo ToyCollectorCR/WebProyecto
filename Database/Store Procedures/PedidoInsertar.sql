@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoInsertar]
-	@Pedidos INT,
+	@Pedidos VARCHAR(50),
 	@EstadoPedidos BIT
 AS BEGIN
 SET NOCOUNT ON
