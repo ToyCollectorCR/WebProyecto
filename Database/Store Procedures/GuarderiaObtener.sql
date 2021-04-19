@@ -7,7 +7,7 @@ AS BEGIN
 			IdGuarderia
 		,	NombreGuarderia
 		,   DiaDeLaSemanaGuarderia=CONVERT(VARCHAR,DiaDeLaSemanaGuarderia,103) 
-		,	HoraDeComienzoGuarderia
+		,	HoraDeComienzoGuarderia=CONVERT(VARCHAR,HoraDeComienzoGuarderia,108) 
 		,	ProfesorResponsableGuarderia
 
 	FROM dbo.Guarderia
