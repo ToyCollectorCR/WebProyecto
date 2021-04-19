@@ -106,15 +106,11 @@
     <Build Include="Store Procedures\ClasesInsertar.sql" />
     <Build Include="Store Procedures\ClasesLista.sql" />
     <Build Include="Store Procedures\ClasesObtener.sql" />
-    <Build Include="Store Procedures\ClienteActualizar.sql" />
-    <Build Include="Store Procedures\ClienteEliminar.sql" />
     <Build Include="Store Procedures\ClienteInformacionAdministrativaActualizar.sql" />
     <Build Include="Store Procedures\ClienteInformacionAdministrativaEliminar.sql" />
     <Build Include="Store Procedures\ClienteInformacionAdministrativaInsertar.sql" />
     <Build Include="Store Procedures\ClienteInformacionAdministrativaListar.sql" />
     <Build Include="Store Procedures\ClienteInformacionAdministrativaObtener.sql" />
-    <Build Include="Store Procedures\ClienteInsertar.sql" />
-    <Build Include="Store Procedures\ClienteObtener.sql" />
     <Build Include="Store Procedures\EmpleadoActualizar.sql" />
     <Build Include="Store Procedures\EmpleadoEliminar.sql" />
     <Build Include="Store Procedures\EmpleadoInformacionAdministrativaActualizar.sql" />
@@ -158,6 +154,10 @@
     <Build Include="Store Procedures\UsuarioActualizar.sql" />
     <Build Include="Store Procedures\UsuarioInsertar.sql" />
     <Build Include="Store Procedures\UsuarioLogin.sql" />
+    <Build Include="Store Procedures\ClienteActualizar.sql" />
+    <Build Include="Store Procedures\ClienteEliminar.sql" />
+    <Build Include="Store Procedures\ClienteInsertar.sql" />
+    <Build Include="Store Procedures\ClienteObtener.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />

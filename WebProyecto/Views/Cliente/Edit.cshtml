@@ -12,58 +12,12 @@
                 <div class="card-body">
                     <h4 class="card-title">@(TypeForm.Value ? "Editar Cliente" : "Nuevo Cliente")</h4>
 
-                    <form id="FormCliente" action="/Cliente/Save" method="post">
+                    <form id="FormCliente">
                         <input type="hidden" name="IdCliente" id="IdCliente" v-model="model.IdCliente" />
 
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="Idbebe" name="Idbebe" aria-label="Default select example" v-model="model.Idbebe" required>
-                                @foreach (var item in Model.ddlbebe)
-                                {
-                                    <option value="@item.IdBebe">@item.NombreBebe</option>
-                                }
-                            </select>
-                            <label for="IdClases"> Nombre Bebe</label>
-                        </div>
+                        <input type="hidden" name="IdTarifas" id="IdTarifas" v-model="model.IdTarifas" />
 
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdClases" name="IdClases" aria-label="Default select example" v-model="model.IdClases" required>
-                                @foreach (var item in Model.ddlclases)
-                                {
-                                    <option value="@item.IdClases">@item.ProfesorResponsableClases</option>
-                                }
-                            </select>
-                            <label for="IdClases"> Profesor</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdSala" name="IdSala" aria-label="Default select example" v-model="model.IdSala" required>
-                                @foreach (var item in Model.ddlsalas)
-                                {
-                                    <option value="@item.IdSalas">@item.NombreSalas</option>
-                                }
-                            </select>
-                            <label for="IdProductos"> Nombre de Sala</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdTarifa" name="IdTarifa" aria-label="Default select example" v-model="model.IdTarifa" required>
-                                @foreach (var item in Model.ddltarifas)
-                                {
-                                    <option value="@item.IdTarifa">@item.Tarifas</option>
-                                }
-                            </select>
-                            <label for="IdTarifa"> Tarifa</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdProductos" name="IdProductos" aria-label="Default select example" v-model="model.IdProductos" required>
-                                @foreach (var item in Model.ddlproductos)
-                                {
-                                    <option value="@item.IdProductos">@item.ProductosConsumidos</option>
-}
-                            </select>
-                            <label for="IdProductos"> Productos</label>
-                        </div>
+                        <input type="hidden" name="IdClienteInformacionAdmin" id="IdClienteInformacionAdmin" v-model="model.IdClienteInformacionAdmin" />
 
                         <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="NombreCliente" id="NombreCliente" v-model="model.NombreCliente" required />
@@ -82,7 +36,7 @@
 
                         <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="DireccionCliente" id="DireccionCliente" v-model="model.DireccionCliente" required />
-                            <label for="DireccionCliente"> Direccion</label>
+                            <label for="DireccionCliente"> Direccion Cliente</label>
                         </div>
 
                         <div class="form-floating mb-3 form-group">
@@ -90,27 +44,71 @@
                             <label for="FechaNacimientoCliente"> Fecha Nacimiento Cliente</label>
                         </div>
 
-
-
                         <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="TelefonoCliente" id="TelefonoCliente" v-model="model.TelefonoCliente" required />
-                            <label for="Telefono"> Telefono</label>
+                            <label for="TelefonoCliente"> Telefono Cliente</label>
                         </div>
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="DNICliente" id="DNICliente" v-model="model.DNICliente" required />
-                            <label for="DNICliente"> DNI Cliente</label>
+                            <select class="form-select" id="EstadoCliente" name="EstadoCliente" aria-label="Default select example" v-model="model.EstadoCliente" required>
+
+                                <option value="A">Activo</option>
+                                <option value="I">Inactivo</option>
+                            </select>
+                            <label for="EstadoCliente">Estado Cliente</label>
                         </div>
 
-                        <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" id="EstadoCliente" name="EstadoCliente" v-model="model.EstadoCliente" />
-                            <label class="form-check-label" for="EstadoCliente">
-                                Estado Cliente
-                            </label>
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="Tarifa" name="Tarifa" aria-label="Default select example" v-model="model.IdTarifa" required>
+                                @foreach (var item in Model.ddltarifas)
+                                {
+                                    <option value="@item.IdTarifa">@item.Tarifas</option>
+                                }
+                            </select>
+                            <label for="Empresa"> Tipo de Tarifa</label>
                         </div>
 
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="ClienteInformacionAdministrativa" name="ClienteInformacionAdministrativa" aria-label="Default select example" v-model="model.ClienteInformacionAdministrativa" required>
+                                @foreach (var item in Model.ddlclienteinformacionadministrativa)
+                                {
+                                    <option value="@item.IdClienteInformacionAdmin">@item.SesionesRayosUVA</option>
+                                }
+                            </select>
+                            <label for="ClienteInformacionAdministrativa"> Sesiones Rayos UVA</label>
+                        </div>
 
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="ClienteInformacionAdministrativa" name="ClienteInformacionAdministrativa" aria-label="Default select example" v-model="model.ClienteInformacionAdministrativa" required>
+                                @foreach (var item in Model.ddlclienteinformacionadministrativa)
+                                {
+                                    <option value="@item.IdClienteInformacionAdmin">@item.FechaProximaRenovacion</option>
+                                }
+                            </select>
+                            <label for="ClienteInformacionAdministrativa"> Fecha Próxima Renovación</label>
+                        </div>
 
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="ClienteInformacionAdministrativa" name="ClienteInformacionAdministrativa" aria-label="Default select example" v-model="model.ClienteInformacionAdministrativa" required>
+                                @foreach (var item in Model.ddlclienteinformacionadministrativa)
+                                {
+                                    <option value="@item.IdClienteInformacionAdmin">@item.Casillero</option>
+                                }
+                            </select>
+                            <label for="ClienteInformacionAdministrativa"> Casillero</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="ClienteInformacionAdministrativa" name="ClienteInformacionAdministrativa" aria-label="Default select example" v-model="model.ClienteInformacionAdministrativa" required>
+                                @foreach (var item in Model.ddlclienteinformacionadministrativa)
+                                {
+                                    <option value="@item.IdClienteInformacionAdmin">@item.SaldoMonederoVirtual</option>
+                                }
+                            </select>
+                            <label for="ClienteInformacionAdministrativa"> Saldo Monedero Virtual</label>
+                        </div>
+
+                        <br />
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
@@ -118,22 +116,14 @@
                             else
                             {
                                 <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
-
-
                         </div>
                     </form>
-</div>
-
+                </div>
             </div>
-
         </div>
-
     </div>
 </div>
 
-
 @section scripts{
-
-    <script src="~/Scripts/Cliente/Edit.js"></script>
-
+    <script src="~/Scripts/Cliente/"></script>
 }

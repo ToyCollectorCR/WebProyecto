@@ -15,47 +15,47 @@
                 <thead>
                     <tr>
                         <th>Id Cliente</th>
-                        <th>Bebe</th>
-                        <th>Clase</th>
-                        <th>Sala</th>
                         <th>Tarifa</th>
-                        <th>Producto</th>
+                        <th>ClienteInformacionAdministrativa</th>
                         <th>Nombre Cliente</th>
                         <th>Apellido 1</th>
                         <th>Apellido 2</th>
                         <th>Direccion</th>
                         <th>Fecha de Nacimiento</th>
                         <th>Telefono</th>
-                        <th>DNI</th>
                         <th>Estado</th>
+                        <th>Tarifa</th>
+                        <th>Sesiones Rayos UVA</th>
+                        <th>Fecha Proxima Renovación</th>
+                        <th>Casillero</th>
+                        <th>Saldo Monedero Virtual</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.IdCliente</td>
-                        <td>@item.Bebe.NombreBebe</td>
-                        <td>@item.Clases.ActividadImpartidaClases</td>
-                        <td>@item.Salas.NombreSalas</td>
-                        <td>@item.Tarifas.PrecioTarifa</td>
-                        <td>@item.Productos.ProductosConsumidos</td>
-                        <td>@item.NombreCliente</td>
-                        <td>@item.Apellido1Cliente</td>
-                        <td>@item.Apellido2Cliente</td>
-                        <td>@item.DireccionCliente</td>
-                        <td>@item.FechaNacimientoCliente</td>
-                        <td>@item.TelefonoCliente</td>
-                        <td>@item.DNICliente</td>
-                        <td>@(item.EstadoCliente ? "Activo" : "Inactivo")</td>
-   
-
-                        <td>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdCliente)"><i class='bx bx-edit-alt'></i></button>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdCliente)"><i class='bx bx-trash'></i></button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>@item.IdCliente</td>
+                            <td>@item.Tarifas.IdTarifa</td>
+                            <td>@item.ClienteInformacionAdministrativa.IdClienteInformacionAdmin</td>
+                            <td>@item.NombreCliente</td>
+                            <td>@item.Apellido1Cliente</td>
+                            <td>@item.Apellido2Cliente</td>
+                            <td>@item.DireccionCliente</td>
+                            <td>@item.FechaNacimientoCliente</td>
+                            <td>@item.TelefonoCliente</td>
+                            <td>@item.EstadoCliente ? "Activo" : "Inactivo")</td>
+                            <td>@item.Tarifas.Tarifas</td>
+                            <td>@item.ClienteInformacionAdministrativa.SesionesRayosUVA</td>
+                            <td>@item.ClienteInformacionAdministrativa.FechaProximaRenovacion</td>
+                            <td>@item.ClienteInformacionAdministrativa.Casillero</td>
+                            <td>@item.ClienteInformacionAdministrativa.SaldoMonederoVirtual</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdCliente)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdCliente)"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
 }
                 </tbody>
             </table>
@@ -64,23 +64,25 @@
 </div>
 
 <div id="root">
-
 </div>
 
 @section scripts{
     @if (ViewData.ContainsKey("msg"))
     {
-<script>
-    Swal.fire(
-        'Eliminado!',
-        'Su registro a sido Eliminado.',
-        'success'
-    );
-    var IsLoading = false;</script>
+        <script>
+            Swal.fire(
+                'Eliminado!',
+                'Su registro a sido Eliminado.',
+                'success'
+            );
+            var IsLoading = false;
+        </script>
  }
-else
-{
-<script>var IsLoading = true;</script>
+    else
+    {
+        <script>
+            var IsLoading = true;
+        </script>
 }
 
     <script src="~/Scripts/Cliente/Index.js"></script>
