@@ -11,7 +11,7 @@ AS BEGIN
 	FROM dbo.Pedidos
 	WHERE
 		(@IdPedidos IS NULL OR IdPedidos=@IdPedidos)
-		and
-		EstadoPedidos=1
+		
+		
 
 END
