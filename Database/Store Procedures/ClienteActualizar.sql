@@ -23,18 +23,14 @@ SET NOCOUNT ON
 		
 	UPDATE dbo.Cliente SET
 	--IdCliente=@IdCliente,
-		IdBebe=@IdBebe,
-		IdClases=@IdClases,
-		IdSalas=@IdSalas,
-		IdTarifa=@IdTarifa,
-		IdProductos=@IdProductos,
+
 		NombreCliente=@NombreCliente,
 		Apellido1Cliente=@Apellido1Cliente,
 		Apellido2Cliente=@Apellido2Cliente,
 		DireccionCliente=@DireccionCliente,
 		FechaNacimientoCliente=@FechaNacimientoCliente,
 		TelefonoCliente=@TelefonoCliente,
-		DNICliente=@DNICliente,
+	
 		EstadoCliente=@EstadoCliente	
 	
 	WHERE IdCliente=@IdCliente

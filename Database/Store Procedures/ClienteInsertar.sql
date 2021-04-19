@@ -25,18 +25,16 @@ SET NOCOUNT ON
 		INSERT INTO dbo.Cliente
 		(
 		--	IdCliente
-			IdBebe
-		,	IdClases
-		,	IdSalas
-		,	IdTarifa
-		,	IdProductos
+		
+			IdTarifa
+		
 		,	NombreCliente
 		,   Apellido1Cliente
 		,   Apellido2Cliente
 		,   DireccionCliente
 		,   FechaNacimientoCliente
 		,   TelefonoCliente
-		,   DNICliente
+
 		,	EstadoCliente
 		
 		)
