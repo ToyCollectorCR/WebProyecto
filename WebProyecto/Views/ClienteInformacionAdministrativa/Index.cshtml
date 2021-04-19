@@ -26,6 +26,7 @@
                         <th>FechaProximaRenovacion</th>
                         <th>Casillero</th>
                         <th>SaldoMonederoVirtual</th>
+                        <th>Tiene Hijos</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
@@ -38,6 +39,7 @@
                             <td>@item.FechaProximaRenovacion</td>
                             <td>@item.Casillero</td>
                             <td>@item.SaldoMonederoVirtual</td>
+                            <th>@item.TieneHijos</th>
                             <td>
                                 <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdClienteInformacionAdmin)"><i class='bx bx-edit-alt'></i></button>
                                 <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdClienteInformacionAdmin)"><i class='bx bx-trash'></i></button>

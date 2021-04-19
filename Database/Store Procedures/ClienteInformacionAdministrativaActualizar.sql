@@ -4,7 +4,8 @@
 	@SesionesRayosUVA INT,
 	@FechaProximaRenovacion VARCHAR(MAX),
 	@Casillero INT,
-	@SaldoMonederoVirtual INT
+	@SaldoMonederoVirtual INT,
+	@TieneHijos BIT
 AS BEGIN
 
 SET NOCOUNT ON
@@ -19,8 +20,11 @@ SET NOCOUNT ON
 	SesionesRayosUVA=@SesionesRayosUVA,
 	FechaProximaRenovacion=@FechaProximaRenovacion,--=CONVERT(VARCHAR,FechaProximaRenovacion,103),
 	Casillero=@Casillero, 
-	SaldoMonederoVirtual=@SaldoMonederoVirtual
+	SaldoMonederoVirtual=@SaldoMonederoVirtual,
+	TieneHijos=@TieneHijos
+
 	where IdClienteInformacionAdmin=@IdClienteInformacionAdmin
+
 
 		COMMIT TRANSACTION TRASA
 		

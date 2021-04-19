@@ -6,4 +6,5 @@
 	FechaProximaRenovacion DATE,
 	Casillero INT NOT NULL,
 	SaldoMonederoVirtual INT NOT NULL,
+	TieneHijos BIT NOT NULL CONSTRAINT DF_Tiene_Hijos DEFAULT(0), 
 )

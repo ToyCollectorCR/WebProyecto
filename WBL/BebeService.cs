@@ -70,7 +70,7 @@ namespace WBL
                     entity.FechaNacimientoBebe,
                     entity.InscripcionClasesBebe,
                     entity.AforoDisponibleBebe,
-                    entity.EstadoBebe,
+                    entity.EstadoBebe
                 });
 
 
@@ -97,7 +97,7 @@ namespace WBL
                     entity.FechaNacimientoBebe,
                     entity.InscripcionClasesBebe,
                     entity.AforoDisponibleBebe,
-                    entity.EstadoBebe,
+                    entity.EstadoBebe
 
                 });
 

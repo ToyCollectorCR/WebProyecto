@@ -69,6 +69,7 @@ namespace WBL
                     entity.FechaProximaRenovacion,
                     entity.Casillero,
                     entity.SaldoMonederoVirtual,
+                    entity.TieneHijos
                 });
 
 
@@ -92,6 +93,7 @@ namespace WBL
                     entity.FechaProximaRenovacion,
                     entity.Casillero,
                     entity.SaldoMonederoVirtual,
+                    entity.TieneHijos
                 });
 
 

@@ -11,7 +11,7 @@ AS BEGIN
 			NombrePadreMadreBebe,
 			FechaNacimientoBebe=CONVERT(VARCHAR,FechaNacimientoBebe,103),
 			InscripcionClasesBebe,
-			AforoDisponibleBebe
+			AforoDisponibleBebe,
 			EstadoBebe
 
 	FROM dbo.Bebe

@@ -15,6 +15,7 @@ namespace Entity
         public string FechaProximaRenovacion { get; set; }
         public int Casillero { get; set; }
         public int SaldoMonederoVirtual { get; set; }
-        
+        public bool TieneHijos { get; set; }
+
     }
 }

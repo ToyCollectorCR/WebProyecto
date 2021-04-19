@@ -3,7 +3,9 @@
 	@SesionesRayosUVA INT,
 	@FechaProximaRenovacion VARCHAR(MAX),
 	@Casillero INT,
-	@SaldoMonederoVirtual INT
+	@SaldoMonederoVirtual INT,
+	@TieneHijos BIT
+
 AS BEGIN
 SET NOCOUNT ON
 
@@ -18,7 +20,8 @@ SET NOCOUNT ON
 	SesionesRayosUVA,
 	FechaProximaRenovacion,
 	Casillero,
-	SaldoMonederoVirtual
+	SaldoMonederoVirtual,
+	TieneHijos
 	)
 	VALUES
 	(
@@ -26,7 +29,8 @@ SET NOCOUNT ON
 	@SesionesRayosUVA,
 	@FechaProximaRenovacion,
 	@Casillero,
-	@SaldoMonederoVirtual
+	@SaldoMonederoVirtual,
+	@TieneHijos
 	)
 
 		COMMIT TRANSACTION TRASA

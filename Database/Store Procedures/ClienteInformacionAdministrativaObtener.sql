@@ -9,7 +9,8 @@
 		SesionesRayosUVA,
 		FechaProximaRenovacion=CONVERT(VARCHAR,FechaProximaRenovacion,103), 
 		Casillero,
-		SaldoMonederoVirtual
+		SaldoMonederoVirtual,
+		TieneHijos
 
 FROM dbo.ClienteInformacionAdministrativa	
 

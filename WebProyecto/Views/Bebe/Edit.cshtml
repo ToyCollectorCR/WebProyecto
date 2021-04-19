@@ -49,10 +49,11 @@
                             <label for="AforoDisponibleBebe"> Aforo Disponible Bebe </label>
                         </div>
 
-                        <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" id="EstadoBebe" name="EstadoBebe" v-model="model.EstadoBebe" />
+                  
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" id="EstadoBebe" name="EstadoBebe" @(Model.EstadoBebe ? "checked" : "")>
                             <label class="form-check-label" for="EstadoBebe">
-                                Estado Bebe
+                                Estado Bebé
                             </label>
                         </div>
 
