@@ -10,25 +10,13 @@ namespace Entity
     {
         public int? IdCliente { get; set; }
 
-        public /*bool*/ int? IdBebe { get; set; }
-        //fk
-        public BebeEntity Bebe { get; set; }
-
-        public int? IdClases { get; set; }
-        //fK
-        public ClasesEntity Clases { get; set; }
-
-        public int? IdSalas { get; set; }
-        //fK
-        public SalasEntity Salas { get; set; }
-
         public int? IdTarifa { get; set; }
-        //fK
+        //FK
         public TarifasEntity Tarifas { get; set; }
 
-        public int? IdProductos { get; set; }
-        //fK
-        public ProductosEntity Productos { get; set; }
+        public int? IdClienteInformacionAdmin { get; set; }
+        //FK
+        public ClienteInformacionAdministrativaEntity ClienteInformacionAdministrativa { get; set; }
 
         public string NombreCliente { get; set; }
         public string Apellido1Cliente { get; set; }
@@ -42,11 +30,8 @@ namespace Entity
         public ClienteEntity()
         {
             //depency injection manual
-            Bebe = Bebe ?? new BebeEntity();
-            Clases = Clases ?? new ClasesEntity();
-            Salas = Salas ?? new SalasEntity();
             Tarifas = Tarifas ?? new TarifasEntity();
-            Productos = Productos ?? new ProductosEntity();
+            ClienteInformacionAdministrativa = ClienteInformacionAdministrativa ?? new ClienteInformacionAdministrativaEntity();
         }
 
     }

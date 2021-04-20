@@ -9,10 +9,8 @@ namespace WebProyecto.Models
     public class ClienteEdit
     {
         public ClienteEntity cliente { get; set; }
-        public List<BebeEntity> ddlbebe { get; set; }
-        public List<ClasesEntity> ddlclases { get; set; }
-        public List<SalasEntity> ddlsalas { get; set; }
         public List<TarifasEntity> ddltarifas { get; set; }
-        public List<ProductosEntity> ddlproductos { get; set; }
+        public List<ClienteInformacionAdministrativaEntity> ddlclienteinformacionadministrativa { get; set; }
+
     }
 }

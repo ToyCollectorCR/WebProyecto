@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 
 namespace WBL
 {
-    public interface IClientesService : IDisposable
+    public interface IClienteService : IDisposable
     {
         List<ClienteEntity> ObtenerLista(int? IdCliente);
         ClienteEntity ObtenerDetalle(int? IdCliente);
-        List<ClienteEntity> Obtenerddl(int? IdCliente);
         DBEntity Insertar(ClienteEntity entity);
         DBEntity Actualizar(ClienteEntity entity);
         DBEntity Eliminar(ClienteEntity entity);
     }
 
-    public class ClientesService : IClientesService
+    public class ClienteService : IClienteService
     {
         public IBD sql = new BD("Conn");
         public void Dispose()
@@ -31,8 +30,8 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<ClienteEntity,BebeEntity,ClasesEntity,SalasEntity,TarifasEntity,ProductosEntity>("ClienteObtener", "IdBebe, IdClases, IdSalas,IdTarifa, IdProductos"
-                    , new
+                var result = sql.Query<ClienteEntity, TarifasEntity, ClienteInformacionAdministrativaEntity>("ClienteObtener"
+                    , "IdTarifas,IdClienteInformacionAdmin", new
                     {
                         IdCliente
                     });
@@ -40,6 +39,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
@@ -56,19 +56,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
-                throw ex;
-            }
-        }
 
-        public List<ClienteEntity> Obtenerddl(int? IdCliente)
-        {
-            try
-            {
-                var result = sql.Query<ClienteEntity>("ClienteLista");
-                return result;
-            }
-            catch (Exception ex)
-            {
                 throw ex;
             }
         }
@@ -80,11 +68,7 @@ namespace WBL
             {
                 var result = sql.QueryExecute("ClienteInsertar", new
                 {
-                    entity.IdBebe,
-                    entity.IdClases,
-                    entity.IdSalas,
-                    entity.IdTarifa,
-                    entity.IdProductos,
+                    entity.IdClienteInformacionAdmin,
                     entity.NombreCliente,
                     entity.Apellido1Cliente,
                     entity.Apellido2Cliente,
@@ -93,6 +77,7 @@ namespace WBL
                     entity.TelefonoCliente,
                     entity.DNICliente,
                     entity.EstadoCliente,
+
                 });
 
 
@@ -100,6 +85,7 @@ namespace WBL
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
@@ -111,11 +97,7 @@ namespace WBL
                 var result = sql.QueryExecute("ClienteActualizar", new
                 {
                     entity.IdCliente,
-                    entity.IdBebe,
-                    entity.IdClases,
-                    entity.IdSalas,
-                    entity.IdTarifa,
-                    entity.IdProductos,
+                    entity.IdClienteInformacionAdmin,
                     entity.NombreCliente,
                     entity.Apellido1Cliente,
                     entity.Apellido2Cliente,
@@ -143,13 +125,23 @@ namespace WBL
                 var result = sql.QueryExecute("ClienteEliminar", new
                 {
                     entity.IdCliente
+
+
                 });
+
+
                 return result;
             }
             catch (Exception ex)
             {
+
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
+
+
     }
+
+
+
 }

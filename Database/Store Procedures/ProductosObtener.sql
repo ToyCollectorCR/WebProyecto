@@ -14,7 +14,7 @@ AS BEGIN
 
 	FROM dbo.Productos
 	WHERE
-		(@IdProductos IS NULL OR IdProductos=@IdProductos)
-	
-		
+		(@IdProductos IS NULL OR IdProductos=@IdProductos)	
+		and
+		EstadoProducto=1
 END

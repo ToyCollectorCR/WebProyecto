@@ -20,4 +20,3 @@ AS BEGIN
 
 	ORDER BY NombreProductos
 END
-
