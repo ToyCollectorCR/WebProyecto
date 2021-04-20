@@ -15,12 +15,20 @@
                         <input type="hidden" name="IdPedidos" id="IdPedidos" value="@Model.IdPedidos" />
 
                         <div class="form-floating mb-3">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            <input class="form-control" type="number" name="Pedidos" id="Pedidos" value="@Model.Pedidos" />
+=======
                             <input class="form-control" type="text" name="Pedidos" id="Pedidos" value="@Model.Pedidos" required/>
+>>>>>>> 8c8523e972e561ebb571c751820281a57a126545
+=======
+                            <input class="form-control" type="text" name="Pedidos" id="Pedidos" value="@Model.Pedidos" required/>
+>>>>>>> feb1bf149475684f092b8b6e7ea264ccea68aae7
                             <label for="Pedidos"> Pedidos </label>
                         </div>
 
-                        <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" id="EstadoPedidos" name="EstadoPedidos" v-model="model.EstadoPedidos" />
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" id="EstadoPedidos" name="EstadoPedidos" @(Model.EstadoPedidos ? "checked" : "")>
                             <label class="form-check-label" for="EstadoPedidos">
                                 Estado Pedidos
                             </label>

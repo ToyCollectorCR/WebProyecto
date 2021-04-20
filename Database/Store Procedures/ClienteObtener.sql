@@ -6,49 +6,30 @@ AS BEGIN
 
 	SELECT
 			Cli.IdCliente
-		--,	Cli.IdBebe
-		--,	Cli.IdClases
-		--,	Cli.IdSalas
-		--,	Cli.IdTarifa
+		,	Cli.IdTarifa
+		,   Cli.IdClienteInformacionAdmin
 		,	Cli.NombreCliente
 		,   Cli.Apellido1Cliente
 		,   Cli.Apellido2Cliente
 		,   Cli.DireccionCliente
 		,   Cli.FechaNacimientoCliente
 		,   Cli.TelefonoCliente
-		,   Cli.DNICliente
 		,	Cli.EstadoCliente
 
-		,   Bb.IdBebe
-		,	Bb.NombreBebe
-
-		,   Cla.IdClases
-		,   Cla.ActividadImpartidaClases
-
-		,   S.IdSalas
-		,   S.NombreSalas
-		
-		,	Ta.IdTarifa
-		,	Ta.PrecioTarifa
-
-		,   Prod.IdProductos
-		,	Prod.ProductosConsumidos
-		
+		,   t.Tarifas
+		,	CIA.SesionesRayosUVA
+		,	CIA.FechaProximaRenovacion
+		,	CIA.Casillero
+		,	CIA.SaldoMonederoVirtual
 
 	FROM dbo.Cliente Cli
-	left join dbo.Bebe Bb
-		ON Cli.IdBebe = Bb.IdBebe
-	left join dbo.Clases Cla
-		ON Cli.IdClases = Cla.IdClases
-	left join dbo.Salas S
-		ON S.IdSalas = Cli.IdSalas
-	left join dbo.Productos Prod
-		ON Cli.IdProductos = Prod.IdProductos
-	left join dbo.Tarifas Ta
-		ON Cli.IdTarifa = Ta.IdTarifa
-	WHERE (@IdCliente IS NULL OR IdCliente=@IdCliente)
 
-	and
-		EstadoCliente=1
+	LEFT JOIN dbo.Tarifas T
+		ON Cli.IdTarifa = T.IdTarifa
+
+	LEFT JOIN dbo.ClienteInformacionAdministrativa CIA
+		ON Cli.IdClienteInformacionAdmin = CIA.IdClienteInformacionAdmin
+	
+	WHERE (@IdCliente IS NULL OR IdCliente=@IdCliente)
 
 END

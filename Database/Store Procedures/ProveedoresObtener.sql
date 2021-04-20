@@ -13,6 +13,6 @@ AS BEGIN
 	FROM dbo.Proveedores
 	WHERE
 		(@IdProveedores IS NULL OR IdProveedores=@IdProveedores)
-		and
-		EstadoProveedores=1
+		
+		
 END

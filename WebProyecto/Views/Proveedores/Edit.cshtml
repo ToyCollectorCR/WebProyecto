@@ -28,8 +28,8 @@
                             <label for="CorreoProveedores"> Correo Proveedores </label>
                         </div>
 
-                        <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" id="EstadoProveedores" name="EstadoProveedores" v-model="model.EstadoProveedores" />
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" id="EstadoProveedores" name="EstadoProveedores" @(Model.EstadoProveedores ? "checked" : "")>
                             <label class="form-check-label" for="EstadoProveedores">
                                 Estado Proveedores
                             </label>

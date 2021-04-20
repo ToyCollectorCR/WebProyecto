@@ -5,7 +5,7 @@
 	Apellido1Bebe VARCHAR(50) NOT NULL,
 	Apellido2Bebe VARCHAR(50) NOT NULL,
 	NombrePadreMadreBebe VARCHAR(50)NOT NULL,
-	FechaNacimientoBebe DATE,
+	FechaNacimientoBebe DATETIME,
 	InscripcionClasesBebe INT NOT NULL,
 	AforoDisponibleBebe INT NOT NULL,
 	EstadoBebe BIT NOT NULL CONSTRAINT DF_Bebe_EstadoBebe DEFAULT(0), 

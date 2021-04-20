@@ -15,7 +15,7 @@ AS BEGIN
 	FROM dbo.Clases
 	WHERE
 		(@IdClases IS NULL OR IdClases=@IdClases)
-		and
-		EstadoClases=1
+		
+		
 
 END

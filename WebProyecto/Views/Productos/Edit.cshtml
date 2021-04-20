@@ -40,12 +40,13 @@
                             <label for="CompraProveedores"> Compra Proveedores </label>
                         </div>
 
-                        <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" id="EstadoProductos" name="EstadoProductos" v-model="model.EstadoProductos" />
-                            <label class="form-check-label" for="EstadoProductos">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" id="EstadoProducto" name="EstadoProducto" @(Model.EstadoProducto ? "checked" : "")>
+                            <label class="form-check-label" for="EstadoProducto">
                                 Estado Productos
                             </label>
                         </div>
+
                         <br />
                         <div class="mb-3">
                             @if (TypeForm.Value)

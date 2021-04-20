@@ -1,21 +1,16 @@
 ﻿CREATE PROCEDURE [dbo].[ClienteInsertar]
-	--@IdCliente INT,
-	@IdBebe INT,
-	@IdClases INT,
-	@IdSalas INT,
 	@IdTarifa INT,
-	@IdProductos INT,
+	@IdClienteInformacionAdmin INT,
 	@NombreCliente VARCHAR(50),
 	@Apellido1Cliente VARCHAR(50),
 	@Apellido2Cliente VARCHAR(50),
 	@DireccionCliente VARCHAR(200),
-	@FechaNacimientoCliente varchar(50),
-	@TelefonoCliente varchar(50),
-	@DNICliente varchar(50),
+	@FechaNacimientoCliente VARCHAR(50),
+	@TelefonoCliente VARCHAR(50),
 	@EstadoCliente BIT
 
 	AS BEGIN
-SET NOCOUNT ON
+	SET NOCOUNT ON
 
 	BEGIN TRANSACTION TRASA
 
@@ -24,46 +19,33 @@ SET NOCOUNT ON
 		
 		INSERT INTO dbo.Cliente
 		(
-		--	IdCliente
-			IdBebe
-		,	IdClases
-		,	IdSalas
-		,	IdTarifa
-		,	IdProductos
+			IdTarifa
+		,	IdClienteInformacionAdmin
 		,	NombreCliente
 		,   Apellido1Cliente
 		,   Apellido2Cliente
 		,   DireccionCliente
 		,   FechaNacimientoCliente
 		,   TelefonoCliente
-		,   DNICliente
 		,	EstadoCliente
 		
 		)
 		VALUES
 		(
-		  @IdBebe
-		, @IdClases
-		, @IdSalas
-		, @IdTarifa
-		, @IdProductos
-		, @NombreCliente
-	    , @Apellido1Cliente
-	    , @Apellido2Cliente 
-		, @DireccionCliente
-		, @FechaNacimientoCliente
-		, @TelefonoCliente
-		, @DNICliente
-		, @EstadoCliente
-		
+			  @IdTarifa
+			 ,@IdClienteInformacionAdmin
+			, @NombreCliente
+			, @Apellido1Cliente
+			, @Apellido2Cliente 
+			, @DireccionCliente
+			, @FechaNacimientoCliente
+			, @TelefonoCliente
+			, @EstadoCliente
 		)
-
 
 		COMMIT TRANSACTION TRASA
 		
 		SELECT 0 AS CodeError, '' AS MsgError
-
-
 
 	END TRY
 
@@ -74,6 +56,4 @@ SET NOCOUNT ON
 
 			ROLLBACK TRANSACTION TRASA
 	END CATCH
-
-
 END
