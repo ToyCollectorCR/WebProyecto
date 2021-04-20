@@ -1,76 +1,101 @@
 ﻿@model List<Entity.ClienteEntity>
 
+
 <div class="container-fluid">
-    <h1>Clientes</h1>
+    <h1>Empleados</h1>
     <div class="row">
+
         <div class="col-3">
             <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
         </div>
     </div>
     <br />
     <div class="row">
-        <div class="col-12">
-            <table id="GridCliente" class="table table-dark table-striped table-hover">
+        <div class="col-17">
+            <table id="GridEmpleado" class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Id Empleado</th>
-                        <th>Tipo Identificacion</th>
-                        <th>Empresa</th>
-                        <th>Indentificacion</th>
-                        <th>Nombre</th>
-                        <th>Edad</th>
-                        <th>Sexo</th>
-                        <th>Estado</th>
-                        <th>Tiene Vehiculo?</th>
-                        <th>Vehiculos</th>
+                        <th>Id Cliente</th>
+                        <th>Id Tarifa</th>
+                        <th>Id Cliente Informacion Admin</th>
+                        <th>Nombre Cliente</th>
+                        <th>Apellido 1 Cliente</th>
+                        <th>Apellido 2 Cliente</th>
+                        <th>Direccion Cliente</th>
+                        <th>Fecha Nacimiento Cliente</th>
+                        <th>Telefono Cliente</th>
+                        <th>Estado Cliente</th>
+                        <th>Tipo de Tarifa</th>
+                        <th>SesionesRayosUVA</th>
+                        <th>FechaProximaRenovacion</th>
+                        <th>Casillero</th>
+                        <th>SaldoMonederoVirtual</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-        <tr>
-            <td>@item.IdEmpleado</td>
-            <td>@item.TipoIndentificacion.Descripcion</td>
-            <td>@item.Empresa.NombreEmpresa</td>
-            <td>@item.Identificacion</td>
-            <td>@item.NombreEmpleado</td>
-            <td>@item.Edad</td>
-            <td>@(item.Sexo=="F"?"Femenino":"Masculino")</td>
-            <td>@(item.Estado ? "Activo" : "Inactivo")</td>
-            <td>@(item.TieneVehiculo ? "Si" : "No")</td>
-            <td>@item.Vehiculos</td>
-            <td>
-                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdCliente)"><i class='bx bx-edit-alt'></i></button>
-                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdCliente)"><i class='bx bx-trash'></i></button>
-            </td>
-        </tr>}
+                    <tr>
+                        <td>@item.IdCliente</td>
+                        <td>@item.IdTarifa</td>
+                        <td>@item.IdClienteInformacionAdmin</td>
+                        <td>@item.NombreCliente</td>
+                        <td>@item.Apellido1Cliente</td>
+                        <td>@item.Apellido2Cliente</td>
+                        <td>@item.DireccionCliente</td>
+                        <td>@item.FechaNacimientoCliente</td>
+                        <td>@item.TelefonoCliente</td>
+                        <td>@(item.EstadoCliente ? "Activo" : "Inactivo")</td>
+                        <td>@item.Tarifas.Tarifas</td>
+                        <td>@item.ClienteInformacionAdministrativa.SesionesRayosUVA</td>
+                        <td>@item.ClienteInformacionAdministrativa.FechaProximaRenovacion</td>
+                        <td>@item.ClienteInformacionAdministrativa.Casillero</td>
+                        <td>@item.ClienteInformacionAdministrativa.SaldoMonederoVirtual</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdCliente)"><i class='bx bx-edit-alt'></i></button>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdCliente)"><i class='bx bx-trash'></i></button>
+                        </td>
+                    </tr>
+                    }
                 </tbody>
+
+
             </table>
         </div>
+
     </div>
+
 </div>
+
+
+
 <div id="root">
+
 </div>
+
+
 
 
 @section scripts{
     @if (ViewData.ContainsKey("msg"))
     {
-<script>
-    Swal.fire(
-        'Eliminado!',
-        'Su registro a sido Eliminado.',
-        'success'
-    );
-    var IsLoading = false;
-</script> }
-                else
-                {
-<script>
-    var IsLoading = true;
-</script>}
+        <script>
+            Swal.fire(
+                'Eliminado!',
+                'Su registro a sido Eliminado.',
+                'success'
+            );
+            var IsLoading = false;
+        </script>
+    }
+    else
+    {
+        <script>
+            var IsLoading = true;
+        </script>
+    }
 
-    <script src="~/Scripts/Cliente/Index.js"></script>
+    <script src="~/Scripts/Empleado/Index.js"></script>
 
 }

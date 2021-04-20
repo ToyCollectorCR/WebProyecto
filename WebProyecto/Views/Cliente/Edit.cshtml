@@ -1,6 +1,8 @@
 ﻿@model WebProyecto.Models.ClienteEdit
 @using Newtonsoft.Json;
-@{ var TypeForm = ViewBag.Form as bool?; }
+@{
+    var TypeForm = ViewBag.Form as bool?;
+}
 
 <model data-entity="@JsonConvert.SerializeObject(Model.cliente)" />
 <div id="ClienteEdit" class="container">
@@ -10,60 +12,12 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">@(TypeForm.Value ? "Editar Cliente" : "Nuevo Cliente")</h4>
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Cliente": "Nuevo Cliente")</h4>
 
-                    <form id="FormCliente" action="/Cliente/Save" method="post">
+                    <form id="FormCliente">
                         <input type="hidden" name="IdCliente" id="IdCliente" v-model="model.IdCliente" />
-
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="Idbebe" name="Idbebe" aria-label="Default select example" v-model="model.Idbebe" required>
-                                @foreach (var item in Model.ddlbebe)
-                                {
-                                    <option value="@item.IdBebe">@item.NombreBebe</option>
-                                }
-                            </select>
-                            <label for="IdClases"> Nombre Bebe</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdClases" name="IdClases" aria-label="Default select example" v-model="model.IdClases" required>
-                                @foreach (var item in Model.ddlclases)
-                                {
-                                    <option value="@item.IdClases">@item.ProfesorResponsableClases</option>
-                                }
-                            </select>
-                            <label for="IdClases"> Profesor</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdSala" name="IdSala" aria-label="Default select example" v-model="model.IdSala" required>
-                                @foreach (var item in Model.ddlsalas)
-                                {
-                                    <option value="@item.IdSalas">@item.NombreSalas</option>
-                                }
-                            </select>
-                            <label for="IdProductos"> Nombre de Sala</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdTarifa" name="IdTarifa" aria-label="Default select example" v-model="model.IdTarifa" required>
-                                @foreach (var item in Model.ddltarifas)
-                                {
-                                    <option value="@item.IdTarifa">@item.Tarifas</option>
-                                }
-                            </select>
-                            <label for="IdTarifa"> Tarifa</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdProductos" name="IdProductos" aria-label="Default select example" v-model="model.IdProductos" required>
-                                @foreach (var item in Model.ddlproductos)
-                                {
-                                    <option value="@item.IdProductos">@item.ProductosConsumidos</option>
-}
-                            </select>
-                            <label for="IdProductos"> Productos</label>
-                        </div>
+                        <input type="hidden" name="IdTarifa" id="IdTarifa" v-model="model.IdTarifa" />
+                        <input type="hidden" name="IdClienteInformacionAdmin" id="IdClienteInformacionAdmin" v-model="model.IdClienteInformacionAdmin" />
 
                         <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="NombreCliente" id="NombreCliente" v-model="model.NombreCliente" required />
@@ -82,24 +36,22 @@
 
                         <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="DireccionCliente" id="DireccionCliente" v-model="model.DireccionCliente" required />
-                            <label for="DireccionCliente"> Direccion</label>
+                            <label for="DireccionCliente"> Direccion Cliente</label>
                         </div>
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="FechaNacimientoCliente" id="FechaNacimientoCliente" v-model="model.FechaNacimientoCliente" required />
+                            <input class="form-control" type="date" name="FechaNacimientoCliente" id="FechaNacimientoCliente" v-model="model.FechaNacimientoCliente" required />
                             <label for="FechaNacimientoCliente"> Fecha Nacimiento Cliente</label>
                         </div>
 
-
-
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="TelefonoCliente" id="TelefonoCliente" v-model="model.TelefonoCliente" required />
-                            <label for="Telefono"> Telefono</label>
+                            <input class="form-control" type="tel" name="TelefonoCliente" id="TelefonoCliente" v-model="model.TelefonoCliente" required />
+                            <label for="TelefonoCliente"> Telefono Cliente</label>
                         </div>
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="DNICliente" id="DNICliente" v-model="model.DNICliente" required />
-                            <label for="DNICliente"> DNI Cliente</label>
+                            <input class="form-control" type="text" name="DireccionCliente" id="DireccionCliente" v-model="model.DireccionCliente" required />
+                            <label for="DireccionCliente"> Direccion Cliente</label>
                         </div>
 
                         <div class="form-check form-group">
@@ -108,21 +60,74 @@
                                 Estado Cliente
                             </label>
                         </div>
+                        <br />
 
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="Tarifas" name="Tarifas" aria-label="Default select example" v-model="model.Tarifas" required>
+                                @foreach (var item in Model.ddltarifas)
+                                {
+                    <option value="@item.IdTarifa">@item.Tarifas</option>
+}
+                            </select>
+                            <label for="Tarifas"> Tipo de Tarifa</label>
+                        </div>
+                        <br />
 
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="SesionesRayosUVA" name="SesionesRayosUVA" aria-label="Default select example" v-model="model.SesionesRayosUVA" required>
+                                @foreach (var item in Model.ddlclienteinformacionadministrativa)
+                                {
+                    <option value="@item.IdClienteInformacionAdmin">@item.SesionesRayosUVA</option>
+}
+                            </select>
+                            <label for="SesionesRayosUVA"> Sesiones Rayos UVA</label>
+                        </div>
+                        <br />
 
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="FechaProximaRenovacion" name="FechaProximaRenovacion" aria-label="Default select example" v-model="model.FechaProximaRenovacion" required>
+                                @foreach (var item in Model.ddlclienteinformacionadministrativa)
+                                {
+                    <option value="@item.IdClienteInformacionAdmin">@item.FechaProximaRenovacion</option>
+}
+                            </select>
+                            <label for="FechaProximaRenovacion"> Fecha Proxima Renovacion</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="Casillero" name="Casillero" aria-label="Default select example" v-model="model.Casillero" required>
+                                @foreach (var item in Model.ddlclienteinformacionadministrativa)
+                                {
+                    <option value="@item.IdClienteInformacionAdmin">@item.Casillero</option>
+}
+                            </select>
+                            <label for="Casillero"> Casillero</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="SaldoMonederoVirtual" name="SaldoMonederoVirtual" aria-label="Default select example" v-model="model.SaldoMonederoVirtual" required>
+                                @foreach (var item in Model.ddlclienteinformacionadministrativa)
+                                {
+                    <option value="@item.IdClienteInformacionAdmin">@item.SaldoMonederoVirtual</option>
+}
+                            </select>
+                            <label for="SaldoMonederoVirtual">Saldo Monedero Virtual</label>
+                        </div>
+                        <br />
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-                            else
-                            {
-                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                    <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                else
+                {
+                    <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
 
 
                         </div>
                     </form>
-</div>
+                </div>
 
             </div>
 
@@ -133,6 +138,7 @@
 
 
 @section scripts{
+
 
     <script src="~/Scripts/Cliente/Edit.js"></script>
 
