@@ -48,7 +48,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<ClienteInformacionAdministrativaEntity>("ClienteInformacionAdministrativaLista");
+                var result = sql.Query<ClienteInformacionAdministrativaEntity>("ClienteInformacionAdministrativaListar");
                 return result;
             }
             catch (Exception ex)

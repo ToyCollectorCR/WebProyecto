@@ -10,10 +10,6 @@ namespace Entity
     {
         public int? IdCliente { get; set; }
 
-        public int? IdTarifa { get; set; }
-        //FK
-        public TarifasEntity Tarifas { get; set; }
-
         public int? IdClienteInformacionAdmin { get; set; }
         //FK
         public ClienteInformacionAdministrativaEntity ClienteInformacionAdministrativa { get; set; }
@@ -25,12 +21,13 @@ namespace Entity
         public string FechaNacimientoCliente { get; set; }
         public string TelefonoCliente { get; set; }
         public string DNICliente { get; set; }
+        public bool TarifaTieneHijos { get; set; }
+        public string TarifaCantidadHijos { get; set; }
         public bool EstadoCliente { get; set; }
 
         public ClienteEntity()
         {
             //depency injection manual
-            Tarifas = Tarifas ?? new TarifasEntity();
             ClienteInformacionAdministrativa = ClienteInformacionAdministrativa ?? new ClienteInformacionAdministrativaEntity();
         }
 

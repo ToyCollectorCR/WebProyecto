@@ -7,6 +7,8 @@
 	@DireccionCliente VARCHAR(200),
 	@FechaNacimientoCliente VARCHAR(50),
 	@TelefonoCliente VARCHAR(50),
+	@TarifaTieneHijos BIT,
+	@TarifaCantidadHijos VARCHAR(1000)=NULL,
 	@EstadoCliente BIT
 
 	AS BEGIN
@@ -19,27 +21,29 @@
 		
 		INSERT INTO dbo.Cliente
 		(
-			IdTarifa
-		,	IdClienteInformacionAdmin
+			IdClienteInformacionAdmin
 		,	NombreCliente
 		,   Apellido1Cliente
 		,   Apellido2Cliente
 		,   DireccionCliente
 		,   FechaNacimientoCliente
 		,   TelefonoCliente
+		,	TarifaTieneHijos
+		,	TarifaCantidadHijos
 		,	EstadoCliente
 		
 		)
 		VALUES
 		(
-			  @IdTarifa
-			 ,@IdClienteInformacionAdmin
+			  @IdClienteInformacionAdmin
 			, @NombreCliente
 			, @Apellido1Cliente
 			, @Apellido2Cliente 
 			, @DireccionCliente
 			, @FechaNacimientoCliente
 			, @TelefonoCliente
+			, @TarifaTieneHijos
+			, @TarifaCantidadHijos
 			, @EstadoCliente
 		)
 

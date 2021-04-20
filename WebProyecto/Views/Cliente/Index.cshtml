@@ -2,7 +2,7 @@
 
 
 <div class="container-fluid">
-    <h1>Empleados</h1>
+    <h1>Clientes</h1>
     <div class="row">
 
         <div class="col-3">
@@ -11,12 +11,11 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-17">
-            <table id="GridEmpleado" class="table table-dark table-striped table-hover">
+        <div class="col-16">
+            <table id="GridECliente" class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Id Cliente</th>
-                        <th>Id Tarifa</th>
                         <th>Id Cliente Informacion Admin</th>
                         <th>Nombre Cliente</th>
                         <th>Apellido 1 Cliente</th>
@@ -24,8 +23,9 @@
                         <th>Direccion Cliente</th>
                         <th>Fecha Nacimiento Cliente</th>
                         <th>Telefono Cliente</th>
+                        <th>Tarifa Tiene Hijos</th>
+                        <th>Tarifa Por Cantidad de Hijos</th>
                         <th>Estado Cliente</th>
-                        <th>Tipo de Tarifa</th>
                         <th>SesionesRayosUVA</th>
                         <th>FechaProximaRenovacion</th>
                         <th>Casillero</th>
@@ -38,7 +38,6 @@
                     {
                     <tr>
                         <td>@item.IdCliente</td>
-                        <td>@item.IdTarifa</td>
                         <td>@item.IdClienteInformacionAdmin</td>
                         <td>@item.NombreCliente</td>
                         <td>@item.Apellido1Cliente</td>
@@ -46,8 +45,9 @@
                         <td>@item.DireccionCliente</td>
                         <td>@item.FechaNacimientoCliente</td>
                         <td>@item.TelefonoCliente</td>
+                        <td>@(item.TarifaTieneHijos ? "Si" : "No")</td>
+                        <td>@item.TarifaCantidadHijos</td>
                         <td>@(item.EstadoCliente ? "Activo" : "Inactivo")</td>
-                        <td>@item.Tarifas.Tarifas</td>
                         <td>@item.ClienteInformacionAdministrativa.SesionesRayosUVA</td>
                         <td>@item.ClienteInformacionAdministrativa.FechaProximaRenovacion</td>
                         <td>@item.ClienteInformacionAdministrativa.Casillero</td>
@@ -96,6 +96,6 @@
         </script>
     }
 
-    <script src="~/Scripts/Empleado/Index.js"></script>
+    <script src="~/Scripts/Cliente/Index.js"></script>
 
 }

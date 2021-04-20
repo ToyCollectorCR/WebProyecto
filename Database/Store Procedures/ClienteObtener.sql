@@ -6,17 +6,16 @@ AS BEGIN
 
 	SELECT
 			Cli.IdCliente
-		,	Cli.IdTarifa
-		,   Cli.IdClienteInformacionAdmin
 		,	Cli.NombreCliente
 		,   Cli.Apellido1Cliente
 		,   Cli.Apellido2Cliente
 		,   Cli.DireccionCliente
 		,   Cli.FechaNacimientoCliente
 		,   Cli.TelefonoCliente
+		,	Cli.TarifaTieneHijos
+		,	Cli.TarifaCantidadHijos
 		,	Cli.EstadoCliente
-
-		,   t.Tarifas
+		,   Cli.IdClienteInformacionAdmin
 		,	CIA.SesionesRayosUVA
 		,	CIA.FechaProximaRenovacion
 		,	CIA.Casillero
@@ -24,10 +23,8 @@ AS BEGIN
 
 	FROM dbo.Cliente Cli
 
-	LEFT JOIN dbo.Tarifas T
-		ON Cli.IdTarifa = T.IdTarifa
-
-	LEFT JOIN dbo.ClienteInformacionAdministrativa CIA
+	--LEFT JOIN 
+	INNER JOIN  dbo.ClienteInformacionAdministrativa CIA
 		ON Cli.IdClienteInformacionAdmin = CIA.IdClienteInformacionAdmin
 	
 	WHERE (@IdCliente IS NULL OR IdCliente=@IdCliente)
