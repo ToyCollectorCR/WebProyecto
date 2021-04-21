@@ -10,14 +10,14 @@ AS BEGIN
 		,   Cli.Apellido1Cliente
 		,   Cli.Apellido2Cliente
 		,   Cli.DireccionCliente
-		,   Cli.FechaNacimientoCliente
+		,   FechaNacimientoCliente=CONVERT(VARCHAR,Cli.FechaNacimientoCliente,103)
 		,   Cli.TelefonoCliente
 		,	Cli.TarifaTieneHijos
 		,	Cli.TarifaCantidadHijos
 		,	Cli.EstadoCliente
 		,   Cli.IdClienteInformacionAdmin
 		,	CIA.SesionesRayosUVA
-		,	CIA.FechaProximaRenovacion
+		,	FechaProximaRenovacion=CONVERT(VARCHAR,CIA.FechaProximaRenovacion,103)
 		,	CIA.Casillero
 		,	CIA.SaldoMonederoVirtual
 
