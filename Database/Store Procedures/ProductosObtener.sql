@@ -4,17 +4,21 @@ AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
-			IdProductos,
-			NombreProductos,
-			SesionesRayosUVA,
+			Prod.IdProductos,
+			Prod.IdProveedores,
+			Prod.NombreProductos,
+			Prod.SesionesRayosUVA,
 			RenovacionCuota=CONVERT(VARCHAR,RenovacionCuota,103),
-			ProductosConsumidos,
-			CompraProveedores,
-			EstadoProducto
+			Prod.ProductosConsumidos,
+			Prod.EstadoProducto,
+			Prov.NombreProveedores
 
-	FROM dbo.Productos
-	WHERE
-		(@IdProductos IS NULL OR IdProductos=@IdProductos)	
-		and
-		EstadoProducto=1
+	FROM dbo.Productos Prod
+
+--LEFT JOIN 
+	INNER JOIN  dbo.Proveedores Prov
+		ON Prod.IdProveedores = Prov.IdProveedores
+	
+	WHERE (@IdProductos IS NULL OR IdProductos=@IdProductos)	
+
 END

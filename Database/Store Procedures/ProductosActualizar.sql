@@ -1,5 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[ProductosActualizar]
+
 	@IdProductos INT,
+	@IdProveedores INT,
 	@NombreProductos VARCHAR(50),
 	@SesionesRayosUVA INT,
 	@RenovacionCuota DATE,
@@ -16,11 +18,12 @@ SET NOCOUNT ON
 	-- AQUI VA EL CODIGO
 		
 		UPDATE Productos SET
+
+		IdProveedores=@IdProveedores,
 		NombreProductos=@NombreProductos,
 		SesionesRayosUVA=@SesionesRayosUVA,
-		RenovacionCuota=@RenovacionCuota,--=CONVERT(VARCHAR,RenovacionCuota,103),
+		RenovacionCuota=@RenovacionCuota,
 		ProductosConsumidos=@ProductosConsumidos,
-		CompraProveedores=@CompraProveedores,
 		EstadoProducto=@EstadoProducto
 		
 		WHERE IdProductos=@IdProductos

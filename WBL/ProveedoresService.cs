@@ -63,6 +63,7 @@ namespace WBL
                 var result = sql.QueryExecute("ProveedoresInsertar", new
                 {
                     entity.NombreProveedores,
+                    entity.IDProve,
                     entity.TelefonoProveedores,
                     entity.CorreoProveedores,
                     entity.EstadoProveedores,
@@ -85,6 +86,7 @@ namespace WBL
                 var result = sql.QueryExecute("ProveedoresActualizar", new
                 {
                     entity.IdProveedores,
+                    entity.IDProve,
                     entity.NombreProveedores,
                     entity.TelefonoProveedores,
                     entity.CorreoProveedores,

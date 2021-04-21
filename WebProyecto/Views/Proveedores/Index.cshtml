@@ -17,11 +17,11 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-5">
+        <div class="col-6">
             <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Id Proveedores</th>
+                        <th>Id Proveedor</th>
                         <th>Nombre Proveedores</th>
                         <th>Telefono Proveedores</th>
                         <th>Correo Proveedores</th>
@@ -32,17 +32,17 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@item.IdProveedores</td>
-                            <td>@item.NombreProveedores</td>
-                            <td>@item.TelefonoProveedores</td>
-                            <td>@item.CorreoProveedores</td>
-                            <td>@(item.EstadoProveedores ? "Activo" : "Inactivo")</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdProveedores)"><i class='bx bx-edit-alt'></i></button>
-                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdProveedores)"><i class='bx bx-trash'></i></button>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>@item.IDProve</td>
+                        <td>@item.NombreProveedores</td>
+                        <td>@item.TelefonoProveedores</td>
+                        <td>@item.CorreoProveedores</td>
+                        <td>@(item.EstadoProveedores ? "Activo" : "Inactivo")</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdProveedores)"><i class='bx bx-edit-alt'></i></button>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdProveedores)"><i class='bx bx-trash'></i></button>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

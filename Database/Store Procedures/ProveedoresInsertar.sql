@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[ProveedoresInsertar]
 	@NombreProveedores VARCHAR(50),
+	@IDProve VARCHAR(50),
 	@TelefonoProveedores VARCHAR(50),
 	@CorreoProveedores VARCHAR(50),
 	@EstadoProveedores BIT
@@ -14,6 +15,7 @@ SET NOCOUNT ON
 		INSERT INTO dbo.Proveedores
 		(
 			NombreProveedores,
+			IDProve,
 			TelefonoProveedores,
 			CorreoProveedores,
 			EstadoProveedores
@@ -21,6 +23,7 @@ SET NOCOUNT ON
 		VALUES
 		(
 			@NombreProveedores,
+			@IDProve,
 			@TelefonoProveedores,
 			@CorreoProveedores,
 			@EstadoProveedores

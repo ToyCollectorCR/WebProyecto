@@ -111,7 +111,5 @@ namespace WebProyecto.Controllers
                 return Content(ex.Message);
             }
         }
-
-
     }
 }

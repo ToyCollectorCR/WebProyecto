@@ -68,6 +68,8 @@ namespace WBL
                     entity.MesesDuracion,
                     entity.InclusionBebes,
                     entity.PrecioTarifa,
+                    entity.DescripcionOfertas,
+                    entity.EstadoOfertas
                 });
 
 
@@ -92,7 +94,8 @@ namespace WBL
                     entity.MesesDuracion,
                     entity.InclusionBebes,
                     entity.PrecioTarifa,
-
+                    entity.DescripcionOfertas,
+                    entity.EstadoOfertas
                 });
 
 

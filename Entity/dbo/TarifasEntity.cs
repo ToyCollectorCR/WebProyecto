@@ -14,5 +14,7 @@ namespace Entity
         public int? MesesDuracion { get; set; }
         public int? InclusionBebes { get; set; }
         public int? PrecioTarifa { get; set; }
+        public string DescripcionOfertas { get; set; }
+        public bool EstadoOfertas { get; set; }
     }
 }

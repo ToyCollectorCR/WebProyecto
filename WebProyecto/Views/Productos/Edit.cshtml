@@ -1,60 +1,57 @@
 ﻿@model Entity.ProductosEntity
-@{
-    var TypeForm = ViewBag.Form as bool?;
-}
+@using Newtonsoft.Json;
+@{ var TypeForm = ViewBag.Form as bool?; }
 
-<div class="container">
+<model data-entity="@JsonConvert.SerializeObject(Model.productos)" />
+<div id="ProductosEdit" class="container">
     <div class="row">
         <div class="col-6">
+
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">@(TypeForm.Value ? "Editar Productos" : "Nuevo Producto")</h4>
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Productos" : "Nuevo Productos")</h4>
 
+                    <form id="FormProductos">
+                        <input type="hidden" name="IdProductos" id="IdProductos" v-model="model.IdProductos" />
 
-                    <form action="/Productos/Save" method="post">
-                        <input type="hidden" name="IdProductos" id="IdProductos" value="@Model.IdProductos" />
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="NombreProductos" id="NombreProductos" value="@Model.NombreProductos" />
-                            <label for="NombreProductos"> Nombre Productos </label>
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="NombreProductos" id="NombreProductos" v-model="model.NombreProductos" required />
+                            <label for="NombreProductos"> Nombre del Producto</label>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input class="form-control" type="number" name="SesionesRayosUVA" id="SesionesRayosUVA" value="@Model.SesionesRayosUVA" />
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="number" name="SesionesRayosUVA" id="SesionesRayosUVA" v-model="model.SesionesRayosUVA" required />
                             <label for="SesionesRayosUVA"> Cantidad de Sesiones Rayos UVA </label>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input class="form-control" type="date" name="RenovacionCuota" id="RenovacionCuota" value="@Model.RenovacionCuota" />
-                            <label for="RenovacionCuota"> Renovacion Cuota </label>
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="date" name="RenovacionCuota" id="RenovacionCuota" v-model="model.RenovacionCuota" required />
+                            <label for="RenovacionCuota"> Renovacion Cuota</label>
                         </div>
 
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="ProductosConsumidos" id="ProductosConsumidos" value="@Model.ProductosConsumidos" />
-                            <label for="ProductosConsumidos"> Productos Consumidos </label>
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="ProductosConsumidos" id="ProductosConsumidos" v-model="model.ProductosConsumidos" required />
+                            <label for="ProductosConsumidos"> Productos Consumidos</label>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="CompraProveedores" id="CompraProveedores" value="@Model.CompraProveedores" />
-                            <label for="CompraProveedores"> Compra Proveedores </label>
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="NombreProveedores" name="NombreProveedores" aria-label="Default select example" v-model="model.NombreProveedores" required>
+                                @foreach (var item in Model.ddlproveedores)
+                                {
+                                    <option value="@item.IdProveedores">@item.NombreProveedores</option>
+                                }
+                            </select>
+                            <label for="SesionesRayosUVA"> Nombre Proveedores</label>
                         </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="true" id="EstadoProducto" name="EstadoProducto" @(Model.EstadoProducto ? "checked" : "")>
-                            <label class="form-check-label" for="EstadoProducto">
-                                Estado Productos
-                            </label>
-                        </div>
-
                         <br />
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
                             else
                             {
-                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+
                         </div>
                     </form>
                 </div>
@@ -62,3 +59,7 @@
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script src="~/Scripts/Productos/Edit.js"></script>
+}

@@ -15,28 +15,40 @@
                         <input type="hidden" name="IdTarifa" id="IdTarifa" value="@Model.IdTarifa" />
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="Tarifas" id="Tarifas" value="@Model.Tarifas" required/>
-                            <label for="Tarifas"> Tarifas </label>
+                            <input class="form-control" type="text" name="Tarifas" id="Tarifas" value="@Model.Tarifas" required />
+                            <label for="Tarifas"> Dar Nombre a la tarifa </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" name="Ofertas" id="Ofertas" value="@Model.Ofertas" required/>
-                            <label for="Ofertas"> Ofertas </label>
+                            <input class="form-control" type="text" name="Ofertas" id="Ofertas" value="@Model.Ofertas" required />
+                            <label for="Ofertas"> Nombre de ofertas de suscripción </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="number" name="MesesDuracion" id="MesesDuracion" value="@Model.MesesDuracion" required/>
-                            <label for="MesesDuracion"> MesesDuracion </label>
+                            <input class="form-control" type="number" name="MesesDuracion" id="MesesDuracion" value="@Model.MesesDuracion" required />
+                            <label for="MesesDuracion"> Número de meses de duración </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="number" name="InclusionBebes" id="InclusionBebes" value="@Model.InclusionBebes" required/>
-                            <label for="InclusionBebes"> Inclusion Bebes </label>
+                            <input class="form-control" type="number" name="InclusionBebes" id="InclusionBebes" value="@Model.InclusionBebes" required />
+                            <label for="InclusionBebes"> Cantidad de bebés que incluye </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="number" name="PrecioTarifa" id="PrecioTarifa" value="@Model.PrecioTarifa" required/>
-                            <label for="PrecioTarifa"> Precio Tarifa </label>
+                            <input class="form-control" type="number" name="PrecioTarifa" id="PrecioTarifa" value="@Model.PrecioTarifa" required />
+                            <label for="PrecioTarifa"> Precio de la tarifa </label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="DescripcionOfertas" id="DescripcionOfertas" value="@Model.DescripcionOfertas" required />
+                            <label for="DescripcionOfertas"> Descripcion de la oferta </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" id="EstadoOfertas" name="EstadoOfertas" @(Model.EstadoOfertas ? "checked" : "")>
+                            <label class="form-check-label" for="EstadoOfertas">
+                                Estado Ofertas
+                            </label>
                         </div>
                         <br />
                         <div class="mb-3">

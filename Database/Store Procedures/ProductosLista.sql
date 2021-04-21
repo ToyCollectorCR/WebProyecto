@@ -4,12 +4,13 @@ AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
+
 			IdProductos,
+			IdProveedores,
 			NombreProductos,
 			SesionesRayosUVA,
 			RenovacionCuota=CONVERT(VARCHAR,RenovacionCuota,103),
 			ProductosConsumidos,
-			CompraProveedores,
 			EstadoProducto
 
 	FROM dbo.Productos
@@ -18,5 +19,5 @@ AS BEGIN
 		and
 		EstadoProducto=1
 
-	ORDER BY NombreProductos
+	ORDER BY IdProductos
 END

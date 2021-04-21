@@ -64,7 +64,7 @@ namespace WBL
                 {
                     entity.NombreSalas,
                     entity.CantidadSalas,
-                    entity.EstadoSalas,
+                    entity.EstadoSalas
                 });
 
 
@@ -86,8 +86,7 @@ namespace WBL
                     entity.IdSalas,
                     entity.NombreSalas,
                     entity.CantidadSalas,
-                    entity.EstadoSalas,
-
+                    entity.EstadoSalas
                 });
 
 

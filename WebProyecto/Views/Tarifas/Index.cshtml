@@ -17,16 +17,17 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-6">
+        <div class="col-9">
             <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Id Tarifa</th>
-                        <th>Tarifas </th>
-                        <th>Ofertas </th>
-                        <th>Meses Duracion</th>
-                        <th>Inclusion Bebes</th>
-                        <th>Precio Tarifa </th>
+                        <th>Nombre de la tarifa </th>
+                        <th>Nombre de ofertas de suscripción </th>
+                        <th>Número de meses de duración</th>
+                        <th>Cantidad de bebés que incluye</th>
+                        <th>Precio de la Tarifa </th>
+                        <th>Descripcion de la oferta</th>
+                        <th>Estado Ofertas</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
@@ -34,12 +35,13 @@
                     @foreach (var item in Model)
                     {
                     <tr>
-                        <td>@item.IdTarifa</td>
                         <td>@item.Tarifas</td>
                         <td>@item.Ofertas</td>
                         <td>@item.MesesDuracion</td>
                         <td>@item.InclusionBebes</td>
                         <td>@item.PrecioTarifa</td>
+                        <td>@item.DescripcionOfertas</td>
+                        <td>@(item.EstadoOfertas ? "Activo" : "Inactivo")</td>
                         <td>
                             <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdTarifa)"><i class='bx bx-edit-alt'></i></button>
                             <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdTarifa)"><i class='bx bx-trash'></i></button>

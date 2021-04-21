@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[ProveedoresActualizar]
 	@IdProveedores INT,
+	@IDProve VARCHAR(50),
 	@NombreProveedores VARCHAR(50),
 	@TelefonoProveedores VARCHAR(50),
 	@CorreoProveedores VARCHAR(50),
@@ -15,6 +16,7 @@ SET NOCOUNT ON
 		
 		UPDATE Proveedores SET
 		NombreProveedores=@NombreProveedores,
+		IDProve=@IDProve,
 		TelefonoProveedores=@TelefonoProveedores,
 		CorreoProveedores=@CorreoProveedores,
 		EstadoProveedores=@EstadoProveedores

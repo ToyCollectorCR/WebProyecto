@@ -5,6 +5,7 @@ AS BEGIN
 
 	SELECT
 			IdProveedores,
+			IDProve,
 			NombreProveedores,
 			TelefonoProveedores,
 			CorreoProveedores,

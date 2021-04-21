@@ -4,7 +4,9 @@
 	@Ofertas VARCHAR(50),
 	@MesesDuracion INT,
 	@InclusionBebes INT,
-	@PrecioTarifa INT
+	@PrecioTarifa INT,
+	@DescripcionOfertas VARCHAR(50),
+	@EstadoOfertas BIT
 	
 AS BEGIN
 SET NOCOUNT ON
@@ -15,11 +17,15 @@ SET NOCOUNT ON
 	-- AQUI VA EL CODIGO
 		
 		UPDATE Tarifas SET
+		
 		Tarifas=@Tarifas,
 		Ofertas=@Ofertas,
 		MesesDuracion=@MesesDuracion,
 		InclusionBebes=@InclusionBebes,
-		PrecioTarifa=@PrecioTarifa
+		PrecioTarifa=@PrecioTarifa,
+		DescripcionOfertas=@DescripcionOfertas,
+		EstadoOfertas=@EstadoOfertas
+
 		WHERE IdTarifa=@IdTarifa
 		
 		COMMIT TRANSACTION TRASA

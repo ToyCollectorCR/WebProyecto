@@ -11,11 +11,12 @@ namespace WBL
     public interface IProductosService : IDisposable
     {
         List<ProductosEntity> ObtenerLista(int? IdProductos);
-        List<ProductosEntity> Obtenerddl();
+        ProductosEntity ObtenerDetalle(int? IdProductos);
         DBEntity Insertar(ProductosEntity entity);
         DBEntity Actualizar(ProductosEntity entity);
         DBEntity Eliminar(ProductosEntity entity);
     }
+
     public class ProductosService : IProductosService
     {
         public IBD sql = new BD("Conn");
@@ -24,12 +25,28 @@ namespace WBL
             sql = null;
         }
 
-
         public List<ProductosEntity> ObtenerLista(int? IdProductos)
         {
             try
             {
-                var result = sql.Query<ProductosEntity>("ProductosObtener", new
+                var result = sql.Query<ProductosEntity, ProveedoresEntity>("ProductosObtener"
+                    , "IdProveedores", new
+                    {
+                        IdProductos
+                    });
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ProductosEntity ObtenerDetalle(int? IdProductos)
+        {
+            try
+            {
+                var result = sql.QueryFirst<ProductosEntity>("ProductosObtener", new
                 {
                     IdProductos
                 });
@@ -42,19 +59,6 @@ namespace WBL
             }
         }
 
-        public List<ProductosEntity> Obtenerddl()
-        {
-            try
-            {
-                var result = sql.Query<ProductosEntity>("ProductosLista");
-                return result;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
 
         public DBEntity Insertar(ProductosEntity entity)
         {
@@ -62,12 +66,12 @@ namespace WBL
             {
                 var result = sql.QueryExecute("ProductosInsertar", new
                 {
+                    entity.IdProveedores,
                     entity.NombreProductos,
                     entity.SesionesRayosUVA,
                     entity.RenovacionCuota,
                     entity.ProductosConsumidos,
-                    entity.CompraProveedores,
-                    entity.EstadoProducto,
+                    entity.EstadoProducto
                 });
 
 
@@ -87,13 +91,12 @@ namespace WBL
                 var result = sql.QueryExecute("ProductosActualizar", new
                 {
                     entity.IdProductos,
+                    entity.IdProveedores,
                     entity.NombreProductos,
                     entity.SesionesRayosUVA,
                     entity.RenovacionCuota,
                     entity.ProductosConsumidos,
-                    entity.CompraProveedores,
-                    entity.EstadoProducto,
-
+                    entity.EstadoProducto
                 });
 
 
@@ -105,8 +108,6 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
-
-
 
         public DBEntity Eliminar(ProductosEntity entity)
         {
@@ -115,10 +116,7 @@ namespace WBL
                 var result = sql.QueryExecute("ProductosEliminar", new
                 {
                     entity.IdProductos
-
                 });
-
-
                 return result;
             }
             catch (Exception ex)
@@ -127,7 +125,5 @@ namespace WBL
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
-
-
     }
 }

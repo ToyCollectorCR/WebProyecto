@@ -1,9 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[ProductosInsertar]
+	
+	@IdProveedores INT,
 	@NombreProductos VARCHAR(50),
 	@SesionesRayosUVA INT,
 	@RenovacionCuota VARCHAR(MAX),
 	@ProductosConsumidos VARCHAR(50),
-	@CompraProveedores VARCHAR(50),
 	@EstadoProducto BIT
 AS BEGIN
 SET NOCOUNT ON
@@ -15,20 +16,20 @@ SET NOCOUNT ON
 		
 		INSERT INTO dbo.Productos
 		(
+			IdProveedores,
 			NombreProductos,
 			SesionesRayosUVA,
 			RenovacionCuota,
 			ProductosConsumidos,
-			CompraProveedores,
 			EstadoProducto
 		)
 		VALUES
 		(
+			@IdProveedores,
 			@NombreProductos,
 			@SesionesRayosUVA,
 			@RenovacionCuota,
 			@ProductosConsumidos,
-			@CompraProveedores,
 			@EstadoProducto
 		)
 

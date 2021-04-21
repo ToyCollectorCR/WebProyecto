@@ -9,10 +9,12 @@ AS BEGIN
 			Ofertas,
 			MesesDuracion,
 			InclusionBebes,
-			PrecioTarifa
+			PrecioTarifa,
+			DescripcionOfertas,
+			EstadoOfertas
 
 	FROM dbo.Tarifas
 
-	ORDER BY Tarifas
+	ORDER BY MesesDuracion
 
 END

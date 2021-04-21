@@ -9,10 +9,6 @@ namespace WebProyecto.Models
     public class ProductosEdit
     {
         public ProductosEntity productos { get; set; }
-        //public List<BebeEntity> ddlbebe { get; set; }
-        //public List<ClasesEntity> ddlclases { get; set; }
-        //public List<SalasEntity> ddlsalas { get; set; }
-        //public List<TarifasEntity> ddltarifas { get; set; }
-        //public List<ProductosEntity> ddlproductos { get; set; }
+        public List<ProveedoresEntity> ddlproveedores { get; set; }
     }
 }

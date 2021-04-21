@@ -4,14 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using WBL;
+using WebProyecto.Models;
 
 namespace WebProyecto.Controllers
 {
     public class ProductosController : Controller
     {
-        // GET: Productos
-        public ActionResult Index()
+            // GET: Productos
+            private IProductosService ProductosService;
+            private IProveedoresService ProveedoresService;
+
+            public ProductosController(IProductosService productosService, IProveedoresService proveedoresService)
+            {
+                ProductosService = productosService;
+                ProveedoresService = proveedoresService;
+
+            }
+            // GET: Productos
+            public ActionResult Index()
         {
             this.SessionOnline();
             var productos = IApp.productosService.ObtenerLista(null);

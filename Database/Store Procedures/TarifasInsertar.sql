@@ -3,7 +3,9 @@
 	@Ofertas VARCHAR(50),
 	@MesesDuracion INT,
 	@InclusionBebes INT,
-	@PrecioTarifa INT
+	@PrecioTarifa INT,
+	@DescripcionOfertas VARCHAR(50),
+	@EstadoOfertas BIT
 AS BEGIN
 SET NOCOUNT ON
 
@@ -18,7 +20,9 @@ SET NOCOUNT ON
 			Ofertas,
 			MesesDuracion,
 			InclusionBebes,
-			PrecioTarifa
+			PrecioTarifa,
+			DescripcionOfertas,
+			EstadoOfertas
 		)
 		VALUES
 		(
@@ -26,7 +30,9 @@ SET NOCOUNT ON
 			@Ofertas,
 			@MesesDuracion,
 			@InclusionBebes,
-			@PrecioTarifa
+			@PrecioTarifa,
+			@DescripcionOfertas,
+			@EstadoOfertas
 		)
 
 

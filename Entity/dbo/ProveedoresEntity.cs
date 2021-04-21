@@ -10,6 +10,7 @@ namespace Entity
     {
         public int? IdProveedores { get; set; }
         public string NombreProveedores { get; set; }
+        public string IDProve { get; set; }
         public string TelefonoProveedores { get; set; }
         public string CorreoProveedores { get; set; }
         public bool EstadoProveedores { get; set; }
