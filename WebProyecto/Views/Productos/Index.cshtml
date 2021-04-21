@@ -1,7 +1,9 @@
 ﻿@model List<Entity.ProductosEntity>
 
 <div class="container-fluid">
+    <br />
     <h1>Productos</h1>
+    <br />
     <div class="row">
         <div class="col-3">
             <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
@@ -25,18 +27,19 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.NombreProductos</td>
-                        <td>@item.SesionesRayosUVA</td>
-                        <td>@item.RenovacionCuota</td>
-                        <td>@item.ProductosConsumidos</td>
-                        <td>@item.Proveedores.NombreProveedores</td>
-                        <td>@(item.EstadoProducto ? "Activo" : "Inactivo")</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdProductos)"><i class='bx bx-edit-alt'></i></button>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdProductos)"><i class='bx bx-trash'></i></button>
-                        </td>
-                    </tr>}
+                        <tr>
+                            <td>@item.NombreProductos</td>
+                            <td>@item.SesionesRayosUVA</td>
+                            <td>@item.RenovacionCuota</td>
+                            <td>@item.ProductosConsumidos</td>
+                            <td>@item.Proveedores.NombreProveedores</td>
+                            <td>@(item.EstadoProducto ? "Activo" : "Inactivo")</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdProductos)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdProductos)"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

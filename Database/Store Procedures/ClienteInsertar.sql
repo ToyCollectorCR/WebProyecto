@@ -2,13 +2,12 @@
 	@IdTarifa INT,
 	@IdClienteInformacionAdmin INT,
 	@NombreCliente VARCHAR(50),
+	@DNICliente VARCHAR(50),
 	@Apellido1Cliente VARCHAR(50),
 	@Apellido2Cliente VARCHAR(50),
 	@DireccionCliente VARCHAR(200),
 	@FechaNacimientoCliente VARCHAR(50),
 	@TelefonoCliente VARCHAR(50),
-	@TarifaTieneHijos BIT,
-	@TarifaCantidadHijos VARCHAR(1000)=NULL,
 	@EstadoCliente BIT
 
 	AS BEGIN
@@ -23,13 +22,12 @@
 		(
 			IdClienteInformacionAdmin
 		,	NombreCliente
+		,	DNICliente
 		,   Apellido1Cliente
 		,   Apellido2Cliente
 		,   DireccionCliente
 		,   FechaNacimientoCliente
 		,   TelefonoCliente
-		,	TarifaTieneHijos
-		,	TarifaCantidadHijos
 		,	EstadoCliente
 		
 		)
@@ -37,13 +35,12 @@
 		(
 			  @IdClienteInformacionAdmin
 			, @NombreCliente
+			, @DNICliente
 			, @Apellido1Cliente
 			, @Apellido2Cliente 
 			, @DireccionCliente
 			, @FechaNacimientoCliente
 			, @TelefonoCliente
-			, @TarifaTieneHijos
-			, @TarifaCantidadHijos
 			, @EstadoCliente
 		)
 

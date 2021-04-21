@@ -25,23 +25,6 @@ namespace WBL
             sql = null;
         }
 
-
-        /*public List<ClienteEntity> ObtenerLista()
-        {
-            try
-            {
-                var result = sql.Query<ClienteEntity, ClienteInformacionAdministrativaEntity>("ClienteObtener",
-                    split: "IdClienteInformacionAdmin");
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }*/
-
         public List<ClienteEntity> ObtenerLista(int? IdCliente)
         {
             try
@@ -86,14 +69,12 @@ namespace WBL
                 {
                     entity.IdClienteInformacionAdmin,
                     entity.NombreCliente,
+                    entity.DNICliente,
                     entity.Apellido1Cliente,
                     entity.Apellido2Cliente,
                     entity.DireccionCliente,
                     entity.FechaNacimientoCliente,
                     entity.TelefonoCliente,
-                    entity.DNICliente,
-                    entity.TarifaTieneHijos,
-                    TarifaCantidadHijos = entity.TarifaTieneHijos ? entity.TarifaCantidadHijos : null,
                     entity.EstadoCliente,
 
                 });
@@ -117,14 +98,12 @@ namespace WBL
                     entity.IdCliente,
                     entity.IdClienteInformacionAdmin,
                     entity.NombreCliente,
+                    entity.DNICliente,
                     entity.Apellido1Cliente,
                     entity.Apellido2Cliente,
                     entity.DireccionCliente,
                     entity.FechaNacimientoCliente,
                     entity.TelefonoCliente,
-                    entity.DNICliente,
-                    entity.TarifaTieneHijos,
-                    entity.TarifaCantidadHijos,
                     entity.EstadoCliente,
                 });
 

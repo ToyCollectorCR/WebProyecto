@@ -2,7 +2,7 @@
 (
 	IdClases INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_Clases PRIMARY KEY CLUSTERED(IdClases),
 	SalaImpartidaClases VARCHAR(50) NOT NULL,
-	DiaDeLaSemanaClases DATETIME,
+	DiaDeLaSemanaClases DATE,
 	HoraDeComienzoClases DATETIME,
 	ActividadImpartidaClases VARCHAR(50) NOT NULL,
 	ProfesorResponsableClases VARCHAR(50) NOT NULL,

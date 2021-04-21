@@ -8,20 +8,21 @@
 }
 
 <div class="container-fluid">
+    <br />
     <h1>Bebés</h1>
+    <br />
     <div class="row">
-
         <div class="col-7">
             <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
         </div>
     </div>
+    <br />
     <br />
     <div class="row">
         <div class="col-9">
             <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Id Bebe</th>
                         <th>Nombre Bebe</th>
                         <th>Apellido1 Bebe</th>
                         <th>Apellido2 Bebe</th>
@@ -36,21 +37,20 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.IdBebe</td>
-                        <td>@item.NombreBebe</td>
-                        <td>@item.Apellido1Bebe</td>
-                        <td>@item.Apellido2Bebe</td>
-                        <td>@item.NombrePadreMadreBebe</td>
-                        <td>@item.FechaNacimientoBebe</td>
-                        <td>@item.InscripcionClasesBebe</td>
-                        <td>@item.AforoDisponibleBebe</td>
-                        <td>@(item.EstadoBebe ? "Activo" : "Inactivo")</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdBebe)"><i class='bx bx-edit-alt'></i></button>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdBebe)"><i class='bx bx-trash'></i></button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>@item.NombreBebe</td>
+                            <td>@item.Apellido1Bebe</td>
+                            <td>@item.Apellido2Bebe</td>
+                            <td>@item.NombrePadreMadreBebe</td>
+                            <td>@item.FechaNacimientoBebe</td>
+                            <td>@item.InscripcionClasesBebe</td>
+                            <td>@item.AforoDisponibleBebe</td>
+                            <td>@(item.EstadoBebe ? "Activo" : "Inactivo")</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdBebe)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdBebe)"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>

@@ -1,9 +1,6 @@
 ﻿var Entity = $("model").data("entity");
-
-
 console.log(Entity);
-
-var empleadoEdit = new Vue({
+var clienteEdit = new Vue({
     //Data
     data: {
         model: Entity,
@@ -11,12 +8,8 @@ var empleadoEdit = new Vue({
     },
     //Metodos
     methods: {
-
         Save: function () {
-
-
             if (BValidateData(this.formulario)) {
-
                 Loading.fire("Guardando...");
                 axios.post("Cliente/Save", this.model).then(function (get) {
                     Loading.close();
@@ -36,27 +29,18 @@ var empleadoEdit = new Vue({
                             title: result.MsgError
                         });
                     }
-
                 });
-
             } else {
-
                 Toast.fire({
                     icon: "error",
                     title: "Porfavor Complete los campos requeridos!"
                 });
             }
         }
-
     },
-
     mounted: function () {
         CreateValidator(this.formulario);
     }
     //create
-
-
 });
-
-
 clienteEdit.$mount("#ClienteEdit");

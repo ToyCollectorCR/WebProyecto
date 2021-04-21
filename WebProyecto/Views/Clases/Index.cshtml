@@ -8,7 +8,9 @@
 }
 
 <div class="container-fluid">
+    <br />
     <h1>Clases</h1>
+    <br />
     <div class="row">
 
         <div class="col-3">
@@ -16,12 +18,12 @@
         </div>
     </div>
     <br />
+    <br />
     <div class="row">
         <div class="col-7">
             <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Id Clases</th>
                         <th>SalaImpartidaClases</th>
                         <th>DiaDeLaSemanaClases</th>
                         <th>HoraDeComienzoClases</th>
@@ -34,19 +36,18 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.IdClases</td>
-                        <td>@item.SalaImpartidaClases</td>
-                        <td>@item.DiaDeLaSemanaClases</td>
-                        <td>@item.HoraDeComienzoClases</td>
-                        <td>@item.ActividadImpartidaClases</td>
-                        <td>@item.ProfesorResponsableClases</td>
-                        <td>@(item.EstadoClases ? "Activo" : "Inactivo")</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdClases)"><i class='bx bx-edit-alt'></i></button>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdClases)"><i class='bx bx-trash'></i></button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>@item.SalaImpartidaClases</td>
+                            <td>@item.DiaDeLaSemanaClases</td>
+                            <td>@item.HoraDeComienzoClases</td>
+                            <td>@item.ActividadImpartidaClases</td>
+                            <td>@item.ProfesorResponsableClases</td>
+                            <td>@(item.EstadoClases ? "Activo" : "Inactivo")</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdClases)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdClases)"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>

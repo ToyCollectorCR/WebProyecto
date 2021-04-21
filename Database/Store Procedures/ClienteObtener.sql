@@ -7,13 +7,12 @@ AS BEGIN
 	SELECT
 			Cli.IdCliente
 		,	Cli.NombreCliente
+		,	Cli.DNICliente
 		,   Cli.Apellido1Cliente
 		,   Cli.Apellido2Cliente
 		,   Cli.DireccionCliente
 		,   FechaNacimientoCliente=CONVERT(VARCHAR,Cli.FechaNacimientoCliente,103)
 		,   Cli.TelefonoCliente
-		,	Cli.TarifaTieneHijos
-		,	Cli.TarifaCantidadHijos
 		,	Cli.EstadoCliente
 		,   Cli.IdClienteInformacionAdmin
 		,	CIA.SesionesRayosUVA

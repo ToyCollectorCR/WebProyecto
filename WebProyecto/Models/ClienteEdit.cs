@@ -11,6 +11,5 @@ namespace WebProyecto.Models
         public ClienteEntity cliente { get; set; }
         public List<TarifasEntity> ddltarifas { get; set; }
         public List<ClienteInformacionAdministrativaEntity> ddlclienteinformacionadministrativa { get; set; }
-
     }
 }

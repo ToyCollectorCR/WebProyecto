@@ -1,8 +1,6 @@
 ﻿@model WebProyecto.Models.ClienteEdit
 @using Newtonsoft.Json;
-@{
-    var TypeForm = ViewBag.Form as bool?;
-}
+@{ var TypeForm = ViewBag.Form as bool?; }
 
 <model data-entity="@JsonConvert.SerializeObject(Model.cliente)" />
 <div id="ClienteEdit" class="container">
@@ -16,10 +14,16 @@
 
                     <form id="FormCliente">
                         <input type="hidden" name="IdCliente" id="IdCliente" v-model="model.IdCliente" />
+                        <input type="hidden" name="IdClienteInformacionAdmin" id="IdClienteInformacionAdmin" v-model="model.IdClienteInformacionAdmin" />
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="DNICliente" id="DNICliente" v-model="model.DNICliente" required />
+                            <label for="DNICliente"> Nombre Cliente</label>
+                        </div>
 
                         <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="NombreCliente" id="NombreCliente" v-model="model.NombreCliente" required />
-                            <label for="NombreCliente"> Nombre Cliente</label>
+                            <label for="NombreCliente"> DNI Cliente</label>
                         </div>
 
                         <div class="form-floating mb-3 form-group">
@@ -47,23 +51,6 @@
                             <label for="TelefonoCliente"> Telefono Cliente</label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="DireccionCliente" id="DireccionCliente" v-model="model.DireccionCliente" required />
-                            <label for="DireccionCliente"> Direccion Cliente</label>
-                        </div>
-
-                        <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" id="TarifaTieneHijos" name="TarifaTieneHijos" v-model="model.TarifaTieneHijos" />
-                            <label class="form-check-label" for="TarifaTieneHijos">
-                                Tiene Hijos ?
-                            </label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group" v-if="model.TarifaTieneHijos">
-                            <input class="form-control" type="text" name="TarifaCantidadHijos" id="TarifaCantidadHijos" v-model="model.TarifaCantidadHijos" required />
-                            <label for="Identificacion">¿Cuántos hijos tiene?</label>
-                        </div>
-
                         <div class="form-check form-group">
                             <input class="form-check-input" type="checkbox" id="EstadoCliente" name="EstadoCliente" v-model="model.EstadoCliente" />
                             <label class="form-check-label" for="EstadoCliente">
@@ -76,7 +63,8 @@
                             <select class="form-select" id="SesionesRayosUVA" name="SesionesRayosUVA" aria-label="Default select example" v-model="model.SesionesRayosUVA" required>
                                 @foreach (var item in Model.ddlclienteinformacionadministrativa)
                                 {
-                    <option value="@item.IdClienteInformacionAdmin">@item.SesionesRayosUVA</option>}
+                    <option value="@item.IdClienteInformacionAdmin">@item.SesionesRayosUVA</option>
+}
                             </select>
                             <label for="SesionesRayosUVA"> Sesiones Rayos UVA</label>
                         </div>
@@ -86,7 +74,8 @@
                             <select class="form-select" id="FechaProximaRenovacion" name="FechaProximaRenovacion" aria-label="Default select example" v-model="model.FechaProximaRenovacion" required>
                                 @foreach (var item in Model.ddlclienteinformacionadministrativa)
                                 {
-                    <option value="@item.IdClienteInformacionAdmin">@item.FechaProximaRenovacion</option>}
+                    <option value="@item.IdClienteInformacionAdmin">@item.FechaProximaRenovacion</option>
+}
                             </select>
                             <label for="FechaProximaRenovacion"> Fecha Proxima Renovacion</label>
                         </div>
@@ -96,7 +85,8 @@
                             <select class="form-select" id="Casillero" name="Casillero" aria-label="Default select example" v-model="model.Casillero" required>
                                 @foreach (var item in Model.ddlclienteinformacionadministrativa)
                                 {
-                    <option value="@item.IdClienteInformacionAdmin">@item.Casillero</option>}
+                    <option value="@item.IdClienteInformacionAdmin">@item.Casillero</option>
+}
                             </select>
                             <label for="Casillero"> Casillero</label>
                         </div>
@@ -106,7 +96,8 @@
                             <select class="form-select" id="SaldoMonederoVirtual" name="SaldoMonederoVirtual" aria-label="Default select example" v-model="model.SaldoMonederoVirtual" required>
                                 @foreach (var item in Model.ddlclienteinformacionadministrativa)
                                 {
-                    <option value="@item.IdClienteInformacionAdmin">@item.SaldoMonederoVirtual</option>}
+                    <option value="@item.IdClienteInformacionAdmin">@item.SaldoMonederoVirtual</option>
+}
                             </select>
                             <label for="SaldoMonederoVirtual">Saldo Monedero Virtual</label>
                         </div>
@@ -138,3 +129,4 @@
     <script src="~/Scripts/Cliente/Edit.js"></script>
 
 }
+

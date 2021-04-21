@@ -5,26 +5,20 @@
 }
 
 <div class="container">
+    <br />
     <div class="row">
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">@(TypeForm.Value ? "Editar Pedidos" : "Nuevo Pedidos")</h4>
-
+                    <br />
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Pedidos" : "Nuevos Pedidos")</h4>
+                    <br />
                     <form action="/Pedidos/Save" method="post">
                         <input type="hidden" name="IdPedidos" id="IdPedidos" value="@Model.IdPedidos" />
 
-                        <div class="form-floating mb-3">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                            <input class="form-control" type="number" name="Pedidos" id="Pedidos" value="@Model.Pedidos" />
-=======
-                            <input class="form-control" type="text" name="Pedidos" id="Pedidos" value="@Model.Pedidos" required/>
->>>>>>> 8c8523e972e561ebb571c751820281a57a126545
-=======
-                            <input class="form-control" type="text" name="Pedidos" id="Pedidos" value="@Model.Pedidos" required/>
->>>>>>> feb1bf149475684f092b8b6e7ea264ccea68aae7
-                            <label for="Pedidos"> Pedidos </label>
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="Pedidos" id="Pedidos" v-model="model.Pedidos" required />
+                            <label for="Pedidos"> Nombre del Pedido</label>
                         </div>
 
                         <div class="form-check">

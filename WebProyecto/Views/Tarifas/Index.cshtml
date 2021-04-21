@@ -8,13 +8,15 @@
 }
 
 <div class="container-fluid">
+    <br />
     <h1>Tarifas</h1>
+    <br />
     <div class="row">
-
         <div class="col-7">
             <button type="button" class="btn btn-outline-primary" onclick="ClickNew()"><i class='bx bx-add-to-queue'></i></button>
         </div>
     </div>
+    <br />
     <br />
     <div class="row">
         <div class="col-9">
@@ -34,20 +36,20 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.Tarifas</td>
-                        <td>@item.Ofertas</td>
-                        <td>@item.MesesDuracion</td>
-                        <td>@item.InclusionBebes</td>
-                        <td>@item.PrecioTarifa</td>
-                        <td>@item.DescripcionOfertas</td>
-                        <td>@(item.EstadoOfertas ? "Activo" : "Inactivo")</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdTarifa)"><i class='bx bx-edit-alt'></i></button>
-                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdTarifa)"><i class='bx bx-trash'></i></button>
-                        </td>
-                    </tr>
-}
+                        <tr>
+                            <td>@item.Tarifas</td>
+                            <td>@item.Ofertas</td>
+                            <td>@item.MesesDuracion</td>
+                            <td>@item.InclusionBebes</td>
+                            <td>@item.PrecioTarifa</td>
+                            <td>@item.DescripcionOfertas</td>
+                            <td>@(item.EstadoOfertas ? "Activo" : "Inactivo")</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdTarifa)"><i class='bx bx-edit-alt'></i></button>
+                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdTarifa)"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
 
 
