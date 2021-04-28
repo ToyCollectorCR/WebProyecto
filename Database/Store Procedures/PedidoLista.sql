@@ -4,15 +4,17 @@ AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
-			IdPedidos,
-			Pedidos,
-			EstadoPedidos
-
+			 Descripcion,
+			 FechaCompra,
+			 FechaRecepcion,
+			 MontoCompra, 
+			 CantidadUnidades,
+			 FechaCaducidad,
+			 MotivoDevolucion
+	 
 	FROM dbo.Pedidos
 	WHERE
 		(@IdPedidos IS NULL OR IdPedidos=@IdPedidos)
-		and
-		EstadoPedidos=1
 
-	ORDER BY Pedidos
+	ORDER BY FechaCompra
 END

@@ -1,6 +1,15 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoActualizar]
+	
 	@IdPedidos INT,
-	@Pedidos VARCHAR(50),
+	@IdProductos INT,
+	@IdProveedores INT,
+	@Descripcion VARCHAR(200),
+	@FechaCompra VARCHAR(MAX),
+	@FechaRecepcion VARCHAR(MAX),
+	@MontoCompra INT,
+	@CantidadUnidades INT,
+	@FechaCaducidad VARCHAR(MAX),
+	@MotivoDevolucion VARCHAR(200),
 	@EstadoPedidos BIT
 	
 AS BEGIN
@@ -12,8 +21,15 @@ SET NOCOUNT ON
 	-- AQUI VA EL CODIGO
 		
 		UPDATE Pedidos SET
-		Pedidos = @Pedidos,
-		EstadoPedidos=@EstadoPedidos
+
+			 Descripcion=@Descripcion,
+			 FechaCompra=@FechaCompra,
+			 FechaRecepcion=@FechaRecepcion,
+			 MontoCompra=@MontoCompra,
+			 CantidadUnidades=@CantidadUnidades,
+			 FechaCaducidad=@FechaCaducidad,
+			 MotivoDevolucion=@MotivoDevolucion,
+			 EstadoPedidos=@EstadoPedidos
 		
 		WHERE IdPedidos=@IdPedidos 
 		

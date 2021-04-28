@@ -62,8 +62,17 @@ namespace WBL
             {
                 var result = sql.QueryExecute("PedidoInsertar", new
                 {
-                    entity.Pedidos,
-                    entity.EstadoPedidos
+                    entity.IdPedidos,
+                    entity.IdProductos,
+                    entity.IdProveedores,
+                    entity.Descripcion,
+                    entity.FechaCompra,
+                    entity.FechaRecepcion,
+                    entity.MontoCompra,
+                    entity.CantidadUnidades,
+                    entity.FechaCaducidad,
+                    entity.MotivoDevolucion,
+                    entity.EstadoPedidos, 
                 });
 
 
@@ -83,8 +92,16 @@ namespace WBL
                 var result = sql.QueryExecute("PedidoActualizar", new
                 {
                     entity.IdPedidos,
-                    entity.Pedidos,
-                    entity.EstadoPedidos
+                    entity.IdProductos,
+                    entity.IdProveedores,
+                    entity.Descripcion,
+                    entity.FechaCompra,
+                    entity.FechaRecepcion,
+                    entity.MontoCompra,
+                    entity.CantidadUnidades,
+                    entity.FechaCaducidad,
+                    entity.MotivoDevolucion,
+                    entity.EstadoPedidos,
                 });
 
 

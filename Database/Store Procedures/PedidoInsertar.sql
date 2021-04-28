@@ -1,6 +1,19 @@
 ﻿CREATE PROCEDURE [dbo].[PedidoInsertar]
-	@Pedidos VARCHAR(50),
+	
+	@IdPedidos INT,
+	@IdProductos INT,
+	@IdProveedores INT,
+	@Descripcion VARCHAR(200),
+	@FechaCompra VARCHAR(MAX),
+	@FechaRecepcion VARCHAR(MAX),
+	@MontoCompra INT,
+	@CantidadUnidades INT,
+	@FechaCaducidad VARCHAR(MAX),
+	@MotivoDevolucion VARCHAR(200),
 	@EstadoPedidos BIT
+
+
+
 AS BEGIN
 SET NOCOUNT ON
 
@@ -11,14 +24,26 @@ SET NOCOUNT ON
 		
 		INSERT INTO dbo.Pedidos
 		(
-			Pedidos,
-			EstadoPedidos
+			 Descripcion,
+			 FechaCompra,
+			 FechaRecepcion,
+			 MontoCompra, 
+			 CantidadUnidades,
+			 FechaCaducidad,
+			 MotivoDevolucion,
+			 EstadoPedidos
 		
 		)
 		VALUES
 		(
-			@Pedidos,
-			@EstadoPedidos
+			 @Descripcion,
+			 @FechaCompra,
+			 @FechaRecepcion,
+			 @MontoCompra, 
+			 @CantidadUnidades,
+			 @FechaCaducidad,
+			 @MotivoDevolucion,
+			 @EstadoPedidos
 		
 		)
 
