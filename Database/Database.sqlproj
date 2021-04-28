@@ -90,7 +90,6 @@
     <Build Include="Tables\Actividades\Actividades.sql" />
     <Build Include="Tables\Ventas\Ventas.sql" />
     <Build Include="Tables\Tarifas\Tarifas.sql" />
-    <Build Include="Tables\Clientes\Cliente.sql" />
     <Build Include="Store Procedures\ActividadesActualizar.sql" />
     <Build Include="Store Procedures\ActividadesEliminar.sql" />
     <Build Include="Store Procedures\ActividadesInsertar.sql" />
@@ -158,6 +157,7 @@
     <Build Include="Store Procedures\ClienteEliminar.sql" />
     <Build Include="Store Procedures\ClienteInsertar.sql" />
     <Build Include="Store Procedures\ClienteObtener.sql" />
+    <Build Include="Tables\Clientes\Cliente.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />

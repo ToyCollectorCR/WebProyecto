@@ -9,8 +9,8 @@ namespace Entity
      public class EmpleadoEntity : EN
     {
         public int? IdEmpleado { get; set; }
-        //public int? IdCliente { get; set; }
-        //public ClienteEntity Cliente { get; set; }
+        public int? IdEmpleadoInformacionAdministrativa { get; set; }
+        public EmpleadoInformacionAdministrativaEntity EmpleadoInformacionAdministrativa { get; set; }
         public string TipoEmpleado { get; set; }
         public string NombreEmpleado { get; set; }
         public string Apellido1Empleado { get; set; }
@@ -18,10 +18,11 @@ namespace Entity
         public string DireccionEmpleado { get; set; }
         public string TelefonoEmpleado { get; set; }
         public string DNIEmpleado { get; set; }
+        public bool EstadoEmpleado { get; set; }
 
-        /*public BebeEntity()
+        public EmpleadoEntity()
         {
-            Cliente = Cliente ?? new ClienteEntity();
-        }*/
+            EmpleadoInformacionAdministrativa = EmpleadoInformacionAdministrativa ?? new EmpleadoInformacionAdministrativaEntity();
+        }
     }
 }

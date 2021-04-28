@@ -16,49 +16,56 @@
             <table id="GridEmpleado" class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
+                        <th>TipoEmpleado</th>
                         <th>NombreEmpleado</th>
                         <th>Apellido1Empleado</th>
                         <th>Apellido2Empleado</th>
                         <th>DireccionEmpleado</th>
                         <th>TelefonoEmpleado</th>
                         <th>DNIEmpleado</th>
+                        <th>EstadoEmpleado</th>
+                        <th>CategoriaProfesional</th>
+                        <th>NumeroSeguroSocial</th>
+                        <th>GeneracionDePagos</th>
+                        <th>RetencionCCSS</th>
+                        <th>CuentaBanco</th>
+                        <th>AsignarGuarderias</th>
+                        <th>AsignarActividades</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@item.NombreEmpleado</td>
-                            <td>@item.Apellido1Empleado</td>
-                            <td>@item.Apellido2Empleado</td>
-                            <td>@item.DireccionEmpleado</td>
-                            <td>@item.TelefonoEmpleado</td>
-                            <td>@item.DNIEmpleado</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdEmpleado)"><i class='bx bx-edit-alt'></i></button>
-                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdEmpleado)"><i class='bx bx-trash'></i></button>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>@item.TipoEmpleado</td>
+                        <td>@item.NombreEmpleado</td>
+                        <td>@item.Apellido1Empleado</td>
+                        <td>@item.Apellido2Empleado</td>
+                        <td>@item.DireccionEmpleado</td>
+                        <td>@item.TelefonoEmpleado</td>
+                        <td>@item.DNIEmpleado</td>
+                        <td>@(item.EstadoEmpleado ? "Activo" : "Inactivo")</td>
+                        <td>@item.EmpleadoInformacionAdministrativa.CategoriaProfesional</td>
+                        <td>@item.EmpleadoInformacionAdministrativa.NumeroSeguroSocial</td>
+                        <td>@item.EmpleadoInformacionAdministrativa.GeneracionDePagos</td>
+                        <td>@item.EmpleadoInformacionAdministrativa.RetencionCCSS</td>
+                        <td>@item.EmpleadoInformacionAdministrativa.CuentaBanco</td>
+                        <td>@item.EmpleadoInformacionAdministrativa.AsignarGuarderias</td>
+                        <td>@item.EmpleadoInformacionAdministrativa.AsignarActividades</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdEmpleado)"><i class='bx bx-edit-alt'></i></button>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdEmpleado)"><i class='bx bx-trash'></i></button>
+                        </td>
+                    </tr>
                     }
                 </tbody>
-
-
             </table>
         </div>
-
     </div>
-
 </div>
-
-
-
 <div id="root">
-
 </div>
-
-
-
 
 @section scripts{
     @if (ViewData.ContainsKey("msg"))
@@ -74,6 +81,5 @@ else
 {
 <script>var IsLoading = true;</script>
 }
-
     <script src="~/Scripts/Empleado/Index.js"></script>
 }

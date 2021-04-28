@@ -12,21 +12,21 @@ namespace WebProyecto.Controllers
     public class EmpleadoController : Controller
     {
         //private IClasesService clasesservice;
-        //private IPuestosService puestosService;
-        private IEmpleadoService empleadoService;
+        private IEmpleadoInformacionAdministrativaService EmpleadoInformacionAdministrativaService;
+        private IEmpleadoService EmpleadoService;
 
         //public EmpleadoController(IClasesService clasesservice, IPuestosService puestosService, IEmpleadoService empleadoService)
-        public EmpleadoController(IEmpleadoService empleadoService)
+        public EmpleadoController(IEmpleadoService empleadoService, IEmpleadoInformacionAdministrativaService empleadoInformacionAdministrativaService)
         {
             //this.clasesservice = clasesservice;
-            //this.puestosService = puestosService;
-            this.empleadoService = empleadoService;
+            this.EmpleadoInformacionAdministrativaService = empleadoInformacionAdministrativaService;
+            this.EmpleadoService = empleadoService;
         }
         public ActionResult Index()
         {
             this.SessionOnline();
 
-            var empleados = empleadoService.ObtenerLista(null);
+            var empleados = EmpleadoService.ObtenerLista(null);
             if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
             return View(empleados);
         }
@@ -44,7 +44,7 @@ namespace WebProyecto.Controllers
                     //editar
                     ViewBag.Form = true;
 
-                    entity.empleado = empleadoService.ObtenerDetalle(id);
+                    entity.empleado = EmpleadoService.ObtenerDetalle(id);
                 }
 
                 //entity.ddlPuestos = puestosService.Obtenerddl();
@@ -72,11 +72,11 @@ namespace WebProyecto.Controllers
 
                 if (entity.IdEmpleado.HasValue)
                 {
-                    result = empleadoService.Actualizar(entity);
+                    result = EmpleadoService.Actualizar(entity);
                 }
                 else
                 {
-                    result = empleadoService.Insertar(entity);
+                    result = EmpleadoService.Insertar(entity);
                 }
 
                 return Json(result);
@@ -95,7 +95,7 @@ namespace WebProyecto.Controllers
             try
             {
 
-                var result = empleadoService.Eliminar(new EmpleadoEntity { IdEmpleado = id });
+                var result = EmpleadoService.Eliminar(new EmpleadoEntity { IdEmpleado = id });
                 TempData["msg"] = "0";
 
                 if (result.CodeError != 0) throw new Exception(result.MsgError);

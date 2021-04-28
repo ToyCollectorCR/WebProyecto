@@ -9,8 +9,7 @@ namespace WebProyecto.Models
     public class EmpleadoEdit
     {
         public EmpleadoEntity empleado { get; set; }
-
         public List<ClienteEntity> ddlClientes { get; set; }
-        public List<ClienteInformacionAdministrativaEntity> ddlClienteInformacionAdministrativa { get; set; }
+        public List<EmpleadoInformacionAdministrativaEntity> ddlempleadoinformacionadministrativa { get; set; }
     }
 }

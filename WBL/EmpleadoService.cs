@@ -12,7 +12,6 @@ namespace WBL
     {
         List<EmpleadoEntity> ObtenerLista(int? IdEmpleado);
         EmpleadoEntity ObtenerDetalle(int? IdEmpleado);
-        List<EmpleadoEntity> Obtenerddl(int? IdEmpleado);
         DBEntity Insertar(EmpleadoEntity entity);
         DBEntity Actualizar(EmpleadoEntity entity);
         DBEntity Eliminar(EmpleadoEntity entity);
@@ -30,8 +29,8 @@ namespace WBL
         {
             try
             {
-                var result = sql.Query<EmpleadoEntity>("EmpleadoObtener"
-                    , new
+                var result = sql.Query<EmpleadoEntity, EmpleadoInformacionAdministrativaEntity>("EmpleadoObtener"
+                    , "IdEmpleadoInformacionAdministrativa", new
                     {
                         IdEmpleado
                     });
@@ -59,20 +58,6 @@ namespace WBL
             }
         }
 
-        public List<EmpleadoEntity> Obtenerddl(int? IdEmpleado)
-        {
-            try
-            {
-                var result = sql.Query<EmpleadoEntity>("EmpleadoLista");
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-
         public DBEntity Insertar(EmpleadoEntity entity)
         {
             try
@@ -86,6 +71,7 @@ namespace WBL
                     entity.DireccionEmpleado,
                     entity.TelefonoEmpleado,
                     entity.DNIEmpleado,
+                    entity.EstadoEmpleado,
                 });
 
 
@@ -104,6 +90,7 @@ namespace WBL
                 var result = sql.QueryExecute("EmpleadoActualizar", new
                 {
                     entity.IdEmpleado,
+                    entity.EmpleadoInformacionAdministrativa,
                     entity.TipoEmpleado,
                     entity.NombreEmpleado,
                     entity.Apellido1Empleado,
@@ -111,6 +98,7 @@ namespace WBL
                     entity.DireccionEmpleado,
                     entity.TelefonoEmpleado,
                     entity.DNIEmpleado,
+                    entity.EstadoEmpleado,
                 });
 
 

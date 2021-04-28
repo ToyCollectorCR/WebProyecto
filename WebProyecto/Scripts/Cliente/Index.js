@@ -16,7 +16,6 @@ var ClickEliminar = function (id) {
         confirmButtonText: 'Borrar Registro!'
     }).then((result) => {
         if (result.isConfirmed) {
-
             window.location.href = "Cliente/Delete/" + id;
         }
     });

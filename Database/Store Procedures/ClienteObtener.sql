@@ -14,7 +14,8 @@ AS BEGIN
 		,   FechaNacimientoCliente=CONVERT(VARCHAR,Cli.FechaNacimientoCliente,103)
 		,   Cli.TelefonoCliente
 		,	Cli.EstadoCliente
-		,   Cli.IdClienteInformacionAdmin
+
+		,   CIA.IdClienteInformacionAdmin
 		,	CIA.SesionesRayosUVA
 		,	FechaProximaRenovacion=CONVERT(VARCHAR,CIA.FechaProximaRenovacion,103)
 		,	CIA.Casillero

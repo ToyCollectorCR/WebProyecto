@@ -18,40 +18,39 @@
                         <input type="hidden" name="IdEmpleado" id="IdEmpleado" v-model="model.IdEmpleado" />
 
                         <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="TipoEmpleado" id="TipoEmpleado" v-model="model.TipoEmpleado" required />
+                            <label for="TipoEmpleado"> Tipo de Empleado</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="NombreEmpleado" id="NombreEmpleado" v-model="model.NombreEmpleado" required />
                             <label for="NombreEmpresa"> Nombre</label>
                         </div>
 
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdTipoContrato" name="IdTipoContrato" aria-label="Default select example" v-model="model.IdTipoContrato" required>
-                                @foreach (var item in Model.ddlContratos)
-                                {
-                    <option value="@item.IdTipoContrato">@item.Descripcion</option>
-}
-                            </select>
-                            <label for="IdTipoContrato"> Tipo Contrato</label>
-                        </div>
-
-                        <div class="form-floating mb-3 form-group">
-                            <select class="form-select" id="IdPuesto" name="IdPuesto" aria-label="Default select example" v-model="model.IdPuesto" required>
-                                @foreach (var item in Model.ddlPuestos)
-                                {
-                    <option value="@item.IdPuesto">@item.Descripcion</option>}
-                            </select>
-                            <label for="IdPuesto"> Puesto</label>
+                        <div class="form-floating mb-3 ">
+                            <input class="form-control" type="text" name="Apellido1Empleado" id="Apellido1Empleado" v-model="model.Apellido1Empleado" required />
+                            <label for="Apellido1Empleado"> Apellido 1 Empleado</label>
                         </div>
 
                         <div class="form-floating mb-3 ">
-                            <input class="form-control" type="text" name="Identificacion" id="Identificacion" v-model="model.Identificacion" required />
-                            <label for="Identificacion"> Identificacion</label>
+                            <input class="form-control" type="text" name="Apellido2Empleado" id="Apellido2Empleado" v-model="model.Apellido2Empleadoo" required />
+                            <label for="Apellido2Empleado"> Apellido 2 Empleado</label>
                         </div>
 
                         <div class="form-floating mb-3 ">
-                            <input class="form-control" type="text" name="NumeroSeguroSocial" id="NumeroSeguroSocial" v-model="model.NumeroSeguroSocial" required />
-                            <label for="NumeroSeguroSocial"> NumeroSeguroSocial</label>
+                            <input class="form-control" type="text" name="DireccionEmpleado" id="DireccionEmpleado" v-model="model.DireccionEmpleado" required />
+                            <label for="DireccionEmpleado"> Direccion del Empleado</label>
                         </div>
 
+                        <div class="form-floating mb-3 ">
+                            <input class="form-control" type="text" name="TelefonoEmpleado" id="TelefonoEmpleado" v-model="model.TelefonoEmpleado" required />
+                            <label for="TelefonoEmpleado"> Telefono del Empleado</label>
+                        </div>
 
+                        <div class="form-floating mb-3 ">
+                            <input class="form-control" type="text" name="DNIEmpleado" id="DNIEmpleado" v-model="model.DNIEmpleado" required />
+                            <label for="DNIEmpleado"> DNI del Empleado</label>
+                        </div>
 
                         <div class="form-check form-group">
                             <input class="form-check-input" type="checkbox" id="Estado" name="Estado" v-model="model.Estado" />
@@ -60,16 +59,90 @@
                             </label>
                         </div>
 
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="CategoriaProfesional" name="CategoriaProfesional" aria-label="Default select example" v-model="model.CategoriaProfesional" required>
+                                @foreach (var item in Model.ddlempleadoinformacionadministrativa)
+                                {
+                                    <option value="@item.IdEmpleadoInformacionAdministrativa">@item.CategoriaProfesional</option>
+                                }
+                            </select>
+                            <label for="CategoriaProfesional"> Categoria Profesional</label>
+                        </div>
+                        <br />
 
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="NumeroSeguroSocial" name="NumeroSeguroSocial" aria-label="Default select example" v-model="model.NumeroSeguroSocial" required>
+                                @foreach (var item in Model.ddlempleadoinformacionadministrativa)
+                                {
+                                    <option value="@item.IdEmpleadoInformacionAdministrativa">@item.NumeroSeguroSocial</option>
+                                }
+                            </select>
+                            <label for="NumeroSeguroSocial"> Numero Seguro Social</label>
+                        </div>
+                        <br />
 
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="GeneracionDePagos" name="GeneracionDePagos" aria-label="Default select example" v-model="model.GeneracionDePagos" required>
+                                @foreach (var item in Model.ddlempleadoinformacionadministrativa)
+                                {
+                                    <option value="@item.IdEmpleadoInformacionAdministrativa">@item.GeneracionDePagos</option>
+                                }
+                            </select>
+                            <label for="GeneracionDePagos"> Generacion De Pagos</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="RetencionCCSS" name="RetencionCCSS" aria-label="Default select example" v-model="model.RetencionCCSS" required>
+                                @foreach (var item in Model.ddlempleadoinformacionadministrativa)
+                                {
+                                    <option value="@item.IdEmpleadoInformacionAdministrativa">@item.RetencionCCSS</option>
+                                }
+                            </select>
+                            <label for="RetencionCCSS"> Retencion CCSS</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="CuentaBanco" name="CuentaBanco" aria-label="Default select example" v-model="model.CuentaBanco" required>
+                                @foreach (var item in Model.ddlempleadoinformacionadministrativa)
+                                {
+                                    <option value="@item.IdEmpleadoInformacionAdministrativa">@item.CuentaBanco</option>
+                                }
+                            </select>
+                            <label for="CuentaBanco"> Cuenta del Banco</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="AsignarGuarderias" name="AsignarGuarderias" aria-label="Default select example" v-model="model.AsignarGuarderias" required>
+                                @foreach (var item in Model.ddlempleadoinformacionadministrativa)
+                                {
+                                    <option value="@item.IdEmpleadoInformacionAdministrativa">@item.AsignarGuarderias</option>
+                                }
+                            </select>
+                            <label for="AsignarGuarderias"> Asignar Guarderias</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="AsignarActividades" name="AsignarActividades" aria-label="Default select example" v-model="model.AsignarActividades" required>
+                                @foreach (var item in Model.ddlempleadoinformacionadministrativa)
+                                {
+                                    <option value="@item.IdEmpleadoInformacionAdministrativa">@item.AsignarActividades</option>
+                                }
+                            </select>
+                            <label for="AsignarActividades"> Asignar Actividades</label>
+                        </div>
+                        <br />
 
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
-            else
-            {
-<button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                            else
+                            {
+                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
 
 
                         </div>

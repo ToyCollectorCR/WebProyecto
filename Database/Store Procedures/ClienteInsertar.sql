@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[ClienteInsertar]
-	@IdTarifa INT,
+
 	@IdClienteInformacionAdmin INT,
 	@NombreCliente VARCHAR(50),
 	@DNICliente VARCHAR(50),
