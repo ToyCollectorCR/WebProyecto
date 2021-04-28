@@ -1,44 +1,142 @@
-﻿@model Entity.PedidosEntity
+﻿@model WebProyecto.Models.PedidosEdit
+@using Newtonsoft.Json;
+@{ var TypeForm = ViewBag.Form as bool?; }
 
-@{
-    var TypeForm = ViewBag.Form as bool?;
-}
+<model data-entity="@JsonConvert.SerializeObject(Model.pedidos)" />
+<div id="PedidosEdit" class="container">
 
-<div class="container">
-    <br />
     <div class="row">
         <div class="col-6">
+
             <div class="card">
                 <div class="card-body">
-                    <br />
-                    <h4 class="card-title">@(TypeForm.Value ? "Editar Pedidos" : "Nuevos Pedidos")</h4>
-                    <br />
-                    <form action="/Pedidos/Save" method="post">
-                        <input type="hidden" name="IdPedidos" id="IdPedidos" value="@Model.IdPedidos" />
+                    <h4 class="card-title">@(TypeForm.Value ? "Editar Pedido": "Nuevo Pedido")</h4>
+
+                    <form id="FormCliente">
+                        <input type="hidden" name="IdPedidos" id="IdPedidos" v-model="model.IdPedidos" />
+                        <input type="hidden" name="IdProductos" id="IdProductos" v-model="model.IdProductos" />
 
                         <div class="form-floating mb-3 form-group">
-                            <input class="form-control" type="text" name="Pedidos" id="Pedidos" v-model="model.Pedidos" required />
-                            <label for="Pedidos"> Nombre del Pedido</label>
+                            <input class="form-control" type="text" name="Descripcion" id="Descripcion" v-model="model.Descripcion" required />
+                            <label for="Descripcion"> Descripcion </label>
                         </div>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="true" id="EstadoPedidos" name="EstadoPedidos" @(Model.EstadoPedidos ? "checked" : "")>
-                            <label class="form-check-label" for="EstadoPedidos">
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="FechaCompra" id="FechaCompra" v-model="model.FechaCompra" required />
+                            <label for="FechaCompra"> Fecha Compra</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="FechaRecepcion" id="FechaRecepcion" v-model="model.FechaRecepcion" required />
+                            <label for="FechaRecepcion"> Fecha Recepcion</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="MontoCompra" id="MontoCompra" v-model="model.MontoCompra" required />
+                            <label for="MontoCompra"> Monto Compra</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="text" name="CantidadUnidades" id="CantidadUnidades" v-model="model.CantidadUnidades" required />
+                            <label for="CantidadUnidades"> Cantidad Unidades</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="date" name="FechaCaducidad" id="FechaCaducidad" v-model="model.FechaCaducidad" required />
+                            <label for="FechaCaducidad"> Fecha Caducidad</label>
+                        </div>
+
+                        <div class="form-floating mb-3 form-group">
+                            <input class="form-control" type="tel" name="MotivoDevolucion" id="MotivoDevolucion" v-model="model.MotivoDevolucion" required />
+                            <label for="MotivoDevolucion"> Motivo Devolucion</label>
+                        </div>
+
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" id="EstadoPedidos" name="EstadoPedidos" v-model="model.EstadoPedidos" />
+                            <label class="form-check-label" for="Estado Pedidos">
                                 Estado Pedidos
                             </label>
                         </div>
                         <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="NombreProductos" name="NombreProductos" aria-label="Default select example" v-model="model.NombreProductos" required>
+                                @foreach (var item in Model.ddlproductos)
+                                {
+                                    <option value="@item.IdProductos">@item.NombreProductos</option>
+                                }
+                            </select>
+                            <label for="NombreProductos"> Nombre Productos</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="SesionesRayosUVA" name="SesionesRayosUVA" aria-label="Default select example" v-model="model.SesionesRayosUVA" required>
+                                @foreach (var item in Model.ddlproductos)
+                                {
+                                    <option value="@item.IdProductos">@item.SesionesRayosUVA</option>
+                                }
+                            </select>
+                            <label for="SesionesRayosUVA"> Sesiones Rayos UVA</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="RenovacionCuota" name="RenovacionCuota" aria-label="Default select example" v-model="model.RenovacionCuota" required>
+                                @foreach (var item in Model.ddlproductos)
+                                {
+                                    <option value="@item.IdProductos">@item.RenovacionCuota</option>
+                                }
+                            </select>
+                            <label for="RenovacionCuota"> Renovacion Cuota</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="ProductosConsumidos" name="ProductosConsumidos" aria-label="Default select example" v-model="model.ProductosConsumidos" required>
+                                @foreach (var item in Model.ddlproductos)
+                                {
+                                    <option value="@item.IdProductos">@item.ProductosConsumidos</option>
+                                }
+                            </select>
+                            <label for="ProductosConsumidos">Productos Consumidos</label>
+                        </div>
+                        <br />
+
+                        <div class="form-floating mb-3 form-group">
+                            <select class="form-select" id="CompraProveedores" name="CompraProveedores" aria-label="Default select example" v-model="model.CompraProveedores" required>
+                                @foreach (var item in Model.ddlproductos)
+                                {
+                                    <option value="@item.IdProductos">@item.CompraProveedores</option>
+                                }
+                            </select>
+                            <label for="CompraProveedores">Compra Proveedores</label>
+                        </div>
+                        <br />
+
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
-                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
+                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-edit-alt'></i></button> }
                             else
                             {
-                                <button type="submit" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+                                <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
+
+
                         </div>
                     </form>
                 </div>
+
             </div>
+
         </div>
+
     </div>
 </div>
+
+
+@section scripts{
+
+    <script src="~/Scripts/Pedidos/Edit.js"></script>
+
+}
