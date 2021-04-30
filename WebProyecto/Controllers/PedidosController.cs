@@ -34,6 +34,7 @@ namespace WebProyecto.Controllers
             if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
             return View(pedidos);
         }
+
         public ActionResult Edit(int? id)
         {
             this.SessionOnline();

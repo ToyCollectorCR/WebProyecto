@@ -25,17 +25,17 @@ namespace WebProyecto.Controllers
             public ActionResult Index()
         {
             this.SessionOnline();
-            var productos = IApp.productosService.ObtenerLista(null);
-
+            
+            var productos = ProductosService.ObtenerLista(null);
             if (TempData.ContainsKey("msg")) ViewData["msg"] = TempData["msg"].ToString();
-
             return View(productos);
         }
         public ActionResult Edit(int? id)
         {
             this.SessionOnline();
 
-            var entity = new ProductosEntity();
+            //var entity = new ProductosEntity();
+            var entity = new ProductosEdit() { productos = new ProductosEntity() };
             try
             {
                 ViewBag.Form = false;
@@ -44,8 +44,11 @@ namespace WebProyecto.Controllers
                     //editar
                     ViewBag.Form = true;
 
-                    entity = IApp.productosService.ObtenerLista(id).FirstOrDefault();
+                    //entity = IApp.productosService.ObtenerLista(id).FirstOrDefault();
+                    entity.productos = ProductosService.ObtenerDetalle(id);
                 }
+
+                entity.ddlproveedores = ProveedoresService.Obtenerddl();
 
             }
             catch (Exception ex)
