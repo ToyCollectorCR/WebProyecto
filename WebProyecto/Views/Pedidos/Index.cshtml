@@ -25,37 +25,37 @@
                         <th>Cantidad Unidades</th>
                         <th>Fecha Caducidad</th>
                         <th>Motivo Devolucion</th>
-                        <th>Estado Pedido</th>
                         <th>Nombre Productos</th>
                         <th>Sesiones Rayos UVA</th>
                         <th>Renovacion Cuota</th>
                         <th>Productos Consumidos</th>
                         <th>Compra Proveedores</th>
                         <th>Accion</th>
+                        <th>Estado Pedido</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@item.Descripcion</td>
-                            <td>@item.FechaCompra</td>
-                            <td>@item.FechaRecepcion</td>
-                            <td>@item.MontoCompra</td>
-                            <td>@item.CantidadUnidades</td>
-                            <td>@item.FechaCaducidad</td>
-                            <td>@item.MotivoDevolucion</td>
-                            <td>@(item.EstadoPedidos ? "Activo" : "Inactivo")</td>
-                            <td>@item.Productos.NombreProductos</td>
-                            <td>@item.Productos.SesionesRayosUVA</td>
-                            <td>@item.Productos.RenovacionCuota</td>
-                            <td>@item.Productos.ProductosConsumidos</td>
-                            <td>@item.Productos.CompraProveedores</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdPedidos)"><i class='bx bx-edit-alt'></i></button>
-                                <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdPedidos)"><i class='bx bx-trash'></i></button>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>@item.Descripcion</td>
+                        <td>@item.FechaCompra</td>
+                        <td>@item.FechaRecepcion</td>
+                        <td>@item.MontoCompra</td>
+                        <td>@item.CantidadUnidades</td>
+                        <td>@item.FechaCaducidad</td>
+                        <td>@item.MotivoDevolucion</td>
+                        <td>@item.Productos.NombreProductos</td>
+                        <td>@item.Productos.SesionesRayosUVA</td>
+                        <td>@item.Productos.RenovacionCuota</td>
+                        <td>@item.Productos.ProductosConsumidos</td>
+                        <td>@item.Productos.CompraProveedores</td>
+                        <td>@(item.EstadoPedidos ? "Activo" : "Inactivo")</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickUpdate(@item.IdPedidos)"><i class='bx bx-edit-alt'></i></button>
+                            <button type="button" class="btn btn-outline-primary" onclick="ClickEliminar(@item.IdPedidos)"><i class='bx bx-trash'></i></button>
+                        </td>
+                    </tr>
                     }
                 </tbody>
 
