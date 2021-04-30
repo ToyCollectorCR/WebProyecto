@@ -1,4 +1,4 @@
-﻿@model Entity.ProductosEntity
+﻿@model WebProyecto.Models.ProductosEdit
 @using Newtonsoft.Json;
 @{ var TypeForm = ViewBag.Form as bool?; }
 
@@ -13,6 +13,7 @@
 
                     <form id="FormProductos">
                         <input type="hidden" name="IdProductos" id="IdProductos" v-model="model.IdProductos" />
+                        <input type="hidden" name="IdProveedores" id="IdProveedores" v-model="model.IdProveedores" />
 
                         <div class="form-floating mb-3 form-group">
                             <input class="form-control" type="text" name="NombreProductos" id="NombreProductos" v-model="model.NombreProductos" required />
@@ -41,7 +42,7 @@
                                     <option value="@item.IdProveedores">@item.NombreProveedores</option>
                                 }
                             </select>
-                            <label for="SesionesRayosUVA"> Nombre Proveedores</label>
+                            <label for="NombreProveedores"> Nombre Proveedores</label>
                         </div>
                         <br />
                         <div class="mb-3">
