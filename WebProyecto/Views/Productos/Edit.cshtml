@@ -44,7 +44,17 @@
                             </select>
                             <label for="NombreProveedores"> Nombre Proveedores</label>
                         </div>
+
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" id="EstadoProducto" name="EstadoProducto" v-model="model.EstadoProducto" />
+                            <label class="form-check-label" for="Estado Producto">
+                                Estado Producto
+                            </label>
+                        </div>
+
+
                         <br />
+
                         <div class="mb-3">
                             @if (TypeForm.Value)
                             {
@@ -54,6 +64,8 @@
                                 <button type="button" @@click="Save" class="btn btn-outline-primary"><i class='bx bx-save'></i></button>}
 
                         </div>
+
+
                     </form>
                 </div>
             </div>
