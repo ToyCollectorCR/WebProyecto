@@ -11,10 +11,13 @@ namespace WBL
     public interface IPedidosService : IDisposable
     {
         List<PedidosEntity> ObtenerLista(int? IdPedidos);
+        PedidosEntity ObtenerDetalle(int? IdPedidos);
+
         List<PedidosEntity> Obtenerddl();
         DBEntity Insertar(PedidosEntity entity);
         DBEntity Actualizar(PedidosEntity entity);
         DBEntity Eliminar(PedidosEntity entity);
+
     }
     public class PedidosService : IPedidosService
     {
@@ -41,6 +44,24 @@ namespace WBL
                 throw ex;
             }
         }
+
+        public PedidosEntity ObtenerDetalle(int? IdPedidos)
+        {
+            try
+            {
+                var result = sql.QueryFirst<PedidosEntity>("PedidoObtener", new
+                {
+                    IdPedidos
+                });
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
         public List<PedidosEntity> Obtenerddl()
         {

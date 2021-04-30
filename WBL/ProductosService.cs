@@ -12,6 +12,7 @@ namespace WBL
     {
         List<ProductosEntity> ObtenerLista(int? IdProductos);
         ProductosEntity ObtenerDetalle(int? IdProductos);
+        List<ProductosEntity> Obtenerddl();
         DBEntity Insertar(ProductosEntity entity);
         DBEntity Actualizar(ProductosEntity entity);
         DBEntity Eliminar(ProductosEntity entity);
@@ -50,6 +51,20 @@ namespace WBL
                 {
                     IdProductos
                 });
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<ProductosEntity> Obtenerddl()
+        {
+            try
+            {
+                var result = sql.Query<ProductosEntity>("ProductosLista");
                 return result;
             }
             catch (Exception ex)
